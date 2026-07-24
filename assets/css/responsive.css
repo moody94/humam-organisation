@@ -1,0 +1,857 @@
+/* ========================================
+   MEAL Bridge LLC
+   Responsive Styles
+======================================== */
+
+/* Large Tablets */
+
+@media (max-width:1200px) {
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero-grid {
+        gap: 50px;
+    }
+
+}
+
+/* Tablets */
+
+@media (max-width:992px) {
+
+    .navbar .container {
+
+        height: 80px;
+
+    }
+
+    nav {
+
+        display: none;
+
+    }
+
+    .hero {
+
+        padding-top: 140px;
+        padding-bottom: 80px;
+
+    }
+
+    .hero-grid {
+
+        grid-template-columns: 1fr;
+        text-align: center;
+
+    }
+
+    .hero-content {
+
+        order: 2;
+
+    }
+
+    .hero-image {
+
+        order: 1;
+
+    }
+
+    .hero h1 {
+
+        font-size: 44px;
+
+    }
+
+    .hero p {
+
+        font-size: 18px;
+
+    }
+
+    .hero-buttons {
+
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+
+    }
+
+    .btn-secondary {
+
+        margin-left: 0;
+
+    }
+
+    .hero-highlights {
+
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+
+    }
+
+    .logo img {
+
+        height: 52px;
+
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width:768px) {
+
+    .container {
+
+        width: 92%;
+
+    }
+
+    .hero {
+
+        min-height: auto;
+
+    }
+
+    .hero h1 {
+
+        font-size: 36px;
+
+    }
+
+    .hero p {
+
+        font-size: 17px;
+
+    }
+
+    .hero-label {
+
+        font-size: 12px;
+        letter-spacing: 1px;
+
+    }
+
+    .btn-primary,
+    .btn-secondary {
+
+        width: 100%;
+        display: block;
+        text-align: center;
+
+    }
+
+    .hero-buttons {
+
+        display: block;
+
+    }
+
+    .btn-secondary {
+
+        margin-top: 15px;
+
+    }
+
+    .hero-highlights {
+
+        flex-direction: column;
+        gap: 25px;
+
+    }
+
+    .hero-highlights h3 {
+
+        font-size: 28px;
+
+    }
+
+    .hero-image img {
+
+        max-width: 420px;
+
+    }
+
+}
+
+/* Small Phones */
+
+@media (max-width:480px) {
+
+    .hero {
+
+        padding-top: 120px;
+
+    }
+
+    .hero h1 {
+
+        font-size: 30px;
+        line-height: 1.2;
+
+    }
+
+    .hero p {
+
+        font-size: 16px;
+
+    }
+
+    .logo img {
+
+        height: 46px;
+
+    }
+
+    .navbar .container {
+
+        height: 72px;
+
+    }
+
+}
+
+/* WHO WE SUPPORT */
+
+@media(max-width:992px) {
+
+    .client-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .client-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .section-title h2 {
+
+        font-size: 34px;
+
+    }
+
+}
+
+/* ABOUT */
+
+@media(max-width:992px) {
+
+    .about-grid {
+
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+    }
+
+    .about-image {
+
+        order: 1;
+
+    }
+
+    .about-content {
+
+        order: 2;
+
+    }
+
+    .about-features {
+
+        grid-template-columns: 1fr;
+
+        text-align: left;
+
+        max-width: 420px;
+
+        margin: 40px auto;
+
+    }
+
+    .about-content h2 {
+
+        font-size: 36px;
+
+    }
+
+}
+
+/* SERVICES */
+
+@media(max-width:992px) {
+
+    .services-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .services-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+/* WHY CHOOSE US */
+
+@media(max-width:992px) {
+
+    .why-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .why-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+/* HOW WE WORK */
+
+@media(max-width:1200px) {
+
+    .process-grid {
+
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+
+}
+
+@media(max-width:992px) {
+
+    .process-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .process-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+/* ACADEMY */
+
+@media(max-width:992px) {
+
+    .academy-grid {
+
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+    }
+
+    .academy-image {
+
+        order: 1;
+
+    }
+
+    .academy-content {
+
+        order: 2;
+
+    }
+
+    .academy-list {
+
+        display: inline-block;
+
+        text-align: left;
+
+    }
+
+    .academy-buttons {
+
+        justify-content: center;
+
+    }
+
+}
+
+/* LEADERSHIP */
+
+@media(max-width:992px) {
+
+    .leadership-grid {
+
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+    }
+
+    .leadership-values {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .leadership-photo {
+
+        order: 1;
+
+    }
+
+    .leadership-content {
+
+        order: 2;
+
+    }
+
+}
+
+/* PARTNERS */
+
+@media(max-width:1200px) {
+
+    .partner-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .partner-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .partner-cta {
+
+        padding: 45px 25px;
+
+    }
+
+    .partner-cta h3 {
+
+        font-size: 30px;
+
+    }
+
+}
+
+/* COURSES */
+
+@media(max-width:992px) {
+
+    .course-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .course-card.featured {
+
+        transform: none;
+
+    }
+
+}
+
+/* IMPACT */
+
+@media(max-width:1200px) {
+
+    .impact-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .impact-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+/* STORY */
+
+@media(max-width:992px) {
+
+    .story-grid {
+
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+    }
+
+    .story img {
+
+        max-width: 600px;
+
+        margin: auto;
+
+    }
+
+}
+
+@media(max-width:992px) {
+
+    .nav {
+
+        position: fixed;
+
+        top: 86px;
+
+        left: -100%;
+
+        width: 300px;
+
+        height: calc(100vh - 86px);
+
+        background: #fff;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 40px;
+
+        gap: 25px;
+
+        transition: .35s;
+
+        box-shadow: 0 25px 45px rgba(0, 0, 0, .08);
+
+    }
+
+    .nav.active {
+
+        left: 0;
+
+    }
+
+    .header .btn {
+
+        display: none;
+
+    }
+
+}
+
+
+/* ========================================
+PARTNERSHIP PHILOSOPHY RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+
+    .partnership-intro-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+    }
+
+    .partnership-intro-content {
+
+        max-width: 100%;
+
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .partnership-philosophy {
+
+        padding: 75px 0;
+
+    }
+
+    .partnership-intro-visual {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .partnership-visual-card:first-child {
+
+        grid-column: span 1;
+
+    }
+
+    .partnership-visual-card {
+
+        padding: 25px;
+
+    }
+
+}
+
+/* ========================================
+WHO WE PARTNER WITH RESPONSIVE
+======================================== */
+
+@media (max-width: 1000px) {
+
+    .partnership-types-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .partnership-types {
+
+        padding: 75px 0;
+
+    }
+
+    .partnership-types-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+
+    }
+
+    .partnership-type-card {
+
+        min-height: auto;
+
+        padding: 28px 24px;
+
+    }
+
+}
+
+/* ========================================
+PARTNERSHIP MODELS RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+
+    .partnership-models-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .partnership-models {
+
+        padding: 75px 0;
+
+    }
+
+    .partnership-model-card {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+        padding: 28px 24px;
+
+    }
+
+    .model-icon {
+
+        justify-content: flex-start;
+
+    }
+
+}
+
+/* ========================================
+WHY PARTNER WITH US RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+
+    .why-partner-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+
+    }
+
+    .why-partner-content {
+
+        max-width: 100%;
+
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .why-partner {
+
+        padding: 75px 0;
+
+    }
+
+    .partner-benefit {
+
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+
+        padding: 22px;
+
+    }
+
+    .benefit-icon {
+
+        width: 48px;
+
+        height: 48px;
+
+    }
+
+}
+
+/* ========================================
+CONTACT RESPONSIVE
+======================================== */
+
+@media (max-width: 1000px) {
+
+    .contact-options-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .contact-hero {
+
+        padding: 90px 0 70px;
+
+    }
+
+    .contact-options {
+
+        padding: 75px 0;
+
+    }
+
+    .contact-options-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+/* ========================================
+JOIN US RESPONSIVE
+======================================== */
+
+@media (max-width: 992px) {
+
+    .join-intro-grid,
+    .join-benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .join-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .join-hero {
+        padding: 90px 0 70px;
+    }
+
+    .join-intro,
+    .join-opportunities,
+    .join-benefits,
+    .join-cta {
+        padding: 70px 0;
+    }
+
+    .join-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .join-intro-grid,
+    .join-benefits-grid {
+        gap: 35px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .join-hero h1 {
+        font-size: 2rem;
+    }
+
+    .join-hero p {
+        font-size: 1rem;
+    }
+
+    .join-card {
+        padding: 28px 24px;
+    }
+
+}
+
