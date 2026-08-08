@@ -1,35 +1,81 @@
-:root{
+:root {
 
 /* Brand Colors */
 
---primary:#184C8C;
---primary-light:#2F80ED;
---secondary:#0B2341;
+--primary: #184C8C;
+--primary-light: #2F80ED;
+--secondary: #0B2341;
 
---background:#FFFFFF;
---background-alt:#F8FBFF;
+--background: #FFFFFF;
+--background-alt: #F8FBFF;
 
---text:#0B2341;
---text-light:#6B7280;
+--text: #0B2341;
+--text-light: #6B7280;
 
---border:#E8EEF7;
+--border: #E8EEF7;
 
---success:#10B981;
---warning:#F59E0B;
---danger:#EF4444;
+--success: #10B981;
+--warning: #F59E0B;
+--danger: #EF4444;
 
 /* Shadows */
 
---shadow-small:0 10px 30px rgba(0,0,0,.05);
---shadow-medium:0 20px 45px rgba(0,0,0,.08);
---shadow-large:0 30px 60px rgba(0,0,0,.12);
+--shadow-small: 0 10px 30px rgba(0,0,0,.05);
+--shadow-medium: 0 20px 45px rgba(0,0,0,.08);
+--shadow-large: 0 30px 60px rgba(0,0,0,.12);
 
 /* Radius */
 
---radius:18px;
+--radius: 18px;
+--radius-lg: 24px;
 
 /* Spacing */
 
---section-space:120px;
+--section-space: 120px;
+
+/* Typography */
+
+--heading-font: 'Manrope', sans-serif;
+
+/* ==========================================
+   Compatibility Aliases
+   style.css references these variable names
+   (different naming convention than above,
+   most likely from work done in a separate
+   session) but they were never defined, so
+   the properties using them were silently
+   dropped by the browser. Aliased to the
+   closest existing token above so every
+   var() in the codebase resolves to a real
+   value. Safe to rename usages to the
+   canonical names above and delete this
+   block later if you want a single naming
+   convention.
+========================================== */
+
+--accent-color: var(--primary-light);
+--primary-color: var(--primary);
+--color-primary: var(--primary);
+--heading-color: var(--secondary);
+--text-color: var(--text);
+--text-secondary: var(--text-light);
+--text-muted: var(--text-light);
+--color-text-muted: var(--text-light);
+--bg-primary: var(--background);
+--color-background: var(--background);
+--bg-secondary: var(--background-alt);
+--color-background-light: var(--background-alt);
+--light-bg: var(--background-alt);
+--section-light: var(--background-alt);
+--color-light-blue: var(--background-alt);
+--border-color: var(--border);
+--color-border: var(--border);
+--color-white: #FFFFFF;
+--white: #FFFFFF;
+--shadow-sm: var(--shadow-small);
+--shadow-md: var(--shadow-medium);
+--shadow-lg: var(--shadow-large);
+--border-radius-lg: var(--radius-lg);
+--font-heading: var(--heading-font);
 
 }
