@@ -350,8 +350,12 @@ WHY PARTNER WITH US RESPONSIVE
     }
 
     .navbar .btn-primary {
-        display: none;
+        width: 40%;
+        max-width: 40%;
+        font-size: 9px;
     }
+
+
 
     .hamburger {
         display: block;
