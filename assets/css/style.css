@@ -3,7 +3,13 @@ MEAL Bridge LLC
 STYLE.CSS
 Version 2.0
 ========================================== */
-
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+}
 
 /* ==========================================
 RESET
@@ -188,12 +194,12 @@ BUTTONS
 }
 
 .btn-secondary {
-    border: 2px solid var(--primary);
-    color: var(--primary);
+    border: 2px solid var(--accent-orange);
+    color: var(--accent-orange);
 }
 
 .btn-secondary:hover {
-    background: var(--primary);
+    background: var(--accent-orange);
     color: #fff;
 }
 
@@ -378,7 +384,7 @@ ABOUT
 .section-tag {
     display: inline-block;
     margin-bottom: 20px;
-    color: #2F80ED;
+    color: var(--accent-orange);
     font-weight: 700;
     letter-spacing: 2px;
     font-size: 14px;
@@ -977,7 +983,7 @@ CTA
 }
 
 .cta-box .section-tag {
-    color: #BFD8FF;
+    color: var(--accent-orange);
 }
 
 .cta-box h2 {
@@ -1888,7 +1894,7 @@ LEARNING PATHWAYS
     font-family: var(--heading-font);
     font-size: 2.8rem;
     font-weight: 800;
-    color: var(--primary-color);
+    color: var(--accent-orange);
 }
 
 
