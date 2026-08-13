@@ -282,18 +282,284 @@ WHY PARTNER WITH US RESPONSIVE
     }
 }
 
-/* ==================== Mobile / Large Phones (max-width: 768px) ==================== */
-.hamburger {
-    display: none;
-}
+
+
 
 @media (max-width: 768px) {
 
-    /* Mobile */
+    /* =========================
+       GENERAL
+    ========================= */
+
+    .container {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    p {
+        overflow-wrap: break-word;
+    }
+
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    .navbar .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .navbar nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        z-index: 1000;
+    }
+
+    .navbar nav.active {
+        display: block;
+    }
+
+    .navbar nav ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+        padding: 10px 0;
+    }
+
+    .navbar nav li {
+        width: 100%;
+    }
+
+    .navbar nav a {
+        display: block;
+        width: 100%;
+        padding: 15px 20px;
+    }
+
+    .navbar .btn-primary {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+        border: none;
+        background: none;
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+        min-height: auto;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+
+    .hero-label {
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+
+    .hero-buttons {
+        display: block;
+    }
+
+    .cta-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        white-space: normal;
+        overflow-wrap: break-word;
+        text-align: center;
+    }
+
+    .btn-secondary {
+        margin-top: 15px;
+    }
+
+    .hero-highlights {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .hero-highlights h3 {
+        font-size: 28px;
+    }
+
+    .hero-image img {
+        max-width: 420px;
+    }
+
+
+    /* =========================
+       GRIDS
+    ========================= */
+
+    .client-grid,
+    .services-grid,
+    .why-grid,
+    .process-grid,
+    .partner-grid,
+    .impact-grid,
+    .join-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    .section-title h2 {
+        font-size: 34px;
+    }
+
+    .partner-cta {
+        padding: 45px 25px;
+    }
+
+    .partner-cta h3 {
+        font-size: 30px;
+    }
+
+
+    /* =========================
+       JOIN PAGE
+    ========================= */
+
+    .join-hero {
+        padding: 90px 0 70px;
+    }
+
+    .join-intro,
+    .join-opportunities,
+    .join-benefits,
+    .join-cta {
+        padding: 70px 0;
+    }
+
+    .join-intro-grid,
+    .join-benefits-grid {
+        gap: 35px;
+    }
+
+
+    /* =========================
+       LEARNING PATHWAYS
+    ========================= */
+
+    .learning-pathways {
+        padding: 80px 0;
+    }
+
+    .learning-pathways .section-header {
+        margin-bottom: 45px;
+    }
+
+    .pathway-timeline::before {
+        display: none;
+    }
+
+    .pathway-card,
+    .pathway-card:nth-child(even),
+    .pathway-card:nth-child(odd) {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        transform: none;
+        padding: 30px;
+    }
+
+    .pathway-number {
+        justify-content: flex-start;
+        font-size: 2.2rem;
+    }
+
+    .pathway-meta {
+        gap: 12px;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+        text-align: center;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .footer-logo {
+        margin: 0 auto;
+    }
+
+    footer ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    .copyright {
+        text-align: center;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+/* ==================== Mobile / Large Phones (max-width: 768px) ==================== */
+/* .hamburger {
+    display: none;
+} 
+
+@media (max-width: 768px) {
+    /* Mobile 
     .container {
         width: 100%;
         max-width: 1200px;
         padding: 0px;
+
     }
 
     img {
@@ -303,7 +569,7 @@ WHY PARTNER WITH US RESPONSIVE
 
     .navbar {
         display: none;
-    }
+    } 
 
     .hamburger {
         display: block;
@@ -444,7 +710,7 @@ WHY PARTNER WITH US RESPONSIVE
     .pathway-meta {
         gap: 12px;
     }
-}
+} */
 
 /* ==================== Small Phones (max-width: 600px) ==================== */
 /* @media (max-width: 600px) {
