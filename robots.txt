@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://meal-bridge.com/sitemap.xml
