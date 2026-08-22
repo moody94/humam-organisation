@@ -4,12 +4,33 @@
   const closeButton = document.querySelector(".mobile-nav-label button");
   let scrim = null;
 
-  function closeNavigation() {
+  const pageAliases = {
+    "": "index.html",
+    "services.html": "solutions.html",
+    "academy-apply.html": "academy.html",
+    "academy-training.html": "academy.html",
+    "partners.html": "contact.html",
+    "join-us.html": "contact.html",
+  };
+
+  const currentFile = window.location.pathname.split("/").pop() || "index.html";
+  const currentNavFile = pageAliases[currentFile] || currentFile;
+
+  navigation?.querySelectorAll(":scope > a:not(.button)").forEach((link) => {
+    const linkFile = new URL(link.href, window.location.href).pathname.split("/").pop() || "index.html";
+    const isCurrent = linkFile === currentNavFile;
+    link.classList.toggle("active", isCurrent);
+    if (isCurrent) link.setAttribute("aria-current", "page");
+    else link.removeAttribute("aria-current");
+  });
+
+  function closeNavigation({ restoreFocus = false } = {}) {
     navigation?.classList.remove("is-open");
     document.body.classList.remove("nav-open");
     menuButton?.setAttribute("aria-expanded", "false");
     scrim?.remove();
     scrim = null;
+    if (restoreFocus) menuButton?.focus();
   }
 
   function openNavigation() {
@@ -21,47 +42,49 @@
     scrim.className = "nav-scrim";
     scrim.type = "button";
     scrim.setAttribute("aria-label", "Close navigation");
-    scrim.addEventListener("click", closeNavigation);
+    scrim.addEventListener("click", () => closeNavigation({ restoreFocus: true }));
     document.querySelector(".site-header")?.append(scrim);
+    closeButton?.focus();
   }
 
   menuButton?.addEventListener("click", () => {
-    if (navigation?.classList.contains("is-open")) closeNavigation();
+    if (navigation?.classList.contains("is-open")) closeNavigation({ restoreFocus: true });
     else openNavigation();
   });
-  closeButton?.addEventListener("click", closeNavigation);
-  navigation?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeNavigation));
+  closeButton?.addEventListener("click", () => closeNavigation({ restoreFocus: true }));
+  navigation?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => closeNavigation()));
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") closeNavigation();
+    if (event.key === "Escape" && navigation?.classList.contains("is-open")) {
+      closeNavigation({ restoreFocus: true });
+    }
   });
 
   const intentLabels = {
-    service: "Consultancy or systems support",
-    training: "Training and capacity development",
+    consultancy: "MEAL consultancy",
+    systems: "Systems development",
     partnership: "Partnership opportunity",
     join: "Join the professional network",
     question: "General inquiry",
   };
-  const intent = new URLSearchParams(window.location.search).get("intent");
+  const query = new URLSearchParams(window.location.search);
+  const intent = query.get("intent");
+  if (currentFile === "contact.html" && intent === "training") {
+    window.location.replace("academy-training.html");
+    return;
+  }
+
   const interest = document.querySelector('select[name="interest"]');
   if (interest && intentLabels[intent]) interest.value = intentLabels[intent];
 
-  const academyForm = document.querySelector(".academy-application-form");
+  const academyForm = document.querySelector('[data-form-type="academy-application"]');
   const programSelect = academyForm?.querySelector('select[name="program"]');
   const applicationType = academyForm?.querySelector('input[name="application_type"]');
-  const applicationSubject = academyForm?.querySelector('input[name="_subject"]');
-  const requestedProgram = new URLSearchParams(window.location.search).get("program");
+  const requestedProgram = query.get("program");
 
   function syncAcademyApplication() {
     if (!programSelect) return;
     const selectedOption = programSelect.selectedOptions[0];
-    const programType = selectedOption?.dataset.programType ?? "";
-    if (applicationType) applicationType.value = programType;
-    if (applicationSubject) {
-      applicationSubject.value = programSelect.value
-        ? `New MEAL Bridge Academy application — ${programSelect.value}`
-        : "New MEAL Bridge Academy application";
-    }
+    if (applicationType) applicationType.value = selectedOption?.dataset.programType || "";
   }
 
   function applyRequestedProgram() {
@@ -74,47 +97,72 @@
   applyRequestedProgram();
   programSelect?.addEventListener("change", syncAcademyApplication);
 
+  function formDataToObject(form) {
+    const payload = {};
+    new FormData(form).forEach((value, key) => {
+      // Formspark uses a blank _honeypot value as an explicit anti-spam signal.
+      if (value === "" && key !== "_honeypot") return;
+      if (Object.prototype.hasOwnProperty.call(payload, key)) {
+        payload[key] = Array.isArray(payload[key]) ? [...payload[key], value] : [payload[key], value];
+      } else {
+        payload[key] = value;
+      }
+    });
+    return payload;
+  }
+
+  const successContent = {
+    contact: '<span aria-hidden="true">✓</span><h2>Thank you for reaching out.</h2><p>Your inquiry has been received. We will review it and respond with the most appropriate next step, normally within two working days.</p><button type="button" class="button button-secondary">Send another inquiry</button>',
+    "academy-application": '<span aria-hidden="true">✓</span><h2>Application received.</h2><p>The Academy will review your programme fit, experience, and objective, normally within three working days. If a CV is needed, we will request it by email.</p><button type="button" class="button button-secondary">Submit another application</button>',
+    "organizational-training": '<span aria-hidden="true">✓</span><h2>Training request received.</h2><p>The Academy will review your objective, participant profile, scope, and timing. We normally acknowledge the request within two working days and arrange a discovery call when appropriate.</p><button type="button" class="button button-secondary">Submit another request</button>',
+  };
+
   document.querySelectorAll(".contact-form-new, .academy-application-form").forEach((form) => {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      if (form === academyForm) syncAcademyApplication();
-
       const button = form.querySelector('button[type="submit"]');
-      const originalButton = button?.innerHTML ?? "Submit";
-      const isAcademyApplication = form === academyForm;
+      if (button?.disabled) return;
+
+      if (form === academyForm) syncAcademyApplication();
+      const originalButton = button?.innerHTML || "Submit";
+      const formType = form.dataset.formType || "contact";
       const fallbackEmail = form.dataset.fallbackEmail || "info@meal-bridge.com";
       form.querySelector(".form-error")?.remove();
 
       if (button) {
         button.disabled = true;
-        button.textContent = isAcademyApplication ? "Submitting…" : "Sending…";
+        button.textContent = formType === "contact" ? "Sending…" : "Submitting…";
       }
 
       try {
         const response = await fetch(form.action, {
           method: "POST",
-          body: new FormData(form),
-          headers: { Accept: "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(formDataToObject(form)),
         });
-        if (!response.ok) throw new Error("Submission failed");
+        if (!response.ok) throw new Error(`Submission failed with status ${response.status}`);
 
         const result = document.createElement("div");
         result.className = "form-result form-result-success";
         result.setAttribute("role", "status");
         result.setAttribute("aria-live", "polite");
-        result.innerHTML = isAcademyApplication
-          ? '<span aria-hidden="true">✓</span><h2>Application received.</h2><p>The Academy will review your information before confirming dates, fees, and the separate enrollment step. If a CV is needed, we will request it by email.</p><button type="button" class="button button-secondary">Submit another application</button>'
-          : '<span aria-hidden="true">✓</span><h2>Thank you for reaching out.</h2><p>Your inquiry has been received. We will review it and respond with the most appropriate next step.</p><button type="button" class="button button-secondary">Send another inquiry</button>';
+        result.setAttribute("tabindex", "-1");
+        result.innerHTML = successContent[formType] || successContent.contact;
         form.hidden = true;
         form.after(result);
+        result.focus();
         result.querySelector("button")?.addEventListener("click", () => {
           form.reset();
           result.remove();
           form.hidden = false;
           if (form === academyForm) applyRequestedProgram();
-          if (form.classList.contains("contact-form-new") && interest && intentLabels[intent]) {
+          if (formType === "contact" && interest && intentLabels[intent]) {
             interest.value = intentLabels[intent];
           }
+          form.querySelector("input, select, textarea")?.focus();
         });
       } catch {
         const error = document.createElement("p");

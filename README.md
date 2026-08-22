@@ -1,44 +1,61 @@
-# MEAL Bridge final website
+# MEAL Bridge — final GitHub Pages website
 
-This is the upload-ready static website for `meal-bridge.com`.
+Upload the contents of this folder to the root of the GitHub repository that publishes `meal-bridge.com`.
 
 ## Main pages
 
 - `index.html` — Home
-- `services.html` — Solutions
-- `academy.html` — Academy catalogue, courses and pathways
-- `academy-apply.html` — Academy application form
-- `about.html` — About
-- `contact.html` — Contact
-- `404.html` — Page-not-found screen
+- `solutions.html` — Consultancy and Systems Development
+- `academy.html` — Academy catalogue, courses, pathways, and organizational training
+- `academy-apply.html` — Individual Academy and mentoring application
+- `academy-training.html` — Organizational training request
+- `about.html` — About and founder profile
+- `contact.html` — Contact, partnership, and professional-network inquiries
 
-`partners.html` and `join-us.html` safely redirect old links to the relevant contact form.
+`services.html` remains as a compatibility redirect to `solutions.html`, so older links and bookmarks continue to work.
 
-## SEO included
+## Formspark connections
 
-- Unique page titles and descriptions
-- Canonical URLs
-- Search-engine indexing directives
-- Open Graph and X/Twitter sharing metadata
-- Organization, service, course, FAQ, breadcrumb and person structured data
-- XML sitemap and robots file
-- Descriptive image alternatives, explicit image dimensions and image optimization
-- Semantic headings, internal links, mobile-first layouts and a custom 404 page
+The website is already connected to these Formspark submission actions:
 
-## Academy application process
+- Contact and Partnerships: `https://submit-form.com/7ARE8eDGE`
+- Individual Academy Applications: `https://submit-form.com/HhDC3X93G`
+- Organizational Training Requests: `https://submit-form.com/zAmPaD0Im`
 
-The Academy application form uses the existing Formspree endpoint. A CV is not requested during the first application. If a CV is needed, the Academy requests it later by email.
+The forms submit through JavaScript as JSON and also retain a standard HTML `POST` action as a fallback. Every field has a Formspark-compatible `name`, required fields use browser validation, submit buttons are protected against repeated clicks, and a honeypot field is included.
 
-After uploading, submit one test Academy application. In Formspree, confirm that Academy application notifications are delivered to `academy@meal-bridge.com`. If the main contact form must continue going to `info@meal-bridge.com`, create a separate Formspree form for the Academy and replace the `action` address inside `academy-apply.html`.
+### Required Formspark dashboard status
 
-## Manual image replacement
+For notifications to remain active:
 
-Replace a file inside `assets/images/` while keeping its exact filename and extension:
+1. Keep the Contact form recipient active at `info@meal-bridge.com`.
+2. Keep the two Academy form recipients active at the confirmed internal Academy recipient.
+3. Keep the three published custom notification templates assigned to their correct forms.
+4. Do not enable Turnstile, reCAPTCHA, hCaptcha, or Botpoison in the Formspark dashboard unless the matching website integration is added. Formspark's automatic filtering and the website honeypot remain available.
 
-- `evidence-to-impact.webp` — Home hero and Solutions image
-- `meal-ecosystem.webp` — Home ecosystem diagram
-- `academy-partner.webp` — Hadeel Wardeh / Academy image
-- `humam-alherk.webp` — Founder image
-- `meal-bridge-logo.png` — Header logo
+The website shows an immediate branded success message after every accepted submission. Submitter autoresponder emails are separate: they only begin after the Formspark workspace is upgraded and an autoresponder template is created and published for each form.
 
-The `CNAME` file must remain in the repository root because it connects GitHub Pages to `meal-bridge.com`.
+### Post-upload form test
+
+Submit one test through each live page:
+
+1. `contact.html`
+2. `academy-apply.html`
+3. `academy-training.html`
+
+Confirm that each test appears in the correct Formspark form and reaches the intended notification mailbox.
+
+## Leadership images
+
+- `assets/images/humam-alherk.webp` — Humam Alherk
+- `assets/images/academy-partner.webp` — Hadeel Wardeh
+- `assets/images/muhamed-kheer-abo-khalaf.webp` — Muhamed Kheer Abo Khalaf
+
+The Muhamed image is the current temporary image. To replace it later without editing HTML, prepare the new portrait as WebP, keep the exact filename `muhamed-kheer-abo-khalaf.webp`, and replace the file in `assets/images`.
+
+## SEO and technical files
+
+- Canonical URLs, Open Graph tags, X/Twitter metadata, structured data, accessible image text, and page-specific titles and descriptions are included.
+- `sitemap.xml`, `robots.txt`, `404.html`, `CNAME`, `favicon.svg`, and `og.png` are ready for GitHub Pages.
+- `CNAME` must remain in the repository root to preserve the custom domain.
+- Uploading these files does not change the domain's SSL certificate configuration.
