@@ -4492,3 +4492,44 @@ details[open] > summary .course-toggle::after {
 .hero-data-card-left{order:2;grid-column:1/-1;justify-self:start;width:min(360px,100%);}
 .hero-data-card-right{order:4;grid-column:1/-1;justify-self:end;width:min(360px,100%);}
 @media(max-width:600px){.hero-data-card-left,.hero-data-card-right{width:100%;justify-self:stretch;}}
+
+/* === 2026-08-25 urgent Academy hero leadership layout fix === */
+/* Keep Hadeel's photo and leadership bio as separate stacked blocks so neither
+   compresses nor overlaps the other at any breakpoint. */
+.academy-page-hero .page-hero-aside{
+  display:grid;
+  align-content:center;
+  justify-items:end;
+  gap:16px;
+  min-width:0;
+}
+.academy-page-hero .academy-hero-image,
+.academy-page-hero .academy-partner-bio{
+  width:min(100%,410px);
+  min-width:0;
+}
+.academy-page-hero .academy-partner-bio{
+  margin-top:0;
+  box-sizing:border-box;
+}
+
+@media (max-width:900px){
+  .academy-page-hero .page-hero-aside{
+    justify-items:start;
+  }
+  .academy-page-hero .academy-hero-image,
+  .academy-page-hero .academy-partner-bio{
+    width:min(100%,560px);
+  }
+}
+
+@media (max-width:520px){
+  .academy-page-hero .page-hero-aside{
+    width:100%;
+    gap:12px;
+  }
+  .academy-page-hero .academy-hero-image,
+  .academy-page-hero .academy-partner-bio{
+    width:100%;
+  }
+}
