@@ -10,7 +10,6 @@
     "academy-apply.html": "academy.html",
     "academy-training.html": "academy.html",
     "partners.html": "contact.html",
-    "join-us.html": "contact.html",
   };
 
   const currentFile = window.location.pathname.split("/").pop() || "index.html";
@@ -63,13 +62,13 @@
     consultancy: "MEAL consultancy",
     systems: "Systems development",
     partnership: "Partnership opportunity",
-    join: "Join the professional network",
+    join: "Join MEAL Bridge",
     question: "General inquiry",
   };
   const query = new URLSearchParams(window.location.search);
   const intent = query.get("intent");
   if (currentFile === "contact.html" && intent === "training") {
-    window.location.replace("academy-training.html");
+    window.location.replace("academy-apply.html?type=organization");
     return;
   }
 
@@ -178,4 +177,29 @@
       }
     });
   });
+
+
+  // Academy Apply: switch between individual and organizational forms.
+  const applySwitches = document.querySelectorAll("[data-apply-target]");
+  const applyPanels = document.querySelectorAll("[data-apply-panel]");
+  if (applySwitches.length && applyPanels.length) {
+    const showApplyPanel = (target) => {
+      applySwitches.forEach((button) => {
+        const active = button.dataset.applyTarget === target;
+        button.classList.toggle("is-active", active);
+        button.setAttribute("aria-selected", active ? "true" : "false");
+      });
+      applyPanels.forEach((panel) => {
+        const active = panel.dataset.applyPanel === target;
+        panel.classList.toggle("is-active", active);
+        panel.hidden = !active;
+      });
+    };
+    applySwitches.forEach((button) => button.addEventListener("click", () => showApplyPanel(button.dataset.applyTarget)));
+    if (currentFile === "academy-apply.html") {
+      const requestedType = new URLSearchParams(window.location.search).get("type");
+      showApplyPanel(requestedType === "organization" || requestedType === "training" ? "organization" : "individual");
+    }
+  }
+
 })();
