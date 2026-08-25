@@ -4544,18 +4544,25 @@ details[open] > summary .course-toggle::after {
 .contact-email-entry span{font-size:.72rem;color:rgba(255,255,255,.68);}
 .contact-email-entry strong{font-size:.84rem;color:var(--white);overflow-wrap:anywhere;}
 
-.join-expand-button{border:0;cursor:pointer;font:inherit;}
+.join-expand-button{cursor:pointer;font:inherit;}
 .join-expansion-panel{grid-column:1/-1;margin-top:24px;border-top:1px solid var(--line);padding-top:34px;scroll-margin-top:110px;}
 .join-expansion-panel[hidden],.join-application-shell[hidden]{display:none!important;}
+.opportunity-template[hidden]{display:none!important;}
 .join-expansion-head{max-width:760px;margin-bottom:24px;}
 .join-expansion-head h3{margin:8px 0 8px;color:var(--navy-900);font-size:1.8rem;line-height:1.15;}
 .join-expansion-head p{margin:0;color:var(--muted);}
 .join-opportunity-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}
 .practice-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
 .join-opportunity-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:18px;background:var(--white);box-shadow:var(--shadow-sm);padding:24px;min-height:250px;}
-.join-opportunity-card .opportunity-division,.opportunity-status{display:inline-block;align-self:flex-start;margin-bottom:12px;border-radius:999px;background:var(--orange-100);padding:6px 10px;color:var(--orange-600);font-size:.7rem;font-weight:900;text-transform:uppercase;letter-spacing:.05em;}
+.join-opportunity-card .opportunity-division,.opportunity-status{display:inline-block;align-self:flex-start;margin-bottom:12px;border-radius:999px;padding:6px 10px;font-size:.7rem;font-weight:900;text-transform:uppercase;letter-spacing:.05em;}
+/* Three intentionally soft division colors — one consistent color per division. */
+.join-opportunity-card .opportunity-division.division-academy{background:#fff0e6;color:#a94816;}
+.join-opportunity-card .opportunity-division.division-consultancy{background:#eef7ef;color:#3f7448;}
+.join-opportunity-card .opportunity-division.division-systems{background:#edf4fc;color:#2d6594;}
+.opportunity-status{background:#fff0e6;color:#a94816;}
 .join-opportunity-card h4{margin:0 0 10px;color:var(--navy-900);font-size:1.15rem;line-height:1.25;}
 .join-opportunity-card p{margin:0 0 20px;color:var(--muted);font-size:.88rem;}
+.join-opportunity-card .opportunity-requirements{margin-top:-6px;color:var(--navy-900);font-size:.78rem;}
 .join-opportunity-card .text-link{margin-top:auto;align-self:flex-start;border:0;background:none;padding:0;cursor:pointer;font:inherit;font-weight:800;color:var(--orange-600);}
 .opportunity-empty{grid-column:1/-1;min-height:0;text-align:center;align-items:center;padding:34px;}
 .opportunity-empty p{max-width:620px;margin-bottom:0;}

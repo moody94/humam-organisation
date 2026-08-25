@@ -208,13 +208,26 @@
   }));
 
   document.querySelectorAll(".career-apply").forEach((button) => button.addEventListener("click", () => {
-    if (!careerShell) return;
-    careerShell.hidden = false;
-    const type = careerShell.querySelector('select[name="opportunity_type"]');
-    const opportunity = careerShell.querySelector('select[name="opportunity"]');
-    if (type) type.value = button.dataset.opportunityType || "";
-    if (opportunity) opportunity.value = button.dataset.opportunity || "";
-    careerShell.scrollIntoView({ behavior: "smooth", block: "start" });
+    const opportunityType = button.dataset.opportunityType || "Opportunity";
+    const opportunity = button.dataset.opportunity || "MEAL Bridge opportunity";
+    const subject = `Application - ${opportunity}`;
+    const body = [
+      "Dear MEAL Bridge Careers Team,",
+      "",
+      `I would like to apply for the ${opportunityType}: ${opportunity}.`,
+      "",
+      "Full name:",
+      "Phone:",
+      "LinkedIn / professional profile (if available):",
+      "Short note of interest:",
+      "",
+      "Required attachments:",
+      "- CV / Resume",
+      "- Cover Letter",
+      "",
+      "Kind regards,"
+    ].join("\n");
+    window.location.href = `mailto:careers@meal-bridge.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }));
 
 
