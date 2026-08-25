@@ -4533,3 +4533,40 @@ details[open] > summary .course-toggle::after {
     width:100%;
   }
 }
+
+
+/* === V1.2: Contact email directory and Join Us opportunity architecture === */
+.contact-hero-aside{align-items:flex-start;}
+.contact-email-directory{display:grid;gap:9px;min-width:min(430px,100%);}
+.contact-email-directory>small{margin-bottom:2px;}
+.contact-email-entry{display:grid;grid-template-columns:minmax(120px,.85fr) minmax(0,1.25fr);gap:14px;align-items:baseline;padding-top:8px;border-top:1px solid rgba(255,255,255,.14);color:inherit;}
+.contact-email-entry:first-of-type{border-top:0;padding-top:0;}
+.contact-email-entry span{font-size:.72rem;color:rgba(255,255,255,.68);}
+.contact-email-entry strong{font-size:.84rem;color:var(--white);overflow-wrap:anywhere;}
+
+.join-expand-button{border:0;cursor:pointer;font:inherit;}
+.join-expansion-panel{grid-column:1/-1;margin-top:24px;border-top:1px solid var(--line);padding-top:34px;scroll-margin-top:110px;}
+.join-expansion-panel[hidden],.join-application-shell[hidden]{display:none!important;}
+.join-expansion-head{max-width:760px;margin-bottom:24px;}
+.join-expansion-head h3{margin:8px 0 8px;color:var(--navy-900);font-size:1.8rem;line-height:1.15;}
+.join-expansion-head p{margin:0;color:var(--muted);}
+.join-opportunity-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}
+.practice-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+.join-opportunity-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:18px;background:var(--white);box-shadow:var(--shadow-sm);padding:24px;min-height:250px;}
+.join-opportunity-card .opportunity-division,.opportunity-status{display:inline-block;align-self:flex-start;margin-bottom:12px;border-radius:999px;background:var(--orange-100);padding:6px 10px;color:var(--orange-600);font-size:.7rem;font-weight:900;text-transform:uppercase;letter-spacing:.05em;}
+.join-opportunity-card h4{margin:0 0 10px;color:var(--navy-900);font-size:1.15rem;line-height:1.25;}
+.join-opportunity-card p{margin:0 0 20px;color:var(--muted);font-size:.88rem;}
+.join-opportunity-card .text-link{margin-top:auto;align-self:flex-start;border:0;background:none;padding:0;cursor:pointer;font:inherit;font-weight:800;color:var(--orange-600);}
+.opportunity-empty{grid-column:1/-1;min-height:0;text-align:center;align-items:center;padding:34px;}
+.opportunity-empty p{max-width:620px;margin-bottom:0;}
+.opportunity-dates{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:0 0 16px;}
+.opportunity-dates div{border-radius:10px;background:var(--surface);padding:10px 12px;}
+.opportunity-dates dt{font-size:.67rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:800;}
+.opportunity-dates dd{margin:2px 0 0;color:var(--navy-900);font-size:.82rem;font-weight:800;}
+.opportunity-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;}
+.opportunity-actions .button{margin-top:0;}
+.opportunity-pdf[aria-disabled="true"]{opacity:.5;pointer-events:none;}
+.join-application-shell{grid-column:1/-1;margin-top:28px;scroll-margin-top:110px;}
+.join-application-shell .form-shell{max-width:850px;margin:0 auto;}
+@media(max-width:900px){.join-opportunity-grid,.practice-grid{grid-template-columns:1fr 1fr;}.contact-email-directory{min-width:0;}}
+@media(max-width:600px){.join-opportunity-grid,.practice-grid{grid-template-columns:1fr;}.contact-email-entry{grid-template-columns:1fr;gap:1px}.opportunity-dates{grid-template-columns:1fr}.opportunity-actions{flex-direction:column}.opportunity-actions .button{width:100%}.join-expansion-panel{padding-top:26px}}

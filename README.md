@@ -59,3 +59,6 @@ The Muhamed image is the current temporary image. To replace it later without ed
 - `sitemap.xml`, `robots.txt`, `404.html`, `CNAME`, `favicon.svg`, and `og.png` are ready for GitHub Pages.
 - `CNAME` must remain in the repository root to preserve the custom domain.
 - Uploading these files does not change the domain's SSL certificate configuration.
+
+
+Website update version: V1.2
