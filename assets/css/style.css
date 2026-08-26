@@ -4667,3 +4667,14 @@ details[open] > summary .course-toggle::after {
 .join-application-shell .form-shell{max-width:850px;margin:0 auto;}
 @media(max-width:900px){.join-opportunity-grid,.practice-grid{grid-template-columns:1fr 1fr;}.contact-email-directory{min-width:0;}}
 @media(max-width:600px){.join-opportunity-grid,.practice-grid{grid-template-columns:1fr;}.contact-email-entry{grid-template-columns:1fr;gap:1px}.opportunity-dates{grid-template-columns:1fr}.opportunity-actions{flex-direction:column}.opportunity-actions .button{width:100%}.join-expansion-panel{padding-top:26px}}
+
+/* === V1.3 mobile hotfix: Experience Behind MEAL Bridge === */
+@media (max-width: 900px) {
+  .founder-experience-panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .founder-experience-panel > * {
+    min-width: 0;
+  }
+}

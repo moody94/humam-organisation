@@ -436,13 +436,10 @@ WHY PARTNER WITH US RESPONSIVE
     .process-grid,
     .partner-grid,
     .impact-grid,
-    .join-grid,
-    .founder-experience-panel {
+    .join-grid {
         grid-template-columns: 1fr;
     }
-   .founder-experience-panel > * {
-      min-width: 0;
-   }
+
 
     /* =========================
        SECTIONS
