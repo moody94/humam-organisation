@@ -436,7 +436,7 @@ WHY PARTNER WITH US RESPONSIVE
     .process-grid,
     .partner-grid,
     .impact-grid,
-    .join-grid {
+    .join-grid, .founder-experience-panel {
         grid-template-columns: 1fr;
     }
 
