@@ -29,7 +29,7 @@
 <script type="application/ld+json">{
     "@context":"https://schema.org",
     "@graph":[
-      {"@type":"WebPage","@id":"https://meal-bridge.com/join-us.html#webpage","url":"https://meal-bridge.com/join-us.html","name":"Join MEAL Bridge | Community, Internships & Careers","description":"Join the MEAL Bridge ecosystem through Community participation, internships, or open positions.","isPartOf":{"@id":"https://meal-bridge.com/#website"},"about":{"@id":"https://meal-bridge.com/#organization"},"dateModified":"2026-08-25","inLanguage":"en"},
+      {"@type":"WebPage","@id":"https://meal-bridge.com/join-us.html#webpage","url":"https://meal-bridge.com/join-us.html","name":"Join MEAL Bridge | Community, Internships & Careers","description":"Join the MEAL Bridge ecosystem through Community participation, internships, or open positions.","isPartOf":{"@id":"https://meal-bridge.com/#website"},"about":{"@id":"https://meal-bridge.com/#organization"},"dateModified":"2026-08-26","inLanguage":"en"},
       {"@type":"BreadcrumbList","@id":"https://meal-bridge.com/join-us.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://meal-bridge.com/"},{"@type":"ListItem","position":2,"name":"Join Us","item":"https://meal-bridge.com/join-us.html"}]}
     ]
   }</script>
@@ -72,24 +72,28 @@
 <div class="join-expansion-panel" data-join-panel="internships" hidden="" id="join-panel-internships">
 <div class="join-expansion-head"><span class="eyebrow">Internships</span><h3>Current internship opportunities.</h3><p>Opportunities are published here when applications are open.</p></div>
 <div class="join-opportunity-grid">
-<article class="join-opportunity-card opportunity-template" data-opportunity-card="internship" hidden="">
+<!-- INACTIVE INTERNSHIP CARD TEMPLATE — kept in source for future activation; do not publish until a real opportunity exists.
+<article class="join-opportunity-card opportunity-template" data-opportunity-card="internship">
 <span class="opportunity-division">Division name</span><h4>Internship opportunity title</h4>
 <dl class="opportunity-dates"><div><dt>Opens</dt><dd>DD Month YYYY</dd></div><div><dt>Closes</dt><dd>DD Month YYYY</dd></div></dl>
 <p>A short description of the internship opportunity appears here.</p><p class="opportunity-requirements"><strong>Application requirement:</strong> CV / resume and cover letter.</p>
 <div class="opportunity-actions"><a aria-disabled="true" class="button button-secondary opportunity-pdf" href="#">Download details PDF</a><button class="button button-primary career-apply" data-opportunity="Internship opportunity title" data-opportunity-type="Internship" type="button">Apply</button></div>
 </article>
+-->
 <article class="join-opportunity-card opportunity-empty" data-empty-state="internship"><span class="opportunity-status">No current openings</span><h4>There are currently no internship opportunities open.</h4><p>Please check again later. You can still explore the MEAL Bridge Community and Professional Practices.</p></article>
 </div>
 </div>
 <div class="join-expansion-panel" data-join-panel="positions" hidden="" id="join-panel-positions">
 <div class="join-expansion-head"><span class="eyebrow">Open Positions</span><h3>Current job opportunities.</h3><p>Open roles are published here for the duration of their application period.</p></div>
 <div class="join-opportunity-grid">
-<article class="join-opportunity-card opportunity-template" data-opportunity-card="position" hidden="">
+<!-- INACTIVE OPEN-POSITION CARD TEMPLATE — kept in source for future activation; do not publish until a real opportunity exists.
+<article class="join-opportunity-card opportunity-template" data-opportunity-card="position">
 <span class="opportunity-division">Division name</span><h4>Open position title</h4>
 <dl class="opportunity-dates"><div><dt>Opens</dt><dd>DD Month YYYY</dd></div><div><dt>Closes</dt><dd>DD Month YYYY</dd></div></dl>
 <p>A short description of the open position appears here.</p><p class="opportunity-requirements"><strong>Application requirement:</strong> CV / resume and cover letter.</p>
 <div class="opportunity-actions"><a aria-disabled="true" class="button button-secondary opportunity-pdf" href="#">Download details PDF</a><button class="button button-primary career-apply" data-opportunity="Open position title" data-opportunity-type="Open Position" type="button">Apply</button></div>
 </article>
+-->
 <article class="join-opportunity-card opportunity-empty" data-empty-state="position"><span class="opportunity-status">No current openings</span><h4>There are currently no open positions.</h4><p>Please check again later. You can still participate in the MEAL Bridge Community.</p></article>
 </div>
 </div>
@@ -103,16 +107,18 @@
 <button class="button button-primary button-large" type="submit">Submit Practice application</button>
 </form></div>
 </div>
-<div aria-hidden="true" class="join-application-shell" data-career-form-status="disabled" hidden="" id="career-application" inert="">
+<!-- INACTIVE CAREERS APPLICATION FORM TEMPLATE — kept in source for future activation.
+<div class="join-application-shell" id="career-application">
 <div class="form-shell"><div class="form-shell-head"><span>Careers application</span><p>Use this form for both internships and open positions.</p></div>
 <form action="https://submit-form.com/0pWrhMJ73" class="contact-form-new join-career-form" data-fallback-email="careers@meal-bridge.com" data-form-type="career-application" method="POST">
-<input name="submission_type" type="hidden" value="Careers application"/><input name="routing_email" type="hidden" value="careers@meal-bridge.com"/><input name="_email.subject" type="hidden" value="New MEAL Bridge Careers Application"/><input name="_email.from" type="hidden" value="MEAL Bridge Careers"/><input aria-hidden="true" autocomplete="off" class="form-honeypot" name="_honeypot" tabindex="-1" type="text"/>
+<input name="submission_type" type="hidden" value="Careers application"/><input name="routing_email" type="hidden" value="careers@meal-bridge.com"/><input name="_email.subject" type="hidden" value="New MEAL Bridge Careers Application"/><input name="_email.from" type="hidden" value="MEAL Bridge Careers"/><input autocomplete="off" class="form-honeypot" name="_honeypot" tabindex="-1" type="text"/>
 <div class="form-row-new"><label>Full name <span>*</span><input maxlength="100" minlength="2" name="full_name" required="" type="text"/></label><label>Email address <span>*</span><input name="email" required="" type="email"/></label></div>
 <div class="form-row-new"><label>Opportunity type <span>*</span><select name="opportunity_type" required=""><option disabled="" selected="" value="">Select type</option><option>Internship</option><option>Open Position</option></select></label><label>Opportunity <span>*</span><select name="opportunity" required=""><option disabled="" selected="" value="">Select opportunity</option><option>Internship opportunity title</option><option>Open position title</option></select></label></div>
 <label>Short motivation <span>*</span><textarea maxlength="3000" minlength="20" name="motivation" required="" rows="6"></textarea></label>
 <button class="button button-primary button-large" type="submit">Submit application</button>
 </form></div>
 </div>
+-->
 </div></section>
 <section class="section section-white"><div class="container"><div class="section-heading section-heading-left"><span class="eyebrow">How joining works</span><h2>Your journey starts here.</h2><div class="section-lead"><p>Each pathway has its own requirements, but the experience begins with a simple and transparent process.</p></div></div><ol class="join-steps"><li><span>1</span><div><strong>Choose your path</strong><p>Community, Internship, or Open Positions.</p></div></li><li><span>2</span><div><strong>Tell us about yourself</strong><p>Complete the relevant registration or application step.</p></div></li><li><span>3</span><div><strong>We review the fit</strong><p>Where selection is required, we review your profile and the opportunity.</p></div></li><li><span>4</span><div><strong>Take the next step</strong><p>This may include an assessment, interview, orientation, or onboarding.</p></div></li><li><span>5</span><div><strong>Start your journey</strong><p>Join the Community, begin an internship, or start your role.</p></div></li></ol><p class="join-process-note">Processes and requirements vary by pathway and opportunity.</p></div></section>
 <section class="section join-evolve-section"><div class="container"><div class="section-heading section-heading-left"><span class="eyebrow eyebrow-light">Your journey can evolve</span><h2>Where you start doesn’t have to be where you stay.</h2><div class="section-lead"><p>Community participation can continue alongside either an internship or employment. Internships and employment are distinct arrangements, while movement between pathways may be possible when eligibility and selection requirements are met.</p></div></div><div class="join-evolve-line"><span>MEAL Bridge Community</span><b>↔</b><span>Internships</span><b>→</b><span>Open Positions</span></div><p class="join-evolve-quote">Join where you are. Grow toward where you want to be.</p></div></section>

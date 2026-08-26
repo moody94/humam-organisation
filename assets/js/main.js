@@ -231,6 +231,68 @@
   }));
 
 
+  // Academy catalogue: show one primary section at a time while preserving deep links and no-JS fallback.
+  const academySectionButtons = document.querySelectorAll("[data-academy-section]");
+  const academyPanels = document.querySelectorAll("[data-academy-panel]");
+  const academyShowLinks = document.querySelectorAll("[data-academy-show]");
+
+  if (academySectionButtons.length && academyPanels.length) {
+    const academyPanelKeys = new Set([...academyPanels].map((panel) => panel.dataset.academyPanel));
+
+    const panelForHash = (hash) => {
+      if (!hash) return null;
+      const key = hash.replace(/^#/, "");
+      if (academyPanelKeys.has(key)) return key;
+      if (key.startsWith("course-")) return "courses";
+      if (key.startsWith("pathway-")) return "pathways";
+      return null;
+    };
+
+    const showAcademyPanel = (target, { scroll = false, updateHash = false } = {}) => {
+      if (!academyPanelKeys.has(target)) return;
+      academyPanels.forEach((panel) => {
+        panel.hidden = panel.dataset.academyPanel !== target;
+      });
+      academySectionButtons.forEach((button) => {
+        const active = button.dataset.academySection === target;
+        button.classList.toggle("is-active", active);
+        button.setAttribute("aria-pressed", active ? "true" : "false");
+      });
+      if (updateHash && window.history?.replaceState) {
+        window.history.replaceState(null, "", `#${target}`);
+      }
+      if (scroll) {
+        requestAnimationFrame(() => document.getElementById(target)?.scrollIntoView({ behavior: "smooth", block: "start" }));
+      }
+    };
+
+    academySectionButtons.forEach((button) => button.addEventListener("click", () => {
+      showAcademyPanel(button.dataset.academySection, { scroll: true, updateHash: true });
+    }));
+
+    academyShowLinks.forEach((link) => link.addEventListener("click", (event) => {
+      const target = link.dataset.academyShow;
+      if (!academyPanelKeys.has(target)) return;
+      event.preventDefault();
+      showAcademyPanel(target, { scroll: true, updateHash: true });
+    }));
+
+    const initialPanel = panelForHash(window.location.hash) || "courses";
+    showAcademyPanel(initialPanel);
+
+    const deepTargetId = window.location.hash ? decodeURIComponent(window.location.hash.slice(1)) : "";
+    const deepTarget = deepTargetId ? document.getElementById(deepTargetId) : null;
+    if (deepTarget && window.location.hash !== `#${initialPanel}`) {
+      requestAnimationFrame(() => deepTarget.scrollIntoView({ block: "start" }));
+    }
+
+    window.addEventListener("hashchange", () => {
+      const target = panelForHash(window.location.hash);
+      if (target) showAcademyPanel(target);
+    });
+  }
+
+
   // Academy Apply: switch between individual and organizational forms.
   const applySwitches = document.querySelectorAll("[data-apply-target]");
   const applyPanels = document.querySelectorAll("[data-apply-panel]");

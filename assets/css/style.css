@@ -1990,6 +1990,28 @@ p {
   font-weight: 750;
 }
 
+.experience-foundation-note {
+  margin-top: 24px;
+  border-left: 3px solid var(--orange-500);
+  padding: 3px 0 3px 18px;
+}
+
+.experience-foundation-note strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--navy-900);
+  font-size: .78rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.experience-foundation-note p {
+  margin: 0;
+  color: #5b7183;
+  font-size: .84rem;
+  line-height: 1.7;
+}
+
 .integrated-section {
   background: var(--surface);
 }
@@ -2581,17 +2603,26 @@ p {
   display: none;
 }
 
-.academy-catalog-nav a {
+.academy-catalog-nav a,
+.academy-catalog-nav button {
   position: relative;
   flex: 0 0 auto;
+  border: 0;
+  background: transparent;
   padding: 19px 0 17px;
   color: #3d586f;
+  font: inherit;
   font-size: .78rem;
   font-weight: 800;
   white-space: nowrap;
 }
 
-.academy-catalog-nav a::after {
+.academy-catalog-nav button {
+  cursor: pointer;
+}
+
+.academy-catalog-nav a::after,
+.academy-catalog-nav button::after {
   position: absolute;
   right: 0;
   bottom: -1px;
@@ -2605,10 +2636,38 @@ p {
 }
 
 @media (hover: hover) {
-  .academy-catalog-nav a:hover::after {
+  .academy-catalog-nav a:hover::after,
+  .academy-catalog-nav button:hover::after {
     opacity: 1;
     transform: scaleX(1);
   }
+}
+
+.academy-catalog-nav button.is-active {
+  color: var(--navy-900);
+}
+
+.academy-catalog-nav button.is-active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+[data-academy-panel] {
+  scroll-margin-top: 150px;
+}
+
+[data-academy-panel][hidden] {
+  display: none !important;
+}
+
+.academy-experience-copy {
+  margin-top: 16px !important;
+  border-top: 1px solid rgba(255, 255, 255, .14);
+  padding-top: 16px;
+}
+
+.academy-experience-copy strong {
+  color: var(--white);
 }
 
 .academy-level-section {
@@ -3153,6 +3212,14 @@ details[open] > summary .course-toggle::after {
 }
 
 @media (max-width: 900px) {
+  .leadership-team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .founder-experience-panel {
+    grid-template-columns: 1fr;
+  }
+
   .academy-page-hero .page-hero-inner {
     grid-template-columns: 1fr;
   }
@@ -3468,87 +3535,112 @@ details[open] > summary .course-toggle::after {
   background: var(--surface);
 }
 
-.leadership-grid-new {
-  display: grid;
-  grid-template-columns: minmax(360px, .82fr) minmax(0, 1.18fr);
-  align-items: center;
-  gap: clamp(55px, 9vw, 125px);
+.leadership-team-heading {
+  max-width: 900px;
+  margin-bottom: 42px;
 }
 
-.leadership-photo-new {
-  position: relative;
-  max-width: 500px;
-  border-radius: 28px;
-  background: var(--white);
-  box-shadow: var(--shadow-md);
-  padding: 11px;
-}
-
-.leadership-photo-new img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 5 / 6;
-  border-radius: 20px;
-  object-fit: cover;
-  object-position: center;
-}
-
-.leadership-photo-label {
-  position: absolute;
-  right: 27px;
-  bottom: 27px;
-  min-width: 205px;
-  border-left: 4px solid var(--orange-500);
-  border-radius: 12px;
-  background: rgba(6,25,45,.93);
-  padding: 14px 17px;
-  backdrop-filter: blur(10px);
-}
-
-.leadership-photo-label span,
-.leadership-photo-label strong {
-  display: block;
-}
-
-.leadership-photo-label span {
-  color: rgba(255,255,255,.6);
-  font-size: .67rem;
-  font-weight: 750;
-}
-
-.leadership-photo-label strong {
-  color: var(--white);
-  font-size: .94rem;
-}
-
-.leadership-grid-new .section-heading {
-  margin-bottom: 24px;
-}
-
-.leadership-copy {
-  font-size: .98rem;
+.leadership-governance-copy {
+  max-width: 860px;
+  margin: 20px 0 0;
+  color: #516a7d;
+  font-size: .92rem;
   line-height: 1.78;
 }
 
-.leadership-grid-new blockquote {
+.leadership-team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.leadership-team-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.leadership-team-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 4.7;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.leadership-team-card > div {
+  padding: 22px 22px 24px;
+}
+
+.leadership-team-card span {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--orange-600);
+  font-size: .67rem;
+  font-weight: 800;
+  line-height: 1.45;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.leadership-team-card h3 {
+  margin: 0 0 10px;
+  color: var(--navy-900);
+  font-size: 1.2rem;
+}
+
+.leadership-team-card p {
+  margin: 0;
+  color: #5c7284;
+  font-size: .8rem;
+  line-height: 1.68;
+}
+
+.founder-experience-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, .92fr);
+  gap: clamp(35px, 6vw, 75px);
+  margin-top: 34px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--white);
+  padding: clamp(28px, 5vw, 50px);
+}
+
+.founder-experience-panel h2 {
+  margin-top: 8px;
+  font-size: clamp(1.55rem, 3vw, 2.25rem);
+}
+
+.founder-experience-panel > div > p {
+  color: #516a7d;
+}
+
+.leadership-copy {
+  font-size: .94rem;
+  line-height: 1.78;
+}
+
+.founder-experience-panel blockquote {
   position: relative;
-  margin: 29px 0;
+  margin: 0 0 26px;
   border-left: 3px solid var(--orange-500);
   padding: 5px 0 5px 24px;
 }
 
-.leadership-grid-new blockquote > svg {
+.founder-experience-panel blockquote > svg {
   width: 23px;
   height: 23px;
   margin-bottom: 10px;
   color: var(--orange-500);
 }
 
-.leadership-grid-new blockquote p {
+.founder-experience-panel blockquote p {
   margin: 0;
   color: var(--navy-900);
-  font-size: 1.08rem;
+  font-size: 1.02rem;
   font-weight: 700;
   line-height: 1.6;
 }
@@ -3565,17 +3657,11 @@ details[open] > summary .course-toggle::after {
   gap: 7px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: var(--white);
+  background: var(--surface);
   padding: 7px 11px;
   color: #486377;
   font-size: .73rem;
   font-weight: 750;
-}
-
-.leadership-pillars svg {
-  width: 15px;
-  height: 15px;
-  color: var(--blue-700);
 }
 
 .collaboration-section {
@@ -4259,6 +4345,10 @@ details[open] > summary .course-toggle::after {
 }
 
 @media (max-width: 700px) {
+  .leadership-team-grid {
+    grid-template-columns: 1fr;
+  }
+
   .page-hero-aside {
     justify-content: flex-start;
   }

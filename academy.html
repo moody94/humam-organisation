@@ -69,7 +69,7 @@
         "description": "Sixteen applied MEAL courses and seven professional pathways from foundation to leadership.",
         "isPartOf": {"@id": "https://meal-bridge.com/#website"},
         "about": {"@id": "https://meal-bridge.com/academy.html#academy"},
-        "dateModified": "2026-08-25",
+        "dateModified": "2026-08-26",
         "inLanguage": "en"
       },
       {
@@ -159,8 +159,10 @@
 <p>Choose a focused course or follow a structured professional pathway from first principles to system design, specialization, and leadership.</p>
 </div>
 <div class="academy-hero-actions">
-<a class="button button-primary button-large" href="#courses">Explore courses</a>
+<a class="button button-primary button-large" data-academy-show="courses" href="#courses">Explore courses</a>
+<!-- TEMPORARILY DISABLED: Re-enable when the final Academy Catalogue is ready.
 <a class="button button-white button-large" download="" href="assets/docs/MEAL-Bridge-Academy-Catalogue.pdf">Download catalogue</a>
+-->
 </div>
 </div>
 <div class="page-hero-aside">
@@ -180,20 +182,21 @@
 <div class="academy-partner-bio" id="hadeel-wardeh">
 <span class="eyebrow eyebrow-light">Academy leadership</span>
 <p>As Academy Managing Partner, Hadeel Wardeh leads the Academy’s focus on structured, practical professional learning. She helps shape learning pathways, participant experience, and delivery approaches that connect technical knowledge with applied practice, supporting learners and organizations to build capabilities they can use beyond the classroom.</p>
+<p class="academy-experience-copy"><strong>Built from practice.</strong> Academy programmes are shaped by prior professional experience brought into MEAL Bridge across MEAL, humanitarian and development practice, professional learning, data, systems, and capacity development—so methods are taught in the context of real operating constraints, not as theory in isolation.</p>
 </div>
 </div>
 </div>
 </section>
 <nav aria-label="Academy page sections" class="academy-catalog-nav">
 <div class="container">
-<a href="#levels">Learning levels</a>
-<a href="#courses">Individual courses</a>
-<a href="#pathways">Professional pathways</a>
-<a href="#organizations">For organizations</a>
+<button aria-controls="levels" aria-pressed="false" data-academy-section="levels" type="button">Learning levels</button>
+<button aria-controls="courses" aria-pressed="true" class="is-active" data-academy-section="courses" type="button">Individual courses</button>
+<button aria-controls="pathways" aria-pressed="false" data-academy-section="pathways" type="button">Professional pathways</button>
+<button aria-controls="organizations" aria-pressed="false" data-academy-section="organizations" type="button">For organizations</button>
 <a href="academy-apply.html">Apply</a>
 </div>
 </nav>
-<section class="section academy-level-section" id="levels">
+<section class="section academy-level-section" data-academy-panel="levels" id="levels">
 <div class="container">
 <div class="section-heading section-heading-left">
 <span class="eyebrow">Progressive professional development</span>
@@ -236,17 +239,19 @@
 </ol>
 </div>
 </section>
-<section class="section academy-course-section" id="courses">
+<section class="section academy-course-section" data-academy-panel="courses" id="courses">
 <div class="container">
 <div class="academy-section-heading-row">
 <div class="section-heading section-heading-left">
 <span class="eyebrow">Individual course catalogue</span>
 <h2>Sixteen focused courses. Practical outputs from every one.</h2>
 <div class="section-lead">
-<p>Open any course to review its purpose, indicative duration, learning hours, and final applied output.</p>
+<p>Open any course to review its purpose, key learning areas, and final applied output.</p>
 </div>
 </div>
+<!-- TEMPORARILY DISABLED: Re-enable when the final Academy Catalogue is ready.
 <a class="button button-secondary" href="assets/docs/MEAL-Bridge-Academy-Catalogue.pdf" rel="noopener" target="_blank">View full catalogue</a>
+-->
 </div>
 <div class="academy-course-group">
 <div class="academy-course-group-head academy-level-explore">
@@ -265,10 +270,6 @@
 </span>
 </summary>
 <div class="course-card-body">
-<div class="course-meta">
-<span>2-3 days</span>
-<span>8-12 hours</span>
-</div>
 <p>Understand how monitoring, evaluation, accountability, and learning work together to improve project and organizational performance.</p>
 <ul>
 <li>Results-based thinking and programme cycles</li>
@@ -291,10 +292,6 @@
 </span>
 </summary>
 <div class="course-card-body">
-<div class="course-meta">
-<span>1-2 days</span>
-<span>5-8 hours</span>
-</div>
 <p>Map MEAL career opportunities, strengthen your professional profile, and prepare for entry and progression in the field.</p>
 <ul>
 <li>Roles, competencies, and career routes</li>
@@ -325,10 +322,6 @@
 </span>
 </summary>
 <div class="course-card-body">
-<div class="course-meta">
-<span>3-5 days</span>
-<span>15-25 hours</span>
-</div>
 <p>Develop the practical skills to design, implement, and manage effective monitoring and indicator systems.</p>
 <ul>
 <li>Indicator design and reference sheets</li>
@@ -351,10 +344,6 @@
 </span>
 </summary>
 <div class="course-card-body">
-<div class="course-meta">
-<span>4-5 days</span>
-<span>20-30 hours</span>
-</div>
 <p>Build the knowledge and practical skills needed to design, manage, assess, and use evaluations.</p>
 <ul>
 <li>Questions, criteria, and evaluation designs</li>
@@ -377,10 +366,6 @@
 </span>
 </summary>
 <div class="course-card-body">
-<div class="course-meta">
-<span>3-4 days</span>
-<span>15-20 hours</span>
-</div>
 <p>Design accountability and engagement systems that let affected people participate, provide feedback, and influence programme decisions.</p>
 <ul>
 <li>Accountability to affected populations</li>
@@ -403,10 +388,6 @@
 </span>
 </summary>
 <div class="course-card-body">
-<div class="course-meta">
-<span>2-3 days</span>
-<span>10-15 hours</span>
-</div>
 <p>Transform evidence, reflection, and experience into stronger decisions, adaptive programming, and organizational learning.</p>
 <ul>
 <li>After-Action Reviews and reflection</li>
@@ -429,10 +410,6 @@
 </span>
 </summary>
 <div class="course-card-body">
-<div class="course-meta">
-<span>3-4 days</span>
-<span>15-20 hours</span>
-</div>
 <p>Establish reliable systems for collecting, organizing, protecting, and quality-assuring MEAL data.</p>
 <ul>
 <li>Data flow mapping and collection systems</li>
@@ -455,10 +432,6 @@
 </span>
 </summary>
 <div class="course-card-body">
-<div class="course-meta">
-<span>4-5 days</span>
-<span>20-30 hours</span>
-</div>
 <p>Analyze quantitative and qualitative data and turn findings into meaningful conclusions and practical recommendations.</p>
 <ul>
 <li>Sampling and descriptive statistics</li>
@@ -489,10 +462,6 @@
 </span>
 </summary>
 <div class="course-card-body">
-<div class="course-meta">
-<span>4-5 days</span>
-<span>25-35 hours</span>
-</div>
 <p>Analyze, design, and improve integrated MEAL systems using the MEAL Bridge 5R Framework.</p>
 <ul>
 <li>Rules, roles, relationships, resources, and results</li>
@@ -515,10 +484,6 @@
 </span>
 </summary>
 <div class="course-card-body">
-<div class="course-meta">
-<span>3-4 days</span>
-<span>15-25 hours</span>
-</div>
 <p>Build the structures, people, resources, and institutional conditions required for an effective MEAL function.</p>
 <ul>
 <li>Capacity assessment and maturity models</li>
@@ -541,10 +506,6 @@
 </span>
 </summary>
 <div class="course-card-body">
-<div class="course-meta">
-<span>3-4 days</span>
-<span>15-20 hours</span>
-</div>
 <p>Transform MEAL data into clear visualizations, dashboards, and reports that support decisions.</p>
 <ul>
 <li>Visualization and data storytelling</li>
@@ -567,10 +528,6 @@
 </span>
 </summary>
 <div class="course-card-body">
-<div class="course-meta">
-<span>3-4 days</span>
-<span>15-25 hours</span>
-</div>
 <p>Use digital tools, automation, and AI to strengthen MEAL while maintaining ethical and responsible practice.</p>
 <ul>
 <li>Digital collection, no-code tools, and automation</li>
@@ -601,10 +558,6 @@
 </span>
 </summary>
 <div class="course-card-body">
-<div class="course-meta">
-<span>3-4 days</span>
-<span>15-25 hours</span>
-</div>
 <p>Adapt MEAL approaches for emergencies, fragile contexts, conflict-affected environments, and constrained access.</p>
 <ul>
 <li>Conflict sensitivity and Do No Harm</li>
@@ -627,10 +580,6 @@
 </span>
 </summary>
 <div class="course-card-body">
-<div class="course-meta">
-<span>4-5 days</span>
-<span>20-30 hours</span>
-</div>
 <p>Apply advanced approaches for assessing contribution, causality, complexity, and change.</p>
 <ul>
 <li>Counterfactuals and causal inference</li>
@@ -653,10 +602,6 @@
 </span>
 </summary>
 <div class="course-card-body">
-<div class="course-meta">
-<span>3-4 days</span>
-<span>15-25 hours</span>
-</div>
 <p>Design, manage, and quality-assure third-party monitoring and independent verification systems.</p>
 <ul>
 <li>TPM models and methodologies</li>
@@ -687,10 +632,6 @@
 </span>
 </summary>
 <div class="course-card-body">
-<div class="course-meta">
-<span>3-4 days</span>
-<span>15-25 hours</span>
-</div>
 <p>Develop the leadership, management, and strategic capabilities required to lead MEAL teams and influence organizational decisions.</p>
 <ul>
 <li>Team structures, work planning, and budgeting</li>
@@ -710,7 +651,7 @@
 </div>
 </div>
 </section>
-<section class="section academy-pathway-catalog" id="pathways">
+<section class="section academy-pathway-catalog" data-academy-panel="pathways" id="pathways">
 <div class="container">
 <div class="section-heading section-heading-left">
 <span class="eyebrow">Professional learning pathways</span>
@@ -954,7 +895,7 @@
 </div>
 </div>
 </section>
-<section class="section academy-organization-section" id="organizations">
+<section class="section academy-organization-section" data-academy-panel="organizations" id="organizations">
 <div class="container">
 <div class="section-heading section-heading-left">
 <span class="eyebrow eyebrow-light">For organizations</span>
