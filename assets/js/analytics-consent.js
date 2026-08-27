@@ -102,15 +102,21 @@
     });
   }
 
+  function notifyConsentChange(state) {
+    document.dispatchEvent(new CustomEvent("mealbridge:analytics-consent", { detail: { state } }));
+  }
+
   function rejectAnalytics() {
     storeConsent("denied");
     window[`ga-disable-${MEASUREMENT_ID}`] = true;
     deleteAnalyticsCookies();
+    notifyConsentChange("denied");
   }
 
   function acceptAnalytics() {
     storeConsent("granted");
     loadGoogleAnalytics();
+    notifyConsentChange("granted");
   }
 
   const eventNames = {
@@ -120,12 +126,19 @@
     "practice-application": "practice_application_submitted"
   };
 
-  function trackFormSuccess(formType) {
-    const eventName = eventNames[formType];
-    if (!eventName || !analyticsAllowed()) return;
+  function trackEvent(eventName, parameters = {}) {
+    if (!eventName || !analyticsAllowed()) return false;
     loadGoogleAnalytics();
-    window.gtag("event", eventName, {
-      event_category: "form_submission"
+    window.gtag("event", eventName, parameters);
+    return true;
+  }
+
+  function trackFormSuccess(formType, parameters = {}) {
+    const eventName = eventNames[formType];
+    if (!eventName) return false;
+    return trackEvent(eventName, {
+      event_category: "key_event",
+      ...parameters
     });
   }
 
@@ -218,6 +231,7 @@
   window.MEALBridgeAnalytics = Object.freeze({
     measurementId: MEASUREMENT_ID,
     getConsent: readConsent,
+    trackEvent,
     trackFormSuccess,
     openPreferences: () => document.querySelector(".analytics-consent")?.hidden && document.querySelector("[data-privacy-preferences]")?.click()
   });

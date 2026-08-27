@@ -65,7 +65,7 @@ The Muhamed image is the current temporary image. To replace it later without ed
 - Uploading these files does not change the domain's SSL certificate configuration.
 
 
-Website update version: V1.5
+Website update version: V1.5.1
 
 
 ## V1.4 privacy implementation
@@ -107,3 +107,27 @@ Website update version: V1.5
 5. Submit one test through each of the four live form flows and confirm the corresponding custom event appears in Realtime/DebugView after Analytics has processed it.
 6. In GA4 **Admin > Data display > Events**, mark the four submission events as key events after they first appear if you want them reported as conversions/key events.
 
+
+
+## V1.5.1 consolidated measurement plan
+
+V1.5.1 adds the approved website interaction inventory without changing unrelated page content or existing form endpoints.
+
+### Measurement categories
+- **Key events / business outcomes:** successful Contact inquiry, Academy application, organizational training request, Professional Practice application, plus the explicit **Email MEAL Bridge** CTA click.
+- **CTA events:** selected high-intent calls to action on Home, Solutions, Academy, About, and Join Us.
+- **Information-seeking events:** Solutions/Join Us FAQ openings, working-principles exploration, Academy course expansions, and Academy pathway expansions.
+- **Behavioral events:** capability/solution choices, Academy structure navigation, application route choices, selected Academy/training preferences, Contact topic selection, Professional Practice card interest, and Practice selection changes.
+- **Advocacy/referral events:** sharing of Academy courses, Academy pathways, and Professional Practice cards, plus opening a website-generated shared-content link.
+
+### Share architecture
+- Share buttons are intentionally limited to Academy course cards, Academy pathway cards, and Professional Practice cards.
+- Mobile browsers use the native share sheet when supported; otherwise the site copies a trackable link.
+- Shared URLs contain `utm_source=website_share`, `utm_medium=referral`, `utm_campaign=content_share`, and non-personal content identifiers.
+- Shared Academy links open the exact course/pathway; shared Practice links open the Community/Professional Practices area and scroll to the exact Practice.
+
+### Privacy safeguards
+- Analytics remains fully blocked until analytics consent is granted.
+- No names, email addresses, phone numbers, organization names, free-text answers, motivation statements, or message contents are sent to GA4.
+- Form-success events may include only the explicitly approved non-identifying dropdown context (for example programme, language, delivery format, contact topic, or Practice choice).
+- Internship/Open Position form conversion tracking remains inactive while those application forms are hidden.

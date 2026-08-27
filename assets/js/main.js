@@ -143,8 +143,11 @@
         });
         if (!response.ok) throw new Error(`Submission failed with status ${response.status}`);
 
-        // V1.5 analytics: count only Formspark-confirmed submissions; no form fields are sent.
-        window.MEALBridgeAnalytics?.trackFormSuccess(formType);
+        // V1.5.1 analytics: count only Formspark-confirmed submissions and attach only
+        // explicitly whitelisted, non-identifying context (never contact details or free text).
+        const analyticsContext = window.MEALBridgeMeasurement?.getFormContext?.(formType, form) || {};
+        window.MEALBridgeAnalytics?.trackFormSuccess(formType, analyticsContext);
+        window.MEALBridgeMeasurement?.resetFormContext?.(formType, form);
 
         const result = document.createElement("div");
         result.className = "form-result form-result-success";

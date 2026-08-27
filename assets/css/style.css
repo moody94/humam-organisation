@@ -4768,3 +4768,31 @@ details[open] > summary .course-toggle::after {
   .analytics-consent{transition:none;}
 }
 
+
+
+/* === V1.5.1: share actions + shared-content deep links === */
+.content-share-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin:5px 0 0 14px;
+  border:0;
+  background:transparent;
+  padding:0;
+  color:#5f7486;
+  font:inherit;
+  font-size:.76rem;
+  font-weight:800;
+  text-decoration:underline;
+  text-decoration-thickness:1px;
+  text-underline-offset:3px;
+  cursor:pointer;
+}
+.content-share-button:hover{color:var(--orange-600);}
+.content-share-button:focus-visible{border-radius:4px;outline:2px solid var(--orange-500);outline-offset:4px;}
+.join-opportunity-card>.content-share-button{align-self:flex-start;margin:8px 0 0;}
+.shared-content-target{outline:2px solid var(--orange-500);outline-offset:5px;}
+@media(max-width:520px){
+  .course-card-body>.content-share-button,
+  .professional-pathway-card>div>.content-share-button{margin-left:12px;}
+}
