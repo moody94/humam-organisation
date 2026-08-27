@@ -4678,3 +4678,47 @@ details[open] > summary .course-toggle::after {
     min-width: 0;
   }
 }
+
+
+/* === V1.4: Privacy & Data Protection === */
+.checkbox-field a{
+  color:var(--orange-600);
+  font-weight:800;
+  text-decoration:underline;
+  text-underline-offset:2px;
+}
+.checkbox-field a:hover{color:var(--navy-900);}
+.footer-bottom a{color:rgba(255,255,255,.62);text-decoration:underline;text-underline-offset:2px;}
+.footer-bottom a:hover{color:var(--white);}
+.privacy-policy-section{background:var(--surface);}
+.privacy-policy-layout{display:grid;grid-template-columns:minmax(240px,.72fr) minmax(0,1.7fr);gap:clamp(34px,6vw,78px);align-items:start;}
+.privacy-policy-summary{position:sticky;top:108px;border:1px solid var(--line);border-radius:20px;background:var(--white);padding:28px;box-shadow:var(--shadow-sm);}
+.privacy-policy-summary h2{margin:10px 0 22px;color:var(--navy-900);font-size:1.55rem;}
+.privacy-policy-summary dl{display:grid;gap:0;margin:0;}
+.privacy-policy-summary dl div{border-top:1px solid var(--line);padding:13px 0;}
+.privacy-policy-summary dl div:first-child{border-top:0;padding-top:0;}
+.privacy-policy-summary dt{margin-bottom:3px;color:var(--muted);font-size:.7rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;}
+.privacy-policy-summary dd{margin:0;color:var(--navy-900);font-size:.88rem;font-weight:750;overflow-wrap:anywhere;}
+.privacy-policy-summary a,.privacy-policy-content a{color:var(--orange-600);text-decoration:underline;text-underline-offset:2px;}
+.privacy-policy-note{margin:20px 0 0;border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font-size:.78rem;line-height:1.65;}
+.privacy-policy-content{min-width:0;border:1px solid var(--line);border-radius:22px;background:var(--white);padding:clamp(28px,5vw,54px);box-shadow:var(--shadow-sm);}
+.privacy-policy-intro{margin-bottom:28px;border-bottom:1px solid var(--line);padding-bottom:22px;}
+.privacy-policy-intro p{margin:0;color:var(--muted);font-size:.82rem;line-height:1.65;}
+.privacy-policy-content section+section{margin-top:38px;border-top:1px solid var(--line);padding-top:34px;}
+.privacy-policy-content h2{margin:0 0 14px;color:var(--navy-900);font-size:clamp(1.22rem,2vw,1.55rem);line-height:1.3;}
+.privacy-policy-content p,.privacy-policy-content li{color:#516a7d;font-size:.94rem;line-height:1.8;}
+.privacy-policy-content p{margin:0 0 14px;}
+.privacy-policy-content ul{margin:12px 0 0;padding-left:22px;}
+.privacy-policy-content li+li{margin-top:7px;}
+.privacy-table-wrap{overflow-x:auto;margin:20px 0;}
+.privacy-table-wrap table{width:100%;border-collapse:collapse;min-width:560px;}
+.privacy-table-wrap th,.privacy-table-wrap td{border-bottom:1px solid var(--line);padding:13px 14px;text-align:left;vertical-align:top;color:#516a7d;font-size:.84rem;line-height:1.55;}
+.privacy-table-wrap th{background:var(--surface);color:var(--navy-900);font-size:.72rem;letter-spacing:.03em;text-transform:uppercase;}
+.privacy-table-wrap td:last-child{font-weight:750;color:var(--navy-900);}
+@media(max-width:900px){
+  .privacy-policy-layout{grid-template-columns:1fr;}
+  .privacy-policy-summary{position:static;}
+}
+@media(max-width:600px){
+  .privacy-policy-summary,.privacy-policy-content{border-radius:16px;padding:22px;}
+}

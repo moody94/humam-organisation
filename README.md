@@ -11,6 +11,8 @@ Upload the contents of this folder to the root of the GitHub repository that pub
 - `academy-training.html` — Organizational training request
 - `about.html` — About and founder profile
 - `contact.html` — Contact, partnership, and professional-network inquiries
+- `join-us.html` — Community, Professional Practices, internships, and open positions
+- `privacy.html` — Privacy & Data Protection Policy and privacy-rights contact information
 
 `services.html` remains as a compatibility redirect to `solutions.html`, so older links and bookmarks continue to work.
 
@@ -21,6 +23,7 @@ The website is already connected to these Formspark submission actions:
 - Contact and Partnerships: `https://submit-form.com/7ARE8eDGE`
 - Individual Academy Applications: `https://submit-form.com/HhDC3X93G`
 - Organizational Training Requests: `https://submit-form.com/zAmPaD0Im`
+- Professional Practice Applications: `https://submit-form.com/URUojGs3Z`
 
 The forms submit through JavaScript as JSON and also retain a standard HTML `POST` action as a fallback. Every field has a Formspark-compatible `name`, required fields use browser validation, submit buttons are protected against repeated clicks, and a honeypot field is included.
 
@@ -37,11 +40,12 @@ The website shows an immediate branded success message after every accepted subm
 
 ### Post-upload form test
 
-Submit one test through each live page:
+Submit one test through each live submission path:
 
 1. `contact.html`
-2. `academy-apply.html`
-3. `academy-training.html`
+2. `academy-apply.html` — individual Academy application
+3. `academy-apply.html` or `academy-training.html` — organizational training request
+4. `join-us.html` — Professional Practice application
 
 Confirm that each test appears in the correct Formspark form and reaches the intended notification mailbox.
 
@@ -61,4 +65,12 @@ The Muhamed image is the current temporary image. To replace it later without ed
 - Uploading these files does not change the domain's SSL certificate configuration.
 
 
-Website update version: V1.2
+Website update version: V1.4
+
+
+## V1.4 privacy implementation
+
+- Added `privacy.html` and linked it from the website footer.
+- Added purpose-specific 18+ explicit data-processing consent and a Privacy Policy link to all live form flows.
+- Kept existing Formspark endpoints, field names, JavaScript submission logic, layout behavior, and V1.3 mobile hotfix unchanged.
+- Added the privacy page to `sitemap.xml`.
