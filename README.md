@@ -74,3 +74,9 @@ Website update version: V1.4
 - Added purpose-specific 18+ explicit data-processing consent and a Privacy Policy link to all live form flows.
 - Kept existing Formspark endpoints, field names, JavaScript submission logic, layout behavior, and V1.3 mobile hotfix unchanged.
 - Added the privacy page to `sitemap.xml`.
+
+## V1.4 navigation/footer correction
+- Privacy & Data Protection remains a standalone page and is intentionally excluded from primary navigation.
+- Privacy & Data Protection is linked from the footer of every rendered website page.
+- Primary navigation markup is normalized across rendered pages; active-state behavior is preserved.
+- Legacy redirect stubs (`services.html`, `partners.html`) remain minimal redirects and are unchanged.
