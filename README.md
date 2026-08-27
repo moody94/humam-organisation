@@ -65,7 +65,7 @@ The Muhamed image is the current temporary image. To replace it later without ed
 - Uploading these files does not change the domain's SSL certificate configuration.
 
 
-Website update version: V1.4
+Website update version: V1.5
 
 
 ## V1.4 privacy implementation
@@ -80,3 +80,30 @@ Website update version: V1.4
 - Privacy & Data Protection is linked from the footer of every rendered website page.
 - Primary navigation markup is normalized across rendered pages; active-state behavior is preserved.
 - Legacy redirect stubs (`services.html`, `partners.html`) remain minimal redirects and are unchanged.
+
+## V1.5 analytics and consent implementation
+
+- Added privacy-first Google Analytics 4 integration using Measurement ID `G-D2C4KFRFYD`.
+- Google Analytics does not load until a visitor selects **Accept analytics**; rejecting non-essential analytics prevents the external Google tag from loading.
+- Advertising storage, advertising user data, advertising personalisation, and personalisation storage remain denied in the website consent configuration.
+- Added a compact site-wide analytics consent banner and a **Cookie preferences** control in every rendered page footer so visitors can change their choice later.
+- The visitor's analytics preference is stored locally in the browser and is not used for marketing or profiling.
+- No form-field values or personal information are sent to Google Analytics.
+- Added Formspark-confirmed conversion events for the four active submission flows:
+  - `contact_inquiry_submitted`
+  - `academy_application_submitted`
+  - `organizational_training_submitted`
+  - `practice_application_submitted`
+- Conversion events fire only after Formspark returns a successful response.
+- Updated the Privacy & Data Protection Policy to describe GA4, consent behavior, data categories, retention, disabled advertising features, and preference management.
+- Existing Formspark endpoints, navigation, responsive files, founder-experience hotfix, page content, imagery, and unrelated JavaScript behavior remain unchanged.
+
+### Post-upload analytics test
+
+1. Open the website in a private/incognito window and confirm the analytics banner appears.
+2. Select **Reject non-essential**, browse several pages, and confirm no `gtag/js` request is made to Google Tag Manager in browser developer tools.
+3. Open **Cookie preferences**, select **Accept analytics**, and confirm the Google tag loads.
+4. In Google Analytics, open **Reports > Realtime** and confirm your visit appears after acceptance.
+5. Submit one test through each of the four live form flows and confirm the corresponding custom event appears in Realtime/DebugView after Analytics has processed it.
+6. In GA4 **Admin > Data display > Events**, mark the four submission events as key events after they first appear if you want them reported as conversions/key events.
+

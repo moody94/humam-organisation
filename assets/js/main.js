@@ -143,6 +143,9 @@
         });
         if (!response.ok) throw new Error(`Submission failed with status ${response.status}`);
 
+        // V1.5 analytics: count only Formspark-confirmed submissions; no form fields are sent.
+        window.MEALBridgeAnalytics?.trackFormSuccess(formType);
+
         const result = document.createElement("div");
         result.className = "form-result form-result-success";
         result.setAttribute("role", "status");
