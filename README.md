@@ -65,7 +65,7 @@ The Muhamed image is the current temporary image. To replace it later without ed
 - Uploading these files does not change the domain's SSL certificate configuration.
 
 
-Website update version: V1.5.1
+Website update version: V1.5.2
 
 
 ## V1.4 privacy implementation
@@ -121,13 +121,24 @@ V1.5.1 adds the approved website interaction inventory without changing unrelate
 - **Advocacy/referral events:** sharing of Academy courses, Academy pathways, and Professional Practice cards, plus opening a website-generated shared-content link.
 
 ### Share architecture
-- Share buttons are intentionally limited to Academy course cards, Academy pathway cards, and Professional Practice cards.
+- Share buttons are intentionally limited to shareable offerings: Academy course cards, Academy pathway cards, Professional Practice cards, and the Consultancy / Systems Development parent offerings and capability cards on Solutions.
 - Mobile browsers use the native share sheet when supported; otherwise the site copies a trackable link.
 - Shared URLs contain `utm_source=website_share`, `utm_medium=referral`, `utm_campaign=content_share`, and non-personal content identifiers.
-- Shared Academy links open the exact course/pathway; shared Practice links open the Community/Professional Practices area and scroll to the exact Practice.
+- Shared Academy links open the exact course/pathway; shared Practice links open the Community/Professional Practices area and scroll to the exact Practice; shared Solutions links scroll to and highlight the exact Consultancy or Systems offering/capability.
 
 ### Privacy safeguards
 - Analytics remains fully blocked until analytics consent is granted.
 - No names, email addresses, phone numbers, organization names, free-text answers, motivation statements, or message contents are sent to GA4.
 - Form-success events may include only the explicitly approved non-identifying dropdown context (for example programme, language, delivery format, contact topic, or Practice choice).
 - Internship/Open Position form conversion tracking remains inactive while those application forms are hidden.
+
+
+## V1.5.2 targeted update
+
+- Extended the existing V1.5.1 share architecture on `solutions.html` only: the Consultancy and Systems Development parent offerings plus each of their six capability/service cards now have the same tracked Share behavior used elsewhere.
+- Shared Solutions links deep-link to the exact parent offering or capability card and continue using the existing `content_shared` / `shared_content_opened` analytics events and website-share UTM attribution.
+- Added a **Join for free** badge to the MEAL Bridge Community path card on `join-us.html`.
+- Added a clear free-of-charge notice in the Professional Practice application header while preserving the existing eligibility/selection distinction.
+- Added the FAQ **Is it free to join the MEAL Bridge Community?**; it is automatically covered by the existing `faq_item_opened` analytics tracking.
+- Preserved the manually updated current social-preview artwork as `og.png`.
+- No Formspark endpoints, form fields, navigation, privacy/consent logic, existing analytics event names, responsive behavior, or unrelated page content were changed.

@@ -4796,3 +4796,10 @@ details[open] > summary .course-toggle::after {
   .course-card-body>.content-share-button,
   .professional-pathway-card>div>.content-share-button{margin-left:12px;}
 }
+
+
+/* === V1.5.2: Solutions sharing + Community free-join clarity === */
+.capability-card>.content-share-button{align-self:flex-start;margin:14px 0 0;}
+.division-intro .content-share-button{margin:10px 0 0;}
+.join-free-badge{display:inline-flex;align-self:flex-start;margin:10px 0 0;border:1px solid rgba(230,126,34,.28);border-radius:999px;background:var(--orange-100);padding:6px 10px;color:var(--orange-600);font-size:.7rem;font-weight:850;letter-spacing:.05em;text-transform:uppercase;}
+.community-free-note{margin-top:10px!important;border-left:3px solid var(--orange-500);padding-left:12px;color:var(--navy-900)!important;}
