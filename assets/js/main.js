@@ -64,6 +64,7 @@
     partnership: "Partnership opportunity",
     academy: "Academy & training",
     join: "Join MEAL Bridge",
+    career: "Career Consultation Session",
     question: "General inquiry",
   };
   const query = new URLSearchParams(window.location.search);
