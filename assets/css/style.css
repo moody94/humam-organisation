@@ -801,7 +801,7 @@ p {
 
 .ecosystem-visual::before {
   position: absolute;
-  inset: -22px 35px 35px -22px;
+  inset: 0px 0px 0px 0px;
   z-index: 0;
   border: 1px solid rgba(20, 93, 160, 0.15);
   border-radius: 30px;
@@ -5141,8 +5141,18 @@ details[open]>summary .course-toggle::after {
   gap: 18px;
 }
 
+.join-community-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 18px;
+}
+
 .practice-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.community-grid {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
 .join-opportunity-card {
@@ -5169,7 +5179,13 @@ details[open]>summary .course-toggle::after {
   letter-spacing: .05em;
 }
 
-/* Three intentionally soft division colors — one consistent color per division. */
+
+/* Four intentionally soft division colors — one consistent color per division. */
+.join-opportunity-card .opportunity-division.practice-community {
+  background: #0f9d8a;
+  color: #ffffff;
+}
+
 .join-opportunity-card .opportunity-division.division-academy {
   background: #fff0e6;
   color: #a94816;
