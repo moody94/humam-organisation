@@ -260,7 +260,7 @@
 
   window.MEALBridgeMeasurement = Object.freeze({ getFormContext, resetFormContext });
 
-  // SHAREABLE CONTENT: Academy courses/pathways + Professional Practices only.
+  // SHAREABLE CONTENT: Academy courses/pathways + Community and Professional Practice cards.
   function buildShareUrl(button) {
     const url = new URL(window.location.href);
     url.search = "";
@@ -337,13 +337,17 @@
     if (currentFile === "academy.html" && (sharedType === "academy_course" || sharedType === "academy_pathway")) {
       if (sharedTarget.tagName.toLowerCase() === "details") sharedTarget.open = true;
     }
-    if (currentFile === "join-us.html" && sharedType === "professional_practice") {
-      document.querySelectorAll('[data-join-panel]').forEach((panel) => { panel.hidden = panel.dataset.joinPanel !== "community"; });
-      document.querySelectorAll('[data-join-expand]').forEach((button) => button.setAttribute("aria-expanded", button.dataset.joinExpand === "community" ? "true" : "false"));
-      const practiceShell = document.getElementById("practice-application");
-      const careerShell = document.getElementById("career-application");
-      if (practiceShell) practiceShell.hidden = true;
-      if (careerShell) careerShell.hidden = true;
+    if (currentFile === "join-us.html") {
+      const containingPanel = sharedTarget.closest("[data-join-panel]");
+      const panelKey = containingPanel?.dataset.joinPanel || "";
+      if (panelKey) {
+        document.querySelectorAll('[data-join-panel]').forEach((panel) => { panel.hidden = panel.dataset.joinPanel !== panelKey; });
+        document.querySelectorAll('[data-join-expand]').forEach((button) => button.setAttribute("aria-expanded", button.dataset.joinExpand === panelKey ? "true" : "false"));
+        const practiceShell = document.getElementById("practice-application");
+        const careerShell = document.getElementById("career-application");
+        if (practiceShell) practiceShell.hidden = true;
+        if (careerShell) careerShell.hidden = true;
+      }
     }
 
     sharedTarget.classList.add("shared-content-target");

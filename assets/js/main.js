@@ -112,7 +112,7 @@
     contact: '<span aria-hidden="true">✓</span><h2>Thank you for reaching out.</h2><p>Your inquiry has been received. We will review it and respond with the most appropriate next step, normally within two working days.</p><button type="button" class="button button-secondary">Send another inquiry</button>',
     "academy-application": '<span aria-hidden="true">✓</span><h2>Application received.</h2><p>The Academy will review your programme fit, experience, and objective, normally within three working days. If a CV is needed, we will request it by email.</p><button type="button" class="button button-secondary">Submit another application</button>',
     "organizational-training": '<span aria-hidden="true">✓</span><h2>Training request received.</h2><p>The Academy will review your objective, participant profile, scope, and timing. We normally acknowledge the request within two working days and arrange a discovery call when appropriate.</p><button type="button" class="button button-secondary">Submit another request</button>',
-    "practice-application": '<span aria-hidden="true">✓</span><h2>Practice application received.</h2><p>Thank you. Your application will be reviewed by the relevant MEAL Bridge Practice team.</p><button type="button" class="button button-secondary">Submit another application</button>',
+    "practice-application": '<span aria-hidden="true">✓</span><h2>Submission received.</h2><p>Thank you. We received your Community of Practice registration or Professional Practice application and will contact you about any next steps.</p><button type="button" class="button button-secondary">Submit another response</button>',
     "career-application": '<span aria-hidden="true">✓</span><h2>Application received.</h2><p>Thank you. The MEAL Bridge team will review your application against the selected opportunity.</p><button type="button" class="button button-secondary">Submit another application</button>',
   };
 
@@ -191,7 +191,7 @@
   const practiceShell = document.getElementById("practice-application");
   const careerShell = document.getElementById("career-application");
 
-  function showJoinPanel(target) {
+  function showJoinPanel(target, { scroll = true } = {}) {
     joinPanels.forEach((panel) => {
       const active = panel.dataset.joinPanel === target;
       panel.hidden = !active;
@@ -202,9 +202,29 @@
     });
     if (practiceShell) practiceShell.hidden = true;
     if (careerShell) careerShell.hidden = true;
-    document.getElementById(`join-panel-${target}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (scroll) {
+      document.getElementById(`join-panel-${target}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }
   joinExpandButtons.forEach((button) => button.addEventListener("click", () => showJoinPanel(button.dataset.joinExpand)));
+
+  // Deep links should reveal any Join Us panel that contains the hash target before scrolling to it.
+  function showJoinPanelFromHash() {
+    const targetId = window.location.hash ? decodeURIComponent(window.location.hash.slice(1)) : "";
+    if (!targetId) return;
+
+    const deepTarget = document.getElementById(targetId);
+    if (!deepTarget) return;
+
+    const containingPanel = deepTarget.closest("[data-join-panel]");
+    if (!containingPanel?.dataset.joinPanel) return;
+
+    showJoinPanel(containingPanel.dataset.joinPanel, { scroll: false });
+    requestAnimationFrame(() => deepTarget.scrollIntoView({ behavior: "smooth", block: "center" }));
+  }
+
+  showJoinPanelFromHash();
+  window.addEventListener("hashchange", showJoinPanelFromHash);
 
   document.querySelectorAll(".practice-apply").forEach((button) => button.addEventListener("click", () => {
     if (!practiceShell) return;

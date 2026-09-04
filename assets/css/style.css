@@ -5123,6 +5123,11 @@ details[open]>summary .course-toggle::after {
   margin-bottom: 24px;
 }
 
+/* The Community of Practice is the primary community entry point, so its card spans the full panel width. */
+.join-expansion-head-community {
+  max-width: none;
+}
+
 .join-expansion-head h3 {
   margin: 8px 0 8px;
   color: var(--navy-900);
@@ -5151,9 +5156,6 @@ details[open]>summary .course-toggle::after {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.community-grid {
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-}
 
 .join-opportunity-card {
   display: flex;
