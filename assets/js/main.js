@@ -146,9 +146,13 @@
 
         // V1.5.1 analytics: count only Formspark-confirmed submissions and attach only
         // explicitly whitelisted, non-identifying context (never contact details or free text).
-        const analyticsContext = window.MEALBridgeMeasurement?.getFormContext?.(formType, form) || {};
-        window.MEALBridgeAnalytics?.trackFormSuccess(formType, analyticsContext);
-        window.MEALBridgeMeasurement?.resetFormContext?.(formType, form);
+        try {
+          const analyticsContext = window.MEALBridgeMeasurement?.getFormContext?.(formType, form) || {};
+          window.MEALBridgeAnalytics?.trackFormSuccess(formType, analyticsContext);
+          window.MEALBridgeMeasurement?.resetFormContext?.(formType, form);
+        } catch {
+          // Optional analytics must not turn an accepted submission into an error.
+        }
 
         const result = document.createElement("div");
         result.className = "form-result form-result-success";
@@ -167,7 +171,7 @@
           if (formType === "contact" && interest && intentLabels[intent]) {
             interest.value = intentLabels[intent];
           }
-          form.querySelector("input, select, textarea")?.focus();
+          form.querySelector('input:not([type="hidden"]):not(.form-honeypot):enabled, select:enabled, textarea:enabled')?.focus();
         });
       } catch {
         const error = document.createElement("p");
@@ -210,7 +214,12 @@
 
   // Deep links should reveal any Join Us panel that contains the hash target before scrolling to it.
   function showJoinPanelFromHash() {
-    const targetId = window.location.hash ? decodeURIComponent(window.location.hash.slice(1)) : "";
+    let targetId = "";
+    try {
+      targetId = window.location.hash ? decodeURIComponent(window.location.hash.slice(1)) : "";
+    } catch {
+      return;
+    }
     if (!targetId) return;
 
     const deepTarget = document.getElementById(targetId);
@@ -307,7 +316,12 @@
     const initialPanel = panelForHash(window.location.hash) || "courses";
     showAcademyPanel(initialPanel);
 
-    const deepTargetId = window.location.hash ? decodeURIComponent(window.location.hash.slice(1)) : "";
+    let deepTargetId = "";
+    try {
+      deepTargetId = window.location.hash ? decodeURIComponent(window.location.hash.slice(1)) : "";
+    } catch {
+      // Ignore an invalid fragment without interrupting the remaining controls.
+    }
     const deepTarget = deepTargetId ? document.getElementById(deepTargetId) : null;
     if (deepTarget && window.location.hash !== `#${initialPanel}`) {
       requestAnimationFrame(() => deepTarget.scrollIntoView({ block: "start" }));
@@ -329,6 +343,7 @@
         const active = button.dataset.applyTarget === target;
         button.classList.toggle("is-active", active);
         button.setAttribute("aria-selected", active ? "true" : "false");
+        button.setAttribute("tabindex", active ? "0" : "-1");
       });
       applyPanels.forEach((panel) => {
         const active = panel.dataset.applyPanel === target;
@@ -336,7 +351,27 @@
         panel.hidden = !active;
       });
     };
-    applySwitches.forEach((button) => button.addEventListener("click", () => showApplyPanel(button.dataset.applyTarget)));
+    applySwitches.forEach((button, index) => {
+      button.addEventListener("click", () => showApplyPanel(button.dataset.applyTarget));
+      button.addEventListener("keydown", (event) => {
+        if (event.altKey || event.ctrlKey || event.metaKey) return;
+        let targetIndex;
+        switch (event.key) {
+          case "ArrowLeft": targetIndex = (index - 1 + applySwitches.length) % applySwitches.length; break;
+          case "ArrowRight": targetIndex = (index + 1) % applySwitches.length; break;
+          case "Home": targetIndex = 0; break;
+          case "End": targetIndex = applySwitches.length - 1; break;
+          default: return;
+        }
+        event.preventDefault();
+        applySwitches.forEach((tab, tabIndex) => tab.setAttribute("tabindex", tabIndex === targetIndex ? "0" : "-1"));
+        applySwitches[targetIndex].focus();
+      });
+      button.addEventListener("blur", (event) => {
+        if ([...applySwitches].includes(event.relatedTarget)) return;
+        applySwitches.forEach((tab) => tab.setAttribute("tabindex", tab.getAttribute("aria-selected") === "true" ? "0" : "-1"));
+      });
+    });
     if (currentFile === "academy-apply.html") {
       const requestedType = new URLSearchParams(window.location.search).get("type");
       showApplyPanel(requestedType === "organization" || requestedType === "training" ? "organization" : "individual");

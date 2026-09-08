@@ -5,10 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,follow">
-  <meta http-equiv="refresh" content="0; url=contact.html?intent=partnership#inquiry">
+  <noscript><meta http-equiv="refresh" content="0; url=contact.html?intent=partnership#inquiry"></noscript>
   <link rel="canonical" href="https://meal-bridge.com/contact.html">
   <title>Partnerships | MEAL Bridge</title>
-  <script>window.location.replace("contact.html?intent=partnership#inquiry");</script>
+  <script>
+    const query = new URLSearchParams(window.location.search);
+    query.set("intent", "partnership");
+    window.location.replace("contact.html?" + query.toString() + "#inquiry");
+  </script>
 </head>
 
 <body>

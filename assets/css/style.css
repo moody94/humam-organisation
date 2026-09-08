@@ -3970,6 +3970,11 @@ details[open]>summary .course-toggle::after {
   padding: 32px;
 }
 
+.contact-form-new[hidden],
+.academy-application-form[hidden] {
+  display: none;
+}
+
 .form-row-new {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

@@ -150,16 +150,16 @@
     <section aria-label="Choose application type" class="academy-apply-switcher-section">
       <div class="container">
         <div aria-label="Academy application type" class="academy-apply-switcher" role="tablist">
-          <button aria-controls="individual-application-panel" aria-selected="true"
+          <button id="individual-application-tab" aria-controls="individual-application-panel" aria-selected="true"
             class="academy-apply-switch is-active" data-apply-target="individual" role="tab" type="button">Individual
             Academy Application</button>
-          <button aria-controls="organization-application-panel" aria-selected="false" class="academy-apply-switch"
+          <button id="organization-application-tab" aria-controls="organization-application-panel" aria-selected="false" class="academy-apply-switch"
             data-apply-target="organization" role="tab" type="button">Organizational Training</button>
         </div>
       </div>
     </section>
     <div class="academy-apply-panel is-active" data-apply-panel="individual" id="individual-application-panel"
-      role="tabpanel">
+      role="tabpanel" aria-labelledby="individual-application-tab" tabindex="0">
       <section class="section academy-application-section">
         <div class="container inquiry-grid">
           <div class="inquiry-context application-context">
@@ -315,7 +315,7 @@
       </section>
     </div>
     <div class="academy-apply-panel" data-apply-panel="organization" hidden="" id="organization-application-panel"
-      role="tabpanel">
+      role="tabpanel" aria-labelledby="organization-application-tab" tabindex="0">
       <section class="section academy-application-section">
         <div class="container inquiry-grid">
           <div class="inquiry-context application-context">

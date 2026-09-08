@@ -153,7 +153,7 @@
         <div class="analytics-consent-copy">
           <span class="analytics-consent-eyebrow">Privacy choice</span>
           <h2>Optional analytics</h2>
-          <p>We use Google Analytics only if you accept, to understand website traffic and successful inquiry or application submissions. Analytics stays off if you reject. We do not send your form answers or contact details to Analytics. <a href="privacy.html#cookies-analytics">Privacy &amp; Data Protection</a></p>
+          <p>We use Google Analytics only if you accept, to understand website traffic and successful inquiry or application submissions. Analytics stays off if you reject. We do not send your form answers or contact details to Analytics. <a href="/privacy.html#cookies-analytics">Privacy &amp; Data Protection</a></p>
           <p class="analytics-consent-status" data-consent-status hidden></p>
         </div>
         <div class="analytics-consent-actions">
@@ -166,6 +166,7 @@
 
     const status = banner.querySelector("[data-consent-status]");
     const close = banner.querySelector("[data-consent-close]");
+    let preferencesOpener = null;
 
     function showPreferences({ allowClose = true } = {}) {
       const current = readConsent();
@@ -188,6 +189,8 @@
     function hidePreferences() {
       banner.classList.remove("is-visible");
       window.setTimeout(() => { banner.hidden = true; }, 180);
+      if (preferencesOpener?.isConnected) preferencesOpener.focus({ preventScroll: true });
+      preferencesOpener = null;
     }
 
     banner.querySelector("[data-consent-accept]")?.addEventListener("click", () => {
@@ -208,7 +211,7 @@
 
     document.querySelectorAll(".footer-bottom").forEach((footerBottom) => {
       if (footerBottom.querySelector("[data-privacy-preferences]")) return;
-      const privacyLink = footerBottom.querySelector('a[href="privacy.html"]');
+      const privacyLink = footerBottom.querySelector('a[href="privacy.html"], a[href="/privacy.html"]');
       const paragraph = privacyLink?.closest("p");
       if (!paragraph) return;
       const separator = document.createTextNode(" · ");
@@ -218,7 +221,10 @@
       button.dataset.privacyPreferences = "true";
       button.textContent = "Cookie preferences";
       privacyLink.after(separator, button);
-      button.addEventListener("click", () => showPreferences({ allowClose: true }));
+      button.addEventListener("click", () => {
+        preferencesOpener = button;
+        showPreferences({ allowClose: true });
+      });
     });
 
     if (!readConsent()) showPreferences({ allowClose: false });
