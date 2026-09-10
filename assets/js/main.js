@@ -2,6 +2,8 @@
   const navigation = document.querySelector(".main-nav");
   const menuButton = document.querySelector(".menu-button");
   const closeButton = document.querySelector(".mobile-nav-label button");
+  const mobileNavigation = navigation && menuButton ? window.matchMedia("(max-width: 760px)") : null;
+  let inactiveRegions = [];
   let scrim = null;
 
   const pageAliases = {
@@ -29,21 +31,32 @@
     menuButton?.setAttribute("aria-expanded", "false");
     scrim?.remove();
     scrim = null;
+    inactiveRegions.forEach(([region, previous]) => {
+      if (previous === null) region.removeAttribute("inert");
+      else region.setAttribute("inert", previous);
+    });
+    inactiveRegions = [];
     if (restoreFocus) menuButton?.focus();
   }
 
   function openNavigation() {
-    if (!navigation || !menuButton) return;
+    if (!navigation || !menuButton || !mobileNavigation?.matches || navigation.classList.contains("is-open")) return;
     navigation.classList.add("is-open");
     document.body.classList.add("nav-open");
     menuButton.setAttribute("aria-expanded", "true");
     scrim = document.createElement("button");
     scrim.className = "nav-scrim";
     scrim.type = "button";
+    scrim.tabIndex = -1;
     scrim.setAttribute("aria-label", "Close navigation");
     scrim.addEventListener("click", () => closeNavigation({ restoreFocus: true }));
     document.querySelector(".site-header")?.append(scrim);
     closeButton?.focus();
+    inactiveRegions = [...document.querySelectorAll(".skip-link, .site-header .brand, .header-actions, main, .site-footer")].map((region) => {
+      const previous = region.getAttribute("inert");
+      region.setAttribute("inert", "");
+      return [region, previous];
+    });
   }
 
   menuButton?.addEventListener("click", () => {
@@ -53,8 +66,36 @@
   closeButton?.addEventListener("click", () => closeNavigation({ restoreFocus: true }));
   navigation?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => closeNavigation()));
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && navigation?.classList.contains("is-open")) {
+    if (!navigation?.classList.contains("is-open") || !mobileNavigation?.matches) return;
+    const consent = document.querySelector(".analytics-consent:not([hidden])");
+    if (event.key === "Escape") {
+      if (consent?.contains(event.target)) return;
+      event.preventDefault();
+      event.stopPropagation();
       closeNavigation({ restoreFocus: true });
+      return;
+    }
+    if (event.key !== "Tab" || event.altKey || event.ctrlKey || event.metaKey) return;
+    const controls = [...navigation.querySelectorAll('a[href], button:not([disabled])'), ...(consent?.querySelectorAll('a[href], button:not([disabled])') || [])]
+      .filter((control) => control.tabIndex >= 0 && !control.closest("[inert]") && control.getClientRects().length);
+    if (!controls.length) return;
+    const index = controls.indexOf(document.activeElement);
+    if (index < 0 || (event.shiftKey ? index === 0 : index === controls.length - 1)) {
+      event.preventDefault();
+      controls[event.shiftKey ? controls.length - 1 : 0].focus();
+    }
+  }, true);
+  document.addEventListener("focusin", (event) => {
+    if (navigation?.classList.contains("is-open") && event.target.closest?.(".analytics-consent:not([hidden])")) {
+      closeNavigation();
+    }
+  });
+  mobileNavigation?.addEventListener("change", (event) => {
+    if (event.matches || !navigation?.classList.contains("is-open")) return;
+    const focused = document.activeElement;
+    closeNavigation();
+    if (focused && !focused.getClientRects().length) {
+      (navigation.querySelector('a[aria-current="page"]') || navigation.querySelector("a[href]"))?.focus();
     }
   });
 
@@ -134,22 +175,31 @@
       }
 
       try {
+        const payload = formDataToObject(form);
+        let analyticsContext = null;
+        try {
+          // Capture the permitted context with the payload, before fields can change.
+          analyticsContext = window.MEALBridgeMeasurement?.getFormContext?.(formType, form) || {};
+        } catch {
+          // Optional context must not prevent submission; retain the no-event fallback.
+        }
         const response = await fetch(form.action, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
           },
-          body: JSON.stringify(formDataToObject(form)),
+          body: JSON.stringify(payload),
         });
         if (!response.ok) throw new Error(`Submission failed with status ${response.status}`);
 
         // V1.5.1 analytics: count only Formspark-confirmed submissions and attach only
         // explicitly whitelisted, non-identifying context (never contact details or free text).
         try {
-          const analyticsContext = window.MEALBridgeMeasurement?.getFormContext?.(formType, form) || {};
-          window.MEALBridgeAnalytics?.trackFormSuccess(formType, analyticsContext);
-          window.MEALBridgeMeasurement?.resetFormContext?.(formType, form);
+          if (analyticsContext !== null) {
+            window.MEALBridgeAnalytics?.trackFormSuccess(formType, analyticsContext);
+            window.MEALBridgeMeasurement?.resetFormContext?.(formType, form);
+          }
         } catch {
           // Optional analytics must not turn an accepted submission into an error.
         }
@@ -170,6 +220,11 @@
           if (form === academyForm) applyRequestedProgram();
           if (formType === "contact" && interest && intentLabels[intent]) {
             interest.value = intentLabels[intent];
+          }
+          try {
+            window.MEALBridgeMeasurement?.resetFormContext?.(formType, form);
+          } catch {
+            // Optional tracking state must not interrupt reopening the form.
           }
           form.querySelector('input:not([type="hidden"]):not(.form-honeypot):enabled, select:enabled, textarea:enabled')?.focus();
         });

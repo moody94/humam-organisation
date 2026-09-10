@@ -25,7 +25,7 @@ The website is already connected to these Formspark submission actions:
 - Organizational Training Requests: `https://submit-form.com/zAmPaD0Im`
 - Professional Practice Applications: `https://submit-form.com/URUojGs3Z`
 
-The forms submit through JavaScript as JSON and also retain a standard HTML `POST` action as a fallback. Every field has a Formspark-compatible `name`, required fields use browser validation, submit buttons are protected against repeated clicks, and a honeypot field is included.
+The forms submit through JavaScript as JSON and retain standard HTML `POST` actions. This does not provide a complete no-JavaScript flow: hidden Join Us and organizational panels, the mobile drawer, prefills and branded success/error handling depend on JavaScript. Every field has a Formspark-compatible `name`, required fields use browser validation, submit buttons are protected against repeated clicks, and a honeypot field is included.
 
 ### Required Formspark dashboard status
 
@@ -88,7 +88,7 @@ Website update version: V1.5.2
 - Advertising storage, advertising user data, advertising personalisation, and personalisation storage remain denied in the website consent configuration.
 - Added a compact site-wide analytics consent banner and a **Cookie preferences** control in every rendered page footer so visitors can change their choice later.
 - The visitor's analytics preference is stored locally in the browser and is not used for marketing or profiling.
-- No form-field values or personal information are sent to Google Analytics.
+- No personal/contact details or free-text answers are sent to Google Analytics. Successful events may include only the approved non-identifying categorical context described below.
 - Added Formspark-confirmed conversion events for the four active submission flows:
   - `contact_inquiry_submitted`
   - `academy_application_submitted`
@@ -142,3 +142,53 @@ V1.5.1 adds the approved website interaction inventory without changing unrelate
 - Added the FAQ **Is it free to join the MEAL Bridge Community?**; it is automatically covered by the existing `faq_item_opened` analytics tracking.
 - Preserved the manually updated current social-preview artwork as `og.png`.
 - No Formspark endpoints, form fields, navigation, privacy/consent logic, existing analytics event names, responsive behavior, or unrelated page content were changed.
+
+## Group 4 review candidate: consent and attribution
+
+These local review changes are not a record of production deployment. Browser/network and GA4 report verification remain scheduled for final QA.
+
+### Consent corrections (M04)
+- Withdrawal sets the existing GA disable flag before updating a previously requested Google tag to denied consent. The external tag is still not requested for undecided or denied visitors.
+- If saving a choice fails, that choice remains authoritative for the current page; an older stored grant cannot override a rejection. A later successfully saved choice resumes normal persistence.
+- A change to the consent key in another same-origin tab synchronizes this tab's analytics state. Removal or invalidation of the key stops analytics without writing a replacement choice. The current stored value is read to avoid applying stale queued storage-event values. Other storage keys/areas are ignored.
+- An accepted choice in another tab can initialize a previously unmeasured open page. An already initialized page reuses its tag and existing config. Each document retains at most one loader request and one config call from this script; no manual page_view, session_start, session-ID override or blanket event replay is added.
+- A visible preferences status message follows a synchronized choice without moving focus. If storage cannot save the local choice, the current-page fallback remains in effect instead of accepting cross-tab overrides.
+- Network-level stopping, consent transitions and resulting GA4 sessions still need final verification. The code changes alone do not establish the cause of missing landing pages or Unassigned traffic.
+
+### Future campaign URL convention
+| Field | Convention |
+|---|---|
+| `utm_source` | Lowercase platform identifier; use `linkedin` for new controlled LinkedIn links |
+| `utm_medium` | `social` for organic LinkedIn; `paid_social` for paid LinkedIn campaigns |
+| `utm_campaign` | Stable lowercase snake_case initiative name, such as `community_of_practice_launch` |
+| `utm_content` | Stable placement/creative identifier; choose a new value only when the placement genuinely needs separate measurement |
+| `utm_term` | Omit unless keyword or campaign requirements give it a defined purpose |
+
+Include source, medium and campaign on new manually tagged campaign links. Do not include personal details in campaign parameters. Preserve functional content identifiers and fragments. Do not add UTMs to internal navigation.
+
+Existing live campaign URLs, including the previously used Community of Practice LinkedIn link and its `organic_post` content value, are not changed. Standardization applies to future controlled links; it does not merge historical source rows. The website's generic share buttons retain `website_share / referral / content_share` because the chosen destination application is not reliably known.
+
+### Shared-content and report interpretation (M06)
+- The existing `shared_content_opened` event still sends `share_source=website_share` whenever a valid shared-content target is opened, including manually tagged LinkedIn URLs. This legacy parameter cannot establish the actual traffic source or prove that a website Share button generated the URL.
+- Preserve its name and values for historical continuity pending a report-specific decision. For a session acquisition question, use GA4's Session source/medium and Session channel dimensions, with an explicitly defined shared-content event filter. Do not silently replace a session-scoped field with an event-scoped field or sum session totals across overlapping event rows.
+- A future event-level source parameter or a change to `share_source` requires an agreed meaning, a dated reporting transition and approval before implementation. No such schema change is included here.
+- `(unknown / no landing page)` is not generated in this repository. Missing landing page, missing source/medium and Unassigned channel are distinct diagnostics. Investigate the exact report, dimensions, filters, fallback logic and consent/session traces before changing page-view behavior.
+
+Final QA should compare first acceptance, stored acceptance, rejection, withdrawal/re-acceptance, two open tabs, storage failure, long-idle tabs, Academy history changes, legacy redirects and the five form flows. Confirm Enhanced Measurement and created/modified events in the GA4 property before concluding that duplicate or missing report rows are caused by the website. Existing measurement ID and event names remain unchanged.
+
+## Active styles and maintenance boundaries
+
+All ten rendered pages load only `assets/css/style.css` as an external stylesheet. Their existing inline mobile-navigation rules also apply. Preserve the live stylesheet's cascade and repeated page markup; changes to unused files will not fix the displayed site.
+
+The six other CSS files are retained historical files and are not loaded by the current pages:
+
+- `assets/css/components.css`
+- `assets/css/utilities.css`
+- `assets/css/variables.css`
+- `assets/css/responsive.css`
+- `assets/css/#U200f#U200fresponsive.css`
+- The additional `responsive.css` filename prefixed by two U+200F right-to-left marks in `assets/css/`.
+
+The last two names contain byte-identical content; they are distinct filenames. Do not rename, delete or add stylesheet links to these files as routine cleanup. Commented catalogue and career-form templates remain inactive; their presence is not evidence that a live route or tracking event should be enabled. Arabic and other language work is outside the current task.
+
+The current review changes have not been deployed. Browser/visual checks against the exact source candidate, real Formspark receipt and GA4 property/report verification remain required before production sign-off. The original archive and previous review packages remain the comparison baselines.

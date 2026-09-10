@@ -7,6 +7,7 @@
   const VALID_STATES = new Set(["granted", "denied"]);
   let googleTagRequested = false;
   let sessionConsent = null;
+  let useSessionConsent = false;
 
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function gtag(){ window.dataLayer.push(arguments); };
@@ -24,12 +25,11 @@
   });
 
   function readConsent() {
+    if (useSessionConsent) return sessionConsent;
     try {
       const value = window.localStorage.getItem(STORAGE_KEY);
-      if (VALID_STATES.has(value)) {
-        sessionConsent = value;
-        return value;
-      }
+      sessionConsent = VALID_STATES.has(value) ? value : null;
+      return sessionConsent;
     } catch {
       // Fall back to the in-memory choice for this page.
     }
@@ -40,8 +40,10 @@
     sessionConsent = value;
     try {
       window.localStorage.setItem(STORAGE_KEY, value);
+      useSessionConsent = false;
     } catch {
       // If storage is unavailable, the choice still applies for this page.
+      useSessionConsent = true;
     }
   }
 
@@ -106,9 +108,18 @@
     document.dispatchEvent(new CustomEvent("mealbridge:analytics-consent", { detail: { state } }));
   }
 
-  function rejectAnalytics() {
-    storeConsent("denied");
+  function rejectAnalytics({ persist = true } = {}) {
+    if (persist) storeConsent("denied");
     window[`ga-disable-${MEASUREMENT_ID}`] = true;
+    if (googleTagRequested) {
+      window.gtag("consent", "update", {
+        analytics_storage: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        personalization_storage: "denied"
+      });
+    }
     deleteAnalyticsCookies();
     notifyConsentChange("denied");
   }
@@ -118,6 +129,36 @@
     loadGoogleAnalytics();
     notifyConsentChange("granted");
   }
+
+  window.addEventListener("storage", (event) => {
+    if (event.key !== STORAGE_KEY && event.key !== null) return;
+    // A choice that could not be saved remains authoritative for this page.
+    if (useSessionConsent) return;
+    let value;
+    try {
+      if (event.storageArea !== window.localStorage) return;
+      // Read current storage rather than replaying a possibly stale event value.
+      value = window.localStorage.getItem(STORAGE_KEY);
+    } catch {
+      return;
+    }
+    sessionConsent = VALID_STATES.has(value) ? value : null;
+    if (sessionConsent === "granted") {
+      loadGoogleAnalytics();
+      notifyConsentChange("granted");
+    } else {
+      rejectAnalytics({ persist: false });
+    }
+    const status = document.querySelector(".analytics-consent:not([hidden]) [data-consent-status]");
+    if (status) {
+      status.hidden = !sessionConsent;
+      status.textContent = sessionConsent === "granted"
+        ? "Analytics is currently enabled on this browser."
+        : sessionConsent === "denied"
+          ? "Analytics is currently disabled on this browser."
+          : "";
+    }
+  });
 
   const eventNames = {
     contact: "contact_inquiry_submitted",
@@ -153,7 +194,7 @@
         <div class="analytics-consent-copy">
           <span class="analytics-consent-eyebrow">Privacy choice</span>
           <h2>Optional analytics</h2>
-          <p>We use Google Analytics only if you accept, to understand website traffic and successful inquiry or application submissions. Analytics stays off if you reject. We do not send your form answers or contact details to Analytics. <a href="/privacy.html#cookies-analytics">Privacy &amp; Data Protection</a></p>
+          <p>We use Google Analytics only if you accept, to understand website traffic and successful inquiry or application submissions. Analytics stays off if you reject. We do not send free-text answers or contact details to Analytics. <a href="/privacy.html#cookies-analytics">Privacy &amp; Data Protection</a></p>
           <p class="analytics-consent-status" data-consent-status hidden></p>
         </div>
         <div class="analytics-consent-actions">

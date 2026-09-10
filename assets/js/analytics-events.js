@@ -251,11 +251,14 @@
     return {};
   }
 
-  function resetFormContext(formType) {
+  function resetFormContext(formType, form) {
     if (formType === "practice-application") {
       safeSessionRemove(PRACTICE_INITIAL_KEY);
       safeSessionRemove(PRACTICE_CURRENT_KEY);
     }
+    form?.querySelectorAll("select").forEach((select) => {
+      if (selectState.has(select)) selectState.set(select, select.value || "");
+    });
   }
 
   window.MEALBridgeMeasurement = Object.freeze({ getFormContext, resetFormContext });
