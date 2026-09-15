@@ -294,10 +294,13 @@
   }
 
   function flashShareStatus(button, label) {
-    const original = button.dataset.originalLabel || text(button) || "Share";
-    button.dataset.originalLabel = original;
-    button.textContent = label;
-    window.setTimeout(() => { button.textContent = original; }, 1600);
+    const key = {Shared: "shared", "Link copied": "copied", "Copy failed": "failed"}[label];
+    button.dataset.i18n = `sharing.${key}`;
+    button.textContent = window.mealBridgeI18n?.get(`sharing.${key}`, label) || label;
+    window.setTimeout(() => {
+      button.dataset.i18n = "sharing.share";
+      button.textContent = window.mealBridgeI18n?.get("sharing.share", "Share") || "Share";
+    }, 1600);
   }
 
   document.querySelectorAll('[data-share-content]').forEach((button) => {
@@ -306,7 +309,9 @@
       const contentType = button.dataset.contentType || "content";
       const contentId = button.dataset.contentId || "";
       const contentName = button.dataset.contentName || "MEAL Bridge";
-      const payload = { title: `${contentName} | MEAL Bridge`, text: `Explore ${contentName} on MEAL Bridge.`, url: shareUrl };
+      const localizedName = window.mealBridgeI18n?.text(contentName) || contentName;
+      const description = window.mealBridgeI18n?.get("sharing.description", "Explore {name} on MEAL Bridge.") || "Explore {name} on MEAL Bridge.";
+      const payload = { title: `${localizedName} | MEAL Bridge`, text: description.replace("{name}", localizedName), url: shareUrl };
 
       if (navigator.share) {
         try {

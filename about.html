@@ -4,6 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="js/i18n-init.js?v=2"></script>
+  <style>
+    html.i18n-loading body { visibility: hidden; }
+  </style>
   <meta name="theme-color" content="#072a52">
   <title>About MEAL Bridge | Practical MEAL Leadership</title>
   <meta name="description"
@@ -124,14 +128,15 @@
     ]
   }
   </script>
-  <script defer src="assets/js/analytics-consent.js"></script>
-  <script defer src="assets/js/main.js">
+  <script defer src="js/analytics-consent.js"></script>
+  <script defer src="js/main.js?v=4">
   </script>
-  <script defer src="assets/js/analytics-events.js"></script>
+  <script defer src="js/i18n.js?v=6"></script>
+  <script defer src="js/analytics-events.js?v=4"></script>
 </head>
 
 <body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#main-content" data-i18n="index.skipLink">Skip to main content</a>
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand" aria-label="MEAL Bridge home">
@@ -140,7 +145,7 @@
       </a>
       <nav class="main-nav" aria-label="Primary navigation">
         <div class="mobile-nav-label">
-          <span>Navigate</span>
+          <span data-i18n="index.mobileNavigate">Navigate</span>
           <button type="button" aria-label="Close navigation">
             <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
               stroke-width="1.8" viewBox="0 0 24 24">
@@ -148,13 +153,14 @@
             </svg>
           </button>
         </div>
-        <a href="index.html">Home</a>
-        <a href="solutions.html">Solutions</a>
-        <a href="academy.html">Academy</a>
-        <a href="about.html" class="active" aria-current="page">About</a>
-        <a href="join-us.html">Join Us</a>
-        <a href="contact.html">Contact</a>
-        <a href="contact.html" class="button button-primary mobile-nav-cta">Start a conversation <svg aria-hidden="true"
+        <button type="button" class="language-toggle" aria-label="Switch to Arabic" aria-pressed="false">العربية</button>
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="solutions.html" data-i18n="nav.solutions">Solutions</a>
+        <a href="academy.html" data-i18n="nav.academy">Academy</a>
+        <a href="about.html" class="active" aria-current="page" data-i18n="nav.about">About</a>
+        <a href="join-us.html" data-i18n="nav.join">Join Us</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <a href="contact.html" class="button button-primary mobile-nav-cta" data-i18n="nav.conversation">Start a conversation <svg aria-hidden="true"
             fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
             viewBox="0 0 24 24">
             <path d="M5 12h14"></path>
@@ -163,7 +169,7 @@
         </a>
       </nav>
       <div class="header-actions">
-        <a href="contact.html" class="button button-primary header-cta">Start a conversation <svg aria-hidden="true"
+        <a href="contact.html" class="button button-primary header-cta" data-i18n="nav.conversation">Start a conversation <svg aria-hidden="true"
             fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
             viewBox="0 0 24 24">
             <path d="M5 12h14"></path>
@@ -185,11 +191,11 @@
       </div>
       <div class="container page-hero-inner">
         <div>
-          <span class="eyebrow eyebrow-light">About MEAL Bridge</span>
-          <h1>Built to close the gap between <span class="hero-accent">MEAL theory and practice.</span>
+          <span class="eyebrow eyebrow-light" data-i18n="about.hero.eyebrow">About MEAL Bridge</span>
+          <h1><span data-i18n="about.hero.titleLead">Built to close the gap between</span> <span class="hero-accent" data-i18n="about.hero.titleAccent">MEAL theory and practice.</span>
           </h1>
           <div class="page-hero-copy">
-            <p>We exist to help organizations build MEAL capability that improves decisions, accountability, programme
+            <p data-i18n="about.hero.lead">We exist to help organizations build MEAL capability that improves decisions, accountability, programme
               quality, and long-term institutional performance.</p>
           </div>
         </div>
@@ -197,15 +203,15 @@
           <div class="about-hero-facts">
             <div>
               <strong>3</strong>
-              <span>connected divisions</span>
+              <span data-i18n="about.hero.divisions">connected divisions</span>
             </div>
             <div>
               <strong>12+</strong>
-              <span>years leadership experience</span>
+              <span data-i18n="about.hero.years">years leadership experience</span>
             </div>
             <div>
               <strong>MENA</strong>
-              <span>regional focus</span>
+              <span data-i18n="about.hero.region">regional focus</span>
             </div>
           </div>
         </div>
@@ -215,27 +221,27 @@
       <div class="container story-grid-new">
         <div>
           <div class="section-heading section-heading-left">
-            <span class="eyebrow">Why we exist</span>
-            <h2>Strong organizations need more than compliant tools.</h2>
+            <span class="eyebrow" data-i18n="about.story.eyebrow">Why we exist</span>
+            <h2 data-i18n="about.story.title">Strong organizations need more than compliant tools.</h2>
             <div class="section-lead">
-              <p>MEAL Bridge was founded on a simple observation: technical knowledge is widely available, yet many
+              <p data-i18n="about.story.lead">MEAL Bridge was founded on a simple observation: technical knowledge is widely available, yet many
                 organizations still struggle to translate it into connected systems, confident teams, and decisions that
                 improve programmes.</p>
             </div>
           </div>
-          <p class="story-body">Our role is to bridge those gaps—between evidence and action, standards and local
+          <p class="story-body" data-i18n="about.story.body">Our role is to bridge those gaps—between evidence and action, standards and local
             realities, technology and people, learning and leadership. The result should not be dependency on an
             external consultant. It should be stronger organizational capability.</p>
         </div>
         <div class="purpose-stack">
           <article class="purpose-card purpose-card-mission">
-            <span>Our mission</span>
-            <h2>Strengthen organizations through practical MEAL consulting, systems, and learning that improve
+            <span data-i18n="about.story.missionLabel">Our mission</span>
+            <h2 data-i18n="about.story.missionText">Strengthen organizations through practical MEAL consulting, systems, and learning that improve
               performance, transparency, and evidence-based decision-making.</h2>
           </article>
           <article class="purpose-card">
-            <span>Our vision</span>
-            <h2>Organizations across MENA equipped to create sustainable, measurable, and people-centred impact.</h2>
+            <span data-i18n="about.story.visionLabel">Our vision</span>
+            <h2 data-i18n="about.story.visionText">Organizations across MENA equipped to create sustainable, measurable, and people-centred impact.</h2>
           </article>
         </div>
       </div>
@@ -243,10 +249,10 @@
     <section class="section principle-section">
       <div class="container">
         <div class="section-heading section-heading-left">
-          <span class="eyebrow">What guides the work</span>
-          <h2>Principles visible in the final system—not only the proposal.</h2>
+          <span class="eyebrow" data-i18n="about.principles.eyebrow">What guides the work</span>
+          <h2 data-i18n="about.principles.title">Principles visible in the final system—not only the proposal.</h2>
           <div class="section-lead">
-            <p>These principles shape how we diagnose problems, make technical choices, work with partners, and judge
+            <p data-i18n="about.principles.lead">These principles shape how we diagnose problems, make technical choices, work with partners, and judge
               whether an engagement has created lasting value.</p>
           </div>
         </div>
@@ -263,8 +269,8 @@
                 </circle>
               </svg>
             </span>
-            <h2>Evidence first</h2>
-            <p>Recommendations must be grounded in credible information, disciplined analysis, and an explicit decision
+            <h2 data-i18n="about.principles.evidenceTitle">Evidence first</h2>
+            <p data-i18n="about.principles.evidenceText">Recommendations must be grounded in credible information, disciplined analysis, and an explicit decision
               need.</p>
           </article>
           <article>
@@ -279,8 +285,8 @@
                 </path>
               </svg>
             </span>
-            <h2>People-centred</h2>
-            <p>MEAL systems should strengthen accountability, improve services, and respect the people whose lives
+            <h2 data-i18n="about.principles.peopleTitle">People-centred</h2>
+            <p data-i18n="about.principles.peopleText">MEAL systems should strengthen accountability, improve services, and respect the people whose lives
               generate the data.</p>
           </article>
           <article>
@@ -292,8 +298,8 @@
                 </path>
               </svg>
             </span>
-            <h2>Practical by design</h2>
-            <p>A technically perfect framework has little value if teams cannot operate it under real constraints.</p>
+            <h2 data-i18n="about.principles.practicalTitle">Practical by design</h2>
+            <p data-i18n="about.principles.practicalText">A technically perfect framework has little value if teams cannot operate it under real constraints.</p>
           </article>
           <article>
             <span>
@@ -304,8 +310,8 @@
                 </path>
               </svg>
             </span>
-            <h2>Learning oriented</h2>
-            <p>Every engagement should leave stronger capability, clearer judgment, and a better next cycle.</p>
+            <h2 data-i18n="about.principles.learningTitle">Learning oriented</h2>
+            <p data-i18n="about.principles.learningText">Every engagement should leave stronger capability, clearer judgment, and a better next cycle.</p>
           </article>
           <article>
             <span>
@@ -317,8 +323,8 @@
                 </path>
               </svg>
             </span>
-            <h2>Integrity always</h2>
-            <p>Confidentiality, transparency, ethical judgment, and responsible evidence use are non-negotiable.</p>
+            <h2 data-i18n="about.principles.integrityTitle">Integrity always</h2>
+            <p data-i18n="about.principles.integrityText">Confidentiality, transparency, ethical judgment, and responsible evidence use are non-negotiable.</p>
           </article>
           <article>
             <span>
@@ -330,8 +336,8 @@
                 </path>
               </svg>
             </span>
-            <h2>Locally grounded</h2>
-            <p>International practice must be adapted to context—not imposed without understanding institutions and
+            <h2 data-i18n="about.principles.localTitle">Locally grounded</h2>
+            <p data-i18n="about.principles.localText">International practice must be adapted to context—not imposed without understanding institutions and
               communities.</p>
           </article>
         </div>
@@ -340,36 +346,36 @@
     <section class="section approach-section" id="approach">
       <div class="container">
         <div class="section-heading section-heading-left">
-          <span class="eyebrow">Our working approach</span>
-          <h2>Build capacity, not dependency.</h2>
+          <span class="eyebrow" data-i18n="about.approach.eyebrow">Our working approach</span>
+          <h2 data-i18n="about.approach.title">Build capacity, not dependency.</h2>
           <div class="section-lead">
-            <p>Success is not measured only by what we deliver. It is measured by what the organization can understand,
+            <p data-i18n="about.approach.lead">Success is not measured only by what we deliver. It is measured by what the organization can understand,
               operate, adapt, and improve after the engagement.</p>
           </div>
         </div>
         <div class="approach-list">
           <article>
             <span>01</span>
-            <h2>Understand before prescribing</h2>
-            <p>We begin with the organization’s context, decisions, people, existing systems, incentives, risks, and
+            <h2 data-i18n="about.approach.step1Title">Understand before prescribing</h2>
+            <p data-i18n="about.approach.step1Text">We begin with the organization’s context, decisions, people, existing systems, incentives, risks, and
               operating constraints.</p>
           </article>
           <article>
             <span>02</span>
-            <h2>Design the whole operating model</h2>
-            <p>We connect methodology, roles, workflows, technology, governance, and capability rather than treating
+            <h2 data-i18n="about.approach.step2Title">Design the whole operating model</h2>
+            <p data-i18n="about.approach.step2Text">We connect methodology, roles, workflows, technology, governance, and capability rather than treating
               them as separate deliverables.</p>
           </article>
           <article>
             <span>03</span>
-            <h2>Build with the people who will use it</h2>
-            <p>Participation and iterative testing make solutions more usable, more owned, and more likely to survive
+            <h2 data-i18n="about.approach.step3Title">Build with the people who will use it</h2>
+            <p data-i18n="about.approach.step3Text">Participation and iterative testing make solutions more usable, more owned, and more likely to survive
               implementation.</p>
           </article>
           <article>
             <span>04</span>
-            <h2>Transfer capability throughout</h2>
-            <p>Coaching, mentoring, documentation, and guided practice are embedded from the start—not postponed to a
+            <h2 data-i18n="about.approach.step4Title">Transfer capability throughout</h2>
+            <p data-i18n="about.approach.step4Text">Coaching, mentoring, documentation, and guided practice are embedded from the start—not postponed to a
               final handover.</p>
           </article>
         </div>
@@ -378,19 +384,19 @@
     <section class="section leadership-section" id="leadership">
       <div class="container">
         <div class="section-heading section-heading-left leadership-team-heading">
-          <span class="eyebrow">Leadership</span>
-          <h2>Distributed leadership. Shared strategic direction. Clear accountability.</h2>
+          <span class="eyebrow" data-i18n="about.leadership.eyebrow">Leadership</span>
+          <h2 data-i18n="about.leadership.title">Distributed leadership. Shared strategic direction. Clear accountability.</h2>
           <div class="section-lead">
-            <p>MEAL Bridge is led through a hybrid leadership model that combines decentralized divisional leadership
+            <p data-i18n="about.leadership.lead">MEAL Bridge is led through a hybrid leadership model that combines decentralized divisional leadership
               with coordinated company-wide governance. Each Managing Partner leads their respective division with
               defined responsibility for its direction, development, quality, and performance, enabling decisions to
               remain close to the technical and operational work.</p>
           </div>
-          <p class="leadership-governance-copy">At the company level, the leadership team works collaboratively on MEAL
+          <p class="leadership-governance-copy" data-i18n="about.leadership.governance1">At the company level, the leadership team works collaboratively on MEAL
             Bridge’s vision, mission, strategic priorities, cross-divisional opportunities, and major organizational
             decisions. This shared approach ensures that the Academy, Systems Development, and Consultancy divisions
             develop as distinct areas of expertise while operating toward one coherent institutional direction.</p>
-          <p class="leadership-governance-copy">The Founder &amp; CEO holds overall executive responsibility for the
+          <p class="leadership-governance-copy" data-i18n="about.leadership.governance2">The Founder &amp; CEO holds overall executive responsibility for the
             company, providing organizational leadership, ensuring alignment across divisions, and overseeing the
             integration of strategy, partnerships, institutional development, and company-wide performance. Managing
             Partners retain clear leadership and accountability within their respective divisions while contributing to
@@ -401,9 +407,9 @@
             <img src="assets/images/humam-alherk.webp" width="1000" height="1198" loading="lazy" decoding="async"
               alt="Humam Alherk, Founder and CEO of MEAL Bridge Consulting LLC" />
             <div>
-              <span>Founder &amp; CEO</span>
+              <span data-i18n="about.leadership.founderRole">Founder &amp; CEO</span>
               <h3>Humam Alherk</h3>
-              <p>Provides overall executive and strategic leadership for MEAL Bridge, with responsibility for
+              <p data-i18n="about.leadership.founderText">Provides overall executive and strategic leadership for MEAL Bridge, with responsibility for
                 organizational direction, institutional development, strategic partnerships, cross-divisional alignment,
                 and company-wide performance. He also provides technical leadership within the company’s Consultancy
                 work.</p>
@@ -413,9 +419,9 @@
             <img src="assets/images/academy-partner.webp" width="1023" height="1411" loading="lazy" decoding="async"
               alt="Hadeel Wardeh, Managing Partner – Academy at MEAL Bridge" />
             <div>
-              <span>Managing Partner – Academy</span>
+              <span data-i18n="about.leadership.academyRole">Managing Partner – Academy</span>
               <h3>Hadeel Wardeh</h3>
-              <p>Leads the strategic and operational development of the MEAL Bridge Academy, including learning
+              <p data-i18n="about.leadership.academyText">Leads the strategic and operational development of the MEAL Bridge Academy, including learning
                 pathways, professional development, participant experience, and the connection between structured
                 learning and applied professional practice.</p>
             </div>
@@ -424,9 +430,9 @@
             <img src="assets/images/muhamed-kheer-abo-khalaf.webp" width="453" height="588" loading="lazy"
               decoding="async" alt="Muhamed Kheer Abo Khalaf, Managing Partner – Systems Development at MEAL Bridge" />
             <div>
-              <span>Managing Partner – Systems Development</span>
+              <span data-i18n="about.leadership.systemsRole">Managing Partner – Systems Development</span>
               <h3>Muhamed Kheer Abo Khalaf</h3>
-              <p>Leads the Systems Development division, with responsibility for digital solutions, connected data
+              <p data-i18n="about.leadership.systemsText">Leads the Systems Development division, with responsibility for digital solutions, connected data
                 workflows, automation, information systems, and practical technologies that strengthen organizational
                 decision-making.</p>
             </div>
@@ -434,13 +440,13 @@
         </div>
         <div class="founder-experience-panel">
           <div>
-            <span class="eyebrow">Experience Behind MEAL Bridge</span>
-            <h2>Professional practice brought into a shared institutional platform.</h2>
-            <p>MEAL Bridge is built on professional experience brought into the company by its leadership. Within that
+            <span class="eyebrow" data-i18n="about.experience.eyebrow">Experience Behind MEAL Bridge</span>
+            <h2 data-i18n="about.experience.title">Professional practice brought into a shared institutional platform.</h2>
+            <p data-i18n="about.experience.lead">MEAL Bridge is built on professional experience brought into the company by its leadership. Within that
               foundation, Humam Alherk brings more than twelve years of progressive MEAL/MERL experience across
               humanitarian and development contexts. This experience predates MEAL Bridge and helps inform the company’s
               technical standards, operating approach, and emphasis on practical implementation.</p>
-            <p class="leadership-copy">His experience spans organizational MEAL leadership, emergency response,
+            <p class="leadership-copy" data-i18n="about.experience.body">His experience spans organizational MEAL leadership, emergency response,
               accountability, evaluations, programme information, digital workflows, capacity development, and the
               practical work of helping teams turn evidence into decisions. Across MEAL Bridge, this technical
               foundation is complemented by dedicated leadership in professional learning and Systems Development,
@@ -453,11 +459,11 @@
                 <path d="M10 11H5a4 4 0 0 1 4-4V4a7 7 0 0 0-7 7v9h8v-9ZM22 11h-5a4 4 0 0 1 4-4V4a7 7 0 0 0-7 7v9h8v-9Z">
                 </path>
               </svg>
-              <p>“The strongest MEAL system is not the most complicated one. It is the one people trust, understand,
+              <p data-i18n="about.experience.quote">“The strongest MEAL system is not the most complicated one. It is the one people trust, understand,
                 use, and continuously improve.”</p>
             </blockquote>
             <div class="leadership-pillars">
-              <span>Integrity</span><span>Impact</span><span>Innovation</span><span>Local capability</span>
+              <span data-i18n="about.experience.integrity">Integrity</span><span data-i18n="about.experience.impact">Impact</span><span data-i18n="about.experience.innovation">Innovation</span><span data-i18n="about.experience.local">Local capability</span>
             </div>
           </div>
         </div>
@@ -467,23 +473,23 @@
       <div class="container collaboration-grid">
         <div>
           <div class="section-heading section-heading-left">
-            <span class="eyebrow">Collaboration</span>
-            <h2>Extend capability through the right partnerships.</h2>
+            <span class="eyebrow" data-i18n="about.collaboration.eyebrow">Collaboration</span>
+            <h2 data-i18n="about.collaboration.title">Extend capability through the right partnerships.</h2>
             <div class="section-lead">
-              <p>MEAL Bridge works with NGOs, universities, public institutions, independent specialists, technology
+              <p data-i18n="about.collaboration.lead">MEAL Bridge works with NGOs, universities, public institutions, independent specialists, technology
                 partners, and professional networks where complementary strengths can create greater value.</p>
             </div>
           </div>
         </div>
         <div class="collaboration-types">
-          <span>Technical assignments</span>
-          <span>Academic collaboration</span>
-          <span>Research &amp; learning</span>
-          <span>Digital innovation</span>
-          <span>Professional networks</span>
-          <span>Regional initiatives</span>
+          <span data-i18n="about.collaboration.type1">Technical assignments</span>
+          <span data-i18n="about.collaboration.type2">Academic collaboration</span>
+          <span data-i18n="about.collaboration.type3">Research &amp; learning</span>
+          <span data-i18n="about.collaboration.type4">Digital innovation</span>
+          <span data-i18n="about.collaboration.type5">Professional networks</span>
+          <span data-i18n="about.collaboration.type6">Regional initiatives</span>
         </div>
-        <a href="contact.html?intent=partnership" class="button button-secondary">Explore a partnership <svg
+        <a href="contact.html?intent=partnership" class="button button-secondary" data-i18n="about.collaboration.button">Explore a partnership <svg
             aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
             stroke-width="1.8" viewBox="0 0 24 24">
             <path d="M5 12h14">
@@ -497,11 +503,11 @@
     <section class="section final-cta-section">
       <div class="container final-cta">
         <div>
-          <span class="eyebrow eyebrow-light">A stronger next cycle</span>
-          <h2>Leave the organization more capable than we found it.</h2>
-          <p>That is the standard behind every consultancy, system, learning programme, and partnership.</p>
+          <span class="eyebrow eyebrow-light" data-i18n="about.cta.eyebrow">A stronger next cycle</span>
+          <h2 data-i18n="about.cta.title">Leave the organization more capable than we found it.</h2>
+          <p data-i18n="about.cta.text">That is the standard behind every consultancy, system, learning programme, and partnership.</p>
         </div>
-        <a href="contact.html" class="button button-white button-large">Talk with MEAL Bridge <svg aria-hidden="true"
+        <a href="contact.html" class="button button-white button-large" data-i18n="about.cta.button">Talk with MEAL Bridge <svg aria-hidden="true"
             fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
             viewBox="0 0 24 24">
             <path d="M5 12h14">
@@ -519,31 +525,31 @@
         <a href="index.html" class="footer-wordmark" aria-label="MEAL Bridge home">
           <span>MEAL</span> BRIDGE<small>CONSULTING LLC</small>
         </a>
-        <p>Practical MEAL consulting, systems development, and professional learning for organizations creating
+        <p data-i18n="index.footer.description">Practical MEAL consulting, systems development, and professional learning for organizations creating
           meaningful impact.</p>
         <div class="footer-signal">
           <span>
-          </span> Empowering smarter decisions
+          </span> <span data-i18n="index.footer.signal">Empowering smarter decisions</span>
         </div>
       </div>
       <div class="footer-column">
-        <h2>Explore</h2>
-        <a href="solutions.html">Solutions</a>
-        <a href="academy.html">Academy</a>
-        <a href="about.html">About</a>
-        <a href="contact.html?intent=partnership">Partnerships</a>
-        <a href="join-us.html">Join Us</a>
+        <h2 data-i18n="index.footer.explore">Explore</h2>
+        <a href="solutions.html" data-i18n="nav.solutions">Solutions</a>
+        <a href="academy.html" data-i18n="nav.academy">Academy</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="contact.html?intent=partnership" data-i18n="index.footer.partnerships">Partnerships</a>
+        <a href="join-us.html" data-i18n="nav.join">Join Us</a>
       </div>
       <div class="footer-column">
-        <h2>Core capabilities</h2>
-        <a href="solutions.html#consultancy">MEAL consultancy</a>
-        <a href="solutions.html#systems">Systems development</a>
-        <a href="academy.html">Capacity development</a>
-        <a href="solutions.html#accountability">Accountability systems</a>
-        <a href="solutions.html#digital">Digital MEAL solutions</a>
+        <h2 data-i18n="index.footer.capabilities">Core capabilities</h2>
+        <a href="solutions.html#consultancy" data-i18n="index.footer.consultancy">MEAL consultancy</a>
+        <a href="solutions.html#systems" data-i18n="index.footer.systems">Systems development</a>
+        <a href="academy.html" data-i18n="index.footer.capacity">Capacity development</a>
+        <a href="solutions.html#accountability" data-i18n="index.footer.accountability">Accountability systems</a>
+        <a href="solutions.html#digital" data-i18n="index.footer.digital">Digital MEAL solutions</a>
       </div>
       <div class="footer-column footer-contact">
-        <h2>Contact</h2>
+        <h2 data-i18n="index.footer.contact">Contact</h2>
         <a href="mailto:info@meal-bridge.com">
           <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
             stroke-width="1.8" viewBox="0 0 24 24">
@@ -559,7 +565,7 @@
             </path>
             <circle cx="12" cy="10" r="2.5">
             </circle>
-          </svg> Rural Damascus, Syria</span>
+          </svg><span data-i18n="index.footer.location"> Rural Damascus, Syria</span></span>
         <span>
           <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
             stroke-width="1.8" viewBox="0 0 24 24">
@@ -567,8 +573,8 @@
             </circle>
             <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18">
             </path>
-          </svg> MENA region · Remote &amp; on-site</span>
-        <a href="contact.html" class="text-link">Send an inquiry <svg aria-hidden="true" fill="none"
+          </svg><span data-i18n="index.footer.region"> MENA region · Remote &amp; on-site</span></span>
+        <a href="contact.html" class="text-link" data-i18n="index.footer.inquiry">Send an inquiry <svg aria-hidden="true" fill="none"
             stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
             <path d="M5 12h14">
             </path>
@@ -579,8 +585,8 @@
       </div>
     </div>
     <div class="container footer-bottom">
-      <p>© 2025 - 2026 MEAL Bridge Consulting LLC. All rights reserved.</p>
-      <p><a href="privacy.html">Privacy &amp; Data Protection</a> · Monitoring · Evaluation · Accountability · Learning
+      <p data-i18n="index.footer.copyright">© 2025 - 2026 MEAL Bridge Consulting LLC. All rights reserved.</p>
+      <p><a href="privacy.html" data-i18n="index.footer.privacy">Privacy &amp; Data Protection</a> <span data-i18n="index.footer.disciplines">· Monitoring · Evaluation · Accountability · Learning</span>
       </p>
     </div>
   </footer>

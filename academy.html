@@ -5,6 +5,8 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <script src="js/i18n-init.js?v=2"></script>
+  <style>html.i18n-loading body { visibility: hidden; }</style>
   <meta content="#072a52" name="theme-color" />
   <title>MEAL Courses &amp; Professional Pathways | MEAL Bridge</title>
   <meta
@@ -130,10 +132,11 @@
     ]
   }
   </script>
-  <script defer src="assets/js/analytics-consent.js"></script>
-  <script defer="" src="assets/js/main.js">
+  <script defer src="js/analytics-consent.js"></script>
+  <script defer="" src="js/main.js?v=4">
   </script>
-  <script defer src="assets/js/analytics-events.js"></script>
+  <script defer src="js/i18n.js?v=6"></script>
+  <script defer src="js/analytics-events.js?v=4"></script>
 </head>
 
 <body>
@@ -154,6 +157,7 @@
             </svg>
           </button>
         </div>
+        <button type="button" class="language-toggle" aria-label="Switch to Arabic" aria-pressed="false">العربية</button>
         <a href="index.html">Home</a>
         <a href="solutions.html">Solutions</a>
         <a href="academy.html" class="active" aria-current="page">Academy</a>
@@ -191,16 +195,15 @@
       </div>
       <div class="container page-hero-inner">
         <div>
-          <span class="eyebrow eyebrow-light">MEAL Bridge Academy</span>
-          <h1>Build capability for your <span class="hero-accent">next MEAL challenge.</span>
+          <span class="eyebrow eyebrow-light" data-i18n="academy.hero.eyebrow">MEAL Bridge Academy</span>
+          <h1><span data-i18n="academy.hero.titleLead">Build capability for your</span> <span class="hero-accent" data-i18n="academy.hero.titleAccent">next MEAL challenge.</span>
           </h1>
           <div class="page-hero-copy">
-            <p>Choose a focused course or follow a structured professional pathway from first principles to system
+            <p data-i18n="academy.hero.lead">Choose a focused course or follow a structured professional pathway from first principles to system
               design, specialization, and leadership.</p>
           </div>
           <div class="academy-hero-actions">
-            <a class="button button-primary button-large" data-academy-show="courses" href="#courses">Explore
-              courses</a>
+            <a class="button button-primary button-large" data-academy-show="courses" href="#courses" data-i18n="academy.hero.button">Explore courses</a>
             <!-- TEMPORARILY DISABLED: Re-enable when the final Academy Catalogue is ready.
 <a class="button button-white button-large" download="" href="assets/docs/MEAL-Bridge-Academy-Catalogue.pdf">Download catalogue</a>
 -->
@@ -212,82 +215,80 @@
               height="1411" src="assets/images/academy-partner.webp" width="1023" />
             <figcaption>
               <span class="academy-partner-name">
-                <strong>Hadeel Wardeh</strong> Academy Managing Partner</span>
+                <strong>Hadeel Wardeh</strong> <span data-i18n="academy.hero.partnerRole">Academy Managing Partner</span></span>
               <span>
-                <strong>5</strong> learning levels</span>
+                <strong>5</strong> <span data-i18n="academy.hero.levels">learning levels</span></span>
               <span>
-                <strong>16</strong> focused courses</span>
+                <strong>16</strong> <span data-i18n="academy.hero.courses">focused courses</span></span>
               <span>
-                <strong>7</strong> career pathways</span>
+                <strong>7</strong> <span data-i18n="academy.hero.pathways">career pathways</span></span>
             </figcaption>
           </figure>
           <div class="academy-partner-bio" id="hadeel-wardeh">
-            <span class="eyebrow eyebrow-light">Academy leadership</span>
-            <p>As Academy Managing Partner, Hadeel Wardeh leads the Academy’s focus on structured, practical
+            <span class="eyebrow eyebrow-light" data-i18n="academy.leadership.eyebrow">Academy leadership</span>
+            <p data-i18n="academy.leadership.lead">As Academy Managing Partner, Hadeel Wardeh leads the Academy’s focus on structured, practical
               professional learning. She helps shape learning pathways, participant experience, and delivery approaches
               that connect technical knowledge with applied practice, supporting learners and organizations to build
               capabilities they can use beyond the classroom.</p>
-            <p class="academy-experience-copy"><strong>Built from practice.</strong> Academy programmes are shaped by
+            <p class="academy-experience-copy"><strong data-i18n="academy.leadership.practiceTitle">Built from practice.</strong> <span data-i18n="academy.leadership.practiceText">Academy programmes are shaped by
               prior professional experience brought into MEAL Bridge across MEAL, humanitarian and development practice,
               professional learning, data, systems, and capacity development—so methods are taught in the context of
-              real operating constraints, not as theory in isolation.</p>
+              real operating constraints, not as theory in isolation.</span></p>
           </div>
         </div>
       </div>
     </section>
     <nav aria-label="Academy page sections" class="academy-catalog-nav">
       <div class="container">
-        <button aria-controls="levels" aria-pressed="false" data-academy-section="levels" type="button">Learning
-          levels</button>
+        <button aria-controls="levels" aria-pressed="false" data-academy-section="levels" type="button" data-i18n="academy.nav.levels">Learning levels</button>
         <button aria-controls="courses" aria-pressed="true" class="is-active" data-academy-section="courses"
-          type="button">Individual courses</button>
-        <button aria-controls="pathways" aria-pressed="false" data-academy-section="pathways" type="button">Professional
-          pathways</button>
+          type="button" data-i18n="academy.nav.courses">Individual courses</button>
+        <button aria-controls="pathways" aria-pressed="false" data-academy-section="pathways" type="button" data-i18n="academy.nav.pathways">Professional pathways</button>
         <button aria-controls="organizations" aria-pressed="false" data-academy-section="organizations"
-          type="button">For organizations</button>
-        <a href="academy-apply.html">Apply</a>
+          type="button" data-i18n="academy.nav.organizations">For organizations</button>
+        <a href="academy-apply.html" data-i18n="academy.nav.apply">Apply</a>
       </div>
     </nav>
     <section class="section academy-level-section" data-academy-panel="levels" id="levels">
       <div class="container">
         <div class="section-heading section-heading-left">
-          <span class="eyebrow">Progressive professional development</span>
-          <h2>Start at the right level. Build toward the next one.</h2>
+          <span class="eyebrow" data-i18n="academy.levels.eyebrow">Progressive professional development</span>
+          <h2 data-i18n="academy.levels.title">Start at the right level. Build toward the next one.</h2>
           <div class="section-lead">
-            <p>The Academy is organized around five stages of capability, making it easier to choose learning that
+            <p data-i18n="academy.levels.lead">The Academy is organized around five stages of capability, making it easier to choose learning that
               matches your current role and professional direction.</p>
           </div>
         </div>
         <ol class="academy-levels">
           <li>
             <span>01</span>
-            <small>Level 1</small>
-            <h3>Explore</h3>
-            <p>Enter the profession, understand MEAL, and plan your development.</p>
+            <small data-i18n="academy.levels.level1.label">Level 1</small>
+            <h3 data-i18n="academy.levels.level1.title">Explore</h3>
+            <p data-i18n="academy.levels.level1.text">Enter the profession, understand MEAL, and plan your development.</p>
           </li>
           <li>
             <span>02</span>
-            <small>Level 2</small>
-            <h3>Practice</h3>
-            <p>Build the core technical competencies required for practical MEAL work.</p>
+            <small data-i18n="academy.levels.level2.label">Level 2</small>
+            <h3 data-i18n="academy.levels.level2.title">Practice</h3>
+            <p data-i18n="academy.levels.level2.text">Build the core technical competencies required for practical MEAL work.</p>
           </li>
           <li>
             <span>03</span>
-            <small>Level 3</small>
-            <h3>Design</h3>
-            <p>Design and strengthen systems, functions, data products, and workflows.</p>
+            <small data-i18n="academy.levels.level3.label">Level 3</small>
+            <h3 data-i18n="academy.levels.level3.title">Design</h3>
+            <p data-i18n="academy.levels.level3.text">Design and strengthen systems, functions, data products, and workflows.</p>
           </li>
           <li>
             <span>04</span>
-            <small>Level 4</small>
-            <h3>Specialize</h3>
-            <p>Develop advanced expertise for complex methods and operating contexts.</p>
+            <small data-i18n="academy.levels.level4.label">Level 4</small>
+            <h3 data-i18n="academy.levels.level4.title">Specialize</h3>
+            <p data-i18n="academy.levels.level4.text">Develop advanced expertise for complex methods and operating contexts.</p>
           </li>
           <li>
             <span>05</span>
-            <small>Level 5</small>
-            <h3>Lead</h3>
-            <p>Manage MEAL teams and influence evidence-based organizational decisions.</p>
+            <small data-i18n="academy.levels.level5.label">Level 5</small>
+            <h3 data-i18n="academy.levels.level5.title">Lead</h3>
+            <p data-i18n="academy.levels.level5.text">Manage MEAL teams and influence evidence-based organizational decisions.</p>
           </li>
         </ol>
       </div>
@@ -296,10 +297,10 @@
       <div class="container">
         <div class="academy-section-heading-row">
           <div class="section-heading section-heading-left">
-            <span class="eyebrow">Individual course catalogue</span>
-            <h2>Sixteen focused courses. Practical outputs from every one.</h2>
+            <span class="eyebrow" data-i18n="academy.catalogue.heading.eyebrow">Individual course catalogue</span>
+            <h2 data-i18n="academy.catalogue.heading.title">Sixteen focused courses. Practical outputs from every one.</h2>
             <div class="section-lead">
-              <p>Open any course to review its purpose, key learning areas, and final applied output.</p>
+              <p data-i18n="academy.catalogue.heading.lead">Open any course to review its purpose, key learning areas, and final applied output.</p>
             </div>
           </div>
           <!-- TEMPORARILY DISABLED: Re-enable when the final Academy Catalogue is ready.
@@ -308,34 +309,34 @@
         </div>
         <div class="academy-course-group">
           <div class="academy-course-group-head academy-level-explore">
-            <span>Explore</span>
-            <p>For people entering or exploring the MEAL profession.</p>
+            <span data-i18n="academy.catalogue.groups.explore.title">Explore</span>
+            <p data-i18n="academy.catalogue.groups.explore.description">For people entering or exploring the MEAL profession.</p>
           </div>
           <div class="academy-course-grid">
             <details class="academy-course-card" id="course-meal-fundamentals">
               <summary>
                 <span class="course-number">01</span>
                 <div>
-                  <small>Explore</small>
-                  <h3>MEAL Fundamentals</h3>
+                  <small data-i18n="academy.catalogue.courses.mealFundamentals.level">Explore</small>
+                  <h3 data-i18n="academy.catalogue.courses.mealFundamentals.title">MEAL Fundamentals</h3>
                 </div>
                 <span aria-hidden="true" class="course-toggle">
                 </span>
               </summary>
               <div class="course-card-body">
-                <p>Understand how monitoring, evaluation, accountability, and learning work together to improve project
+                <p data-i18n="academy.catalogue.courses.mealFundamentals.description">Understand how monitoring, evaluation, accountability, and learning work together to improve project
                   and organizational performance.</p>
                 <ul>
-                  <li>Results-based thinking and programme cycles</li>
-                  <li>Theory of Change, frameworks, and indicators</li>
-                  <li>Accountability, evidence, and learning</li>
+                  <li data-i18n="academy.catalogue.courses.mealFundamentals.topics.one">Results-based thinking and programme cycles</li>
+                  <li data-i18n="academy.catalogue.courses.mealFundamentals.topics.two">Theory of Change, frameworks, and indicators</li>
+                  <li data-i18n="academy.catalogue.courses.mealFundamentals.topics.three">Accountability, evidence, and learning</li>
                 </ul>
                 <p class="course-output">
-                  <b>Final output:</b> A basic MEAL framework for a real or hypothetical project.
+                  <b data-i18n="academy.catalogue.actions.finalOutput">Final output:</b> <span data-i18n="academy.catalogue.courses.mealFundamentals.output">A basic MEAL framework for a real or hypothetical project.</span>
                 </p>
-                <a class="text-link" href="academy-apply.html?type=course&amp;program=MEAL%20Fundamentals">Apply for
+                <a class="text-link" data-i18n="academy.catalogue.actions.apply" href="academy-apply.html?type=course&amp;program=MEAL%20Fundamentals">Apply for
                   this course</a>
-                <button aria-label="Share MEAL Fundamentals" class="content-share-button" data-share-content
+                <button class="content-share-button" data-i18n="academy.catalogue.actions.share" data-share-content
                   data-content-type="academy_course" data-content-id="course-meal-fundamentals"
                   data-content-name="MEAL Fundamentals" type="button">Share</button>
               </div>
@@ -344,27 +345,27 @@
               <summary>
                 <span class="course-number">02</span>
                 <div>
-                  <small>Explore</small>
-                  <h3>Building a MEAL Career</h3>
+                  <small data-i18n="academy.catalogue.courses.buildingMealCareer.level">Explore</small>
+                  <h3 data-i18n="academy.catalogue.courses.buildingMealCareer.title">Building a MEAL Career</h3>
                 </div>
                 <span aria-hidden="true" class="course-toggle">
                 </span>
               </summary>
               <div class="course-card-body">
-                <p>Map MEAL career opportunities, strengthen your professional profile, and prepare for entry and
+                <p data-i18n="academy.catalogue.courses.buildingMealCareer.description">Map MEAL career opportunities, strengthen your professional profile, and prepare for entry and
                   progression in the field.</p>
                 <ul>
-                  <li>Roles, competencies, and career routes</li>
-                  <li>CVs, applications, and interview preparation</li>
-                  <li>Ethics, communication, and consultancy</li>
+                  <li data-i18n="academy.catalogue.courses.buildingMealCareer.topics.one">Roles, competencies, and career routes</li>
+                  <li data-i18n="academy.catalogue.courses.buildingMealCareer.topics.two">CVs, applications, and interview preparation</li>
+                  <li data-i18n="academy.catalogue.courses.buildingMealCareer.topics.three">Ethics, communication, and consultancy</li>
                 </ul>
                 <p class="course-output">
-                  <b>Final output:</b> A personal MEAL Career Development Plan.
+                  <b data-i18n="academy.catalogue.actions.finalOutput">Final output:</b> <span data-i18n="academy.catalogue.courses.buildingMealCareer.output">A personal MEAL Career Development Plan.</span>
                 </p>
                 <a class="text-link"
-                  href="academy-apply.html?type=course&amp;program=Building%20a%20MEAL%20Career">Apply for this
+                  data-i18n="academy.catalogue.actions.apply" href="academy-apply.html?type=course&amp;program=Building%20a%20MEAL%20Career">Apply for this
                   course</a>
-                <button aria-label="Share Building a MEAL Career" class="content-share-button" data-share-content
+                <button class="content-share-button" data-i18n="academy.catalogue.actions.share" data-share-content
                   data-content-type="academy_course" data-content-id="course-building-meal-career"
                   data-content-name="Building a MEAL Career" type="button">Share</button>
               </div>
@@ -373,35 +374,35 @@
         </div>
         <div class="academy-course-group">
           <div class="academy-course-group-head academy-level-practice">
-            <span>Practice</span>
-            <p>For professionals building broad, practical technical competence.</p>
+            <span data-i18n="academy.catalogue.groups.practice.title">Practice</span>
+            <p data-i18n="academy.catalogue.groups.practice.description">For professionals building broad, practical technical competence.</p>
           </div>
           <div class="academy-course-grid">
             <details class="academy-course-card" id="course-monitoring-indicators">
               <summary>
                 <span class="course-number">03</span>
                 <div>
-                  <small>Practice</small>
-                  <h3>Monitoring and Indicator Systems</h3>
+                  <small data-i18n="academy.catalogue.courses.monitoringIndicators.level">Practice</small>
+                  <h3 data-i18n="academy.catalogue.courses.monitoringIndicators.title">Monitoring and Indicator Systems</h3>
                 </div>
                 <span aria-hidden="true" class="course-toggle">
                 </span>
               </summary>
               <div class="course-card-body">
-                <p>Develop the practical skills to design, implement, and manage effective monitoring and indicator
+                <p data-i18n="academy.catalogue.courses.monitoringIndicators.description">Develop the practical skills to design, implement, and manage effective monitoring and indicator
                   systems.</p>
                 <ul>
-                  <li>Indicator design and reference sheets</li>
-                  <li>Monitoring plans, tools, and tracking</li>
-                  <li>Field monitoring and reporting</li>
+                  <li data-i18n="academy.catalogue.courses.monitoringIndicators.topics.one">Indicator design and reference sheets</li>
+                  <li data-i18n="academy.catalogue.courses.monitoringIndicators.topics.two">Monitoring plans, tools, and tracking</li>
+                  <li data-i18n="academy.catalogue.courses.monitoringIndicators.topics.three">Field monitoring and reporting</li>
                 </ul>
                 <p class="course-output">
-                  <b>Final output:</b> A complete monitoring and indicator framework.
+                  <b data-i18n="academy.catalogue.actions.finalOutput">Final output:</b> <span data-i18n="academy.catalogue.courses.monitoringIndicators.output">A complete monitoring and indicator framework.</span>
                 </p>
                 <a class="text-link"
-                  href="academy-apply.html?type=course&amp;program=Monitoring%20and%20Indicator%20Systems">Apply for
+                  data-i18n="academy.catalogue.actions.apply" href="academy-apply.html?type=course&amp;program=Monitoring%20and%20Indicator%20Systems">Apply for
                   this course</a>
-                <button aria-label="Share Monitoring and Indicator Systems" class="content-share-button"
+                <button class="content-share-button" data-i18n="academy.catalogue.actions.share"
                   data-share-content data-content-type="academy_course" data-content-id="course-monitoring-indicators"
                   data-content-name="Monitoring and Indicator Systems" type="button">Share</button>
               </div>
@@ -410,26 +411,26 @@
               <summary>
                 <span class="course-number">04</span>
                 <div>
-                  <small>Practice</small>
-                  <h3>Evaluation Design and Practice</h3>
+                  <small data-i18n="academy.catalogue.courses.evaluationDesign.level">Practice</small>
+                  <h3 data-i18n="academy.catalogue.courses.evaluationDesign.title">Evaluation Design and Practice</h3>
                 </div>
                 <span aria-hidden="true" class="course-toggle">
                 </span>
               </summary>
               <div class="course-card-body">
-                <p>Build the knowledge and practical skills needed to design, manage, assess, and use evaluations.</p>
+                <p data-i18n="academy.catalogue.courses.evaluationDesign.description">Build the knowledge and practical skills needed to design, manage, assess, and use evaluations.</p>
                 <ul>
-                  <li>Questions, criteria, and evaluation designs</li>
-                  <li>Qualitative, quantitative, and mixed methods</li>
-                  <li>Terms of Reference and evaluation quality</li>
+                  <li data-i18n="academy.catalogue.courses.evaluationDesign.topics.one">Questions, criteria, and evaluation designs</li>
+                  <li data-i18n="academy.catalogue.courses.evaluationDesign.topics.two">Qualitative, quantitative, and mixed methods</li>
+                  <li data-i18n="academy.catalogue.courses.evaluationDesign.topics.three">Terms of Reference and evaluation quality</li>
                 </ul>
                 <p class="course-output">
-                  <b>Final output:</b> An evaluation design or evaluation Terms of Reference.
+                  <b data-i18n="academy.catalogue.actions.finalOutput">Final output:</b> <span data-i18n="academy.catalogue.courses.evaluationDesign.output">An evaluation design or evaluation Terms of Reference.</span>
                 </p>
                 <a class="text-link"
-                  href="academy-apply.html?type=course&amp;program=Evaluation%20Design%20and%20Practice">Apply for this
+                  data-i18n="academy.catalogue.actions.apply" href="academy-apply.html?type=course&amp;program=Evaluation%20Design%20and%20Practice">Apply for this
                   course</a>
-                <button aria-label="Share Evaluation Design and Practice" class="content-share-button"
+                <button class="content-share-button" data-i18n="academy.catalogue.actions.share"
                   data-share-content data-content-type="academy_course" data-content-id="course-evaluation-design"
                   data-content-name="Evaluation Design and Practice" type="button">Share</button>
               </div>
@@ -438,27 +439,27 @@
               <summary>
                 <span class="course-number">05</span>
                 <div>
-                  <small>Practice</small>
-                  <h3>Accountability and Community Engagement</h3>
+                  <small data-i18n="academy.catalogue.courses.accountabilityEngagement.level">Practice</small>
+                  <h3 data-i18n="academy.catalogue.courses.accountabilityEngagement.title">Accountability and Community Engagement</h3>
                 </div>
                 <span aria-hidden="true" class="course-toggle">
                 </span>
               </summary>
               <div class="course-card-body">
-                <p>Design accountability and engagement systems that let affected people participate, provide feedback,
+                <p data-i18n="academy.catalogue.courses.accountabilityEngagement.description">Design accountability and engagement systems that let affected people participate, provide feedback,
                   and influence programme decisions.</p>
                 <ul>
-                  <li>Accountability to affected populations</li>
-                  <li>Feedback and complaints mechanisms</li>
-                  <li>Response systems and closing the loop</li>
+                  <li data-i18n="academy.catalogue.courses.accountabilityEngagement.topics.one">Accountability to affected populations</li>
+                  <li data-i18n="academy.catalogue.courses.accountabilityEngagement.topics.two">Feedback and complaints mechanisms</li>
+                  <li data-i18n="academy.catalogue.courses.accountabilityEngagement.topics.three">Response systems and closing the loop</li>
                 </ul>
                 <p class="course-output">
-                  <b>Final output:</b> A community accountability and feedback mechanism design.
+                  <b data-i18n="academy.catalogue.actions.finalOutput">Final output:</b> <span data-i18n="academy.catalogue.courses.accountabilityEngagement.output">A community accountability and feedback mechanism design.</span>
                 </p>
                 <a class="text-link"
-                  href="academy-apply.html?type=course&amp;program=Accountability%20and%20Community%20Engagement">Apply
+                  data-i18n="academy.catalogue.actions.apply" href="academy-apply.html?type=course&amp;program=Accountability%20and%20Community%20Engagement">Apply
                   for this course</a>
-                <button aria-label="Share Accountability and Community Engagement" class="content-share-button"
+                <button class="content-share-button" data-i18n="academy.catalogue.actions.share"
                   data-share-content data-content-type="academy_course"
                   data-content-id="course-accountability-engagement"
                   data-content-name="Accountability and Community Engagement" type="button">Share</button>
@@ -468,27 +469,27 @@
               <summary>
                 <span class="course-number">06</span>
                 <div>
-                  <small>Practice</small>
-                  <h3>Organizational Learning and Adaptive Management</h3>
+                  <small data-i18n="academy.catalogue.courses.organizationalLearning.level">Practice</small>
+                  <h3 data-i18n="academy.catalogue.courses.organizationalLearning.title">Organizational Learning and Adaptive Management</h3>
                 </div>
                 <span aria-hidden="true" class="course-toggle">
                 </span>
               </summary>
               <div class="course-card-body">
-                <p>Transform evidence, reflection, and experience into stronger decisions, adaptive programming, and
+                <p data-i18n="academy.catalogue.courses.organizationalLearning.description">Transform evidence, reflection, and experience into stronger decisions, adaptive programming, and
                   organizational learning.</p>
                 <ul>
-                  <li>After-Action Reviews and reflection</li>
-                  <li>Knowledge sharing and communities of practice</li>
-                  <li>Evidence-to-action feedback loops</li>
+                  <li data-i18n="academy.catalogue.courses.organizationalLearning.topics.one">After-Action Reviews and reflection</li>
+                  <li data-i18n="academy.catalogue.courses.organizationalLearning.topics.two">Knowledge sharing and communities of practice</li>
+                  <li data-i18n="academy.catalogue.courses.organizationalLearning.topics.three">Evidence-to-action feedback loops</li>
                 </ul>
                 <p class="course-output">
-                  <b>Final output:</b> An organizational learning and adaptation plan.
+                  <b data-i18n="academy.catalogue.actions.finalOutput">Final output:</b> <span data-i18n="academy.catalogue.courses.organizationalLearning.output">An organizational learning and adaptation plan.</span>
                 </p>
                 <a class="text-link"
-                  href="academy-apply.html?type=course&amp;program=Organizational%20Learning%20and%20Adaptive%20Management">Apply
+                  data-i18n="academy.catalogue.actions.apply" href="academy-apply.html?type=course&amp;program=Organizational%20Learning%20and%20Adaptive%20Management">Apply
                   for this course</a>
-                <button aria-label="Share Organizational Learning and Adaptive Management" class="content-share-button"
+                <button class="content-share-button" data-i18n="academy.catalogue.actions.share"
                   data-share-content data-content-type="academy_course" data-content-id="course-organizational-learning"
                   data-content-name="Organizational Learning and Adaptive Management" type="button">Share</button>
               </div>
@@ -497,26 +498,26 @@
               <summary>
                 <span class="course-number">07</span>
                 <div>
-                  <small>Practice</small>
-                  <h3>MEAL Data Management</h3>
+                  <small data-i18n="academy.catalogue.courses.dataManagement.level">Practice</small>
+                  <h3 data-i18n="academy.catalogue.courses.dataManagement.title">MEAL Data Management</h3>
                 </div>
                 <span aria-hidden="true" class="course-toggle">
                 </span>
               </summary>
               <div class="course-card-body">
-                <p>Establish reliable systems for collecting, organizing, protecting, and quality-assuring MEAL data.
+                <p data-i18n="academy.catalogue.courses.dataManagement.description">Establish reliable systems for collecting, organizing, protecting, and quality-assuring MEAL data.
                 </p>
                 <ul>
-                  <li>Data flow mapping and collection systems</li>
-                  <li>Cleaning, validation, and quality assurance</li>
-                  <li>Protection, governance, and SOPs</li>
+                  <li data-i18n="academy.catalogue.courses.dataManagement.topics.one">Data flow mapping and collection systems</li>
+                  <li data-i18n="academy.catalogue.courses.dataManagement.topics.two">Cleaning, validation, and quality assurance</li>
+                  <li data-i18n="academy.catalogue.courses.dataManagement.topics.three">Protection, governance, and SOPs</li>
                 </ul>
                 <p class="course-output">
-                  <b>Final output:</b> A MEAL data management and data flow system.
+                  <b data-i18n="academy.catalogue.actions.finalOutput">Final output:</b> <span data-i18n="academy.catalogue.courses.dataManagement.output">A MEAL data management and data flow system.</span>
                 </p>
-                <a class="text-link" href="academy-apply.html?type=course&amp;program=MEAL%20Data%20Management">Apply
+                <a class="text-link" data-i18n="academy.catalogue.actions.apply" href="academy-apply.html?type=course&amp;program=MEAL%20Data%20Management">Apply
                   for this course</a>
-                <button aria-label="Share MEAL Data Management" class="content-share-button" data-share-content
+                <button class="content-share-button" data-i18n="academy.catalogue.actions.share" data-share-content
                   data-content-type="academy_course" data-content-id="course-data-management"
                   data-content-name="MEAL Data Management" type="button">Share</button>
               </div>
@@ -525,27 +526,27 @@
               <summary>
                 <span class="course-number">08</span>
                 <div>
-                  <small>Practice</small>
-                  <h3>MEAL Data Analysis and Interpretation</h3>
+                  <small data-i18n="academy.catalogue.courses.dataAnalysis.level">Practice</small>
+                  <h3 data-i18n="academy.catalogue.courses.dataAnalysis.title">MEAL Data Analysis and Interpretation</h3>
                 </div>
                 <span aria-hidden="true" class="course-toggle">
                 </span>
               </summary>
               <div class="course-card-body">
-                <p>Analyze quantitative and qualitative data and turn findings into meaningful conclusions and practical
+                <p data-i18n="academy.catalogue.courses.dataAnalysis.description">Analyze quantitative and qualitative data and turn findings into meaningful conclusions and practical
                   recommendations.</p>
                 <ul>
-                  <li>Sampling and descriptive statistics</li>
-                  <li>Quantitative, qualitative, and mixed analysis</li>
-                  <li>Interpretation and evidence-based recommendations</li>
+                  <li data-i18n="academy.catalogue.courses.dataAnalysis.topics.one">Sampling and descriptive statistics</li>
+                  <li data-i18n="academy.catalogue.courses.dataAnalysis.topics.two">Quantitative, qualitative, and mixed analysis</li>
+                  <li data-i18n="academy.catalogue.courses.dataAnalysis.topics.three">Interpretation and evidence-based recommendations</li>
                 </ul>
                 <p class="course-output">
-                  <b>Final output:</b> An analytical report based on a MEAL dataset.
+                  <b data-i18n="academy.catalogue.actions.finalOutput">Final output:</b> <span data-i18n="academy.catalogue.courses.dataAnalysis.output">An analytical report based on a MEAL dataset.</span>
                 </p>
                 <a class="text-link"
-                  href="academy-apply.html?type=course&amp;program=MEAL%20Data%20Analysis%20and%20Interpretation">Apply
+                  data-i18n="academy.catalogue.actions.apply" href="academy-apply.html?type=course&amp;program=MEAL%20Data%20Analysis%20and%20Interpretation">Apply
                   for this course</a>
-                <button aria-label="Share MEAL Data Analysis and Interpretation" class="content-share-button"
+                <button class="content-share-button" data-i18n="academy.catalogue.actions.share"
                   data-share-content data-content-type="academy_course" data-content-id="course-data-analysis"
                   data-content-name="MEAL Data Analysis and Interpretation" type="button">Share</button>
               </div>
@@ -554,33 +555,33 @@
         </div>
         <div class="academy-course-group">
           <div class="academy-course-group-head academy-level-design">
-            <span>Design</span>
-            <p>For professionals designing and strengthening MEAL systems.</p>
+            <span data-i18n="academy.catalogue.groups.design.title">Design</span>
+            <p data-i18n="academy.catalogue.groups.design.description">For professionals designing and strengthening MEAL systems.</p>
           </div>
           <div class="academy-course-grid">
             <details class="academy-course-card" id="course-system-design">
               <summary>
                 <span class="course-number">09</span>
                 <div>
-                  <small>Design</small>
-                  <h3>MEAL System Design</h3>
+                  <small data-i18n="academy.catalogue.courses.systemDesign.level">Design</small>
+                  <h3 data-i18n="academy.catalogue.courses.systemDesign.title">MEAL System Design</h3>
                 </div>
                 <span aria-hidden="true" class="course-toggle">
                 </span>
               </summary>
               <div class="course-card-body">
-                <p>Analyze, design, and improve integrated MEAL systems using the MEAL Bridge 5R Framework.</p>
+                <p data-i18n="academy.catalogue.courses.systemDesign.description">Analyze, design, and improve integrated MEAL systems using the MEAL Bridge 5R Framework.</p>
                 <ul>
-                  <li>Rules, roles, relationships, resources, and results</li>
-                  <li>Governance, architecture, and data flows</li>
-                  <li>Quality assurance, policies, and sustainability</li>
+                  <li data-i18n="academy.catalogue.courses.systemDesign.topics.one">Rules, roles, relationships, resources, and results</li>
+                  <li data-i18n="academy.catalogue.courses.systemDesign.topics.two">Governance, architecture, and data flows</li>
+                  <li data-i18n="academy.catalogue.courses.systemDesign.topics.three">Quality assurance, policies, and sustainability</li>
                 </ul>
                 <p class="course-output">
-                  <b>Final output:</b> A complete MEAL system design or improvement plan.
+                  <b data-i18n="academy.catalogue.actions.finalOutput">Final output:</b> <span data-i18n="academy.catalogue.courses.systemDesign.output">A complete MEAL system design or improvement plan.</span>
                 </p>
-                <a class="text-link" href="academy-apply.html?type=course&amp;program=MEAL%20System%20Design">Apply for
+                <a class="text-link" data-i18n="academy.catalogue.actions.apply" href="academy-apply.html?type=course&amp;program=MEAL%20System%20Design">Apply for
                   this course</a>
-                <button aria-label="Share MEAL System Design" class="content-share-button" data-share-content
+                <button class="content-share-button" data-i18n="academy.catalogue.actions.share" data-share-content
                   data-content-type="academy_course" data-content-id="course-system-design"
                   data-content-name="MEAL System Design" type="button">Share</button>
               </div>
@@ -589,27 +590,27 @@
               <summary>
                 <span class="course-number">10</span>
                 <div>
-                  <small>Design</small>
-                  <h3>Building Organizational MEAL Functions</h3>
+                  <small data-i18n="academy.catalogue.courses.organizationalFunctions.level">Design</small>
+                  <h3 data-i18n="academy.catalogue.courses.organizationalFunctions.title">Building Organizational MEAL Functions</h3>
                 </div>
                 <span aria-hidden="true" class="course-toggle">
                 </span>
               </summary>
               <div class="course-card-body">
-                <p>Build the structures, people, resources, and institutional conditions required for an effective MEAL
+                <p data-i18n="academy.catalogue.courses.organizationalFunctions.description">Build the structures, people, resources, and institutional conditions required for an effective MEAL
                   function.</p>
                 <ul>
-                  <li>Capacity assessment and maturity models</li>
-                  <li>Staffing, team structures, and competencies</li>
-                  <li>Institutionalization and sustainability</li>
+                  <li data-i18n="academy.catalogue.courses.organizationalFunctions.topics.one">Capacity assessment and maturity models</li>
+                  <li data-i18n="academy.catalogue.courses.organizationalFunctions.topics.two">Staffing, team structures, and competencies</li>
+                  <li data-i18n="academy.catalogue.courses.organizationalFunctions.topics.three">Institutionalization and sustainability</li>
                 </ul>
                 <p class="course-output">
-                  <b>Final output:</b> An organizational MEAL capacity strengthening plan.
+                  <b data-i18n="academy.catalogue.actions.finalOutput">Final output:</b> <span data-i18n="academy.catalogue.courses.organizationalFunctions.output">An organizational MEAL capacity strengthening plan.</span>
                 </p>
                 <a class="text-link"
-                  href="academy-apply.html?type=course&amp;program=Building%20Organizational%20MEAL%20Functions">Apply
+                  data-i18n="academy.catalogue.actions.apply" href="academy-apply.html?type=course&amp;program=Building%20Organizational%20MEAL%20Functions">Apply
                   for this course</a>
-                <button aria-label="Share Building Organizational MEAL Functions" class="content-share-button"
+                <button class="content-share-button" data-i18n="academy.catalogue.actions.share"
                   data-share-content data-content-type="academy_course"
                   data-content-id="course-organizational-functions"
                   data-content-name="Building Organizational MEAL Functions" type="button">Share</button>
@@ -619,26 +620,26 @@
               <summary>
                 <span class="course-number">11</span>
                 <div>
-                  <small>Design</small>
-                  <h3>Data Visualization, Dashboards and Reporting</h3>
+                  <small data-i18n="academy.catalogue.courses.dataVisualization.level">Design</small>
+                  <h3 data-i18n="academy.catalogue.courses.dataVisualization.title">Data Visualization, Dashboards and Reporting</h3>
                 </div>
                 <span aria-hidden="true" class="course-toggle">
                 </span>
               </summary>
               <div class="course-card-body">
-                <p>Transform MEAL data into clear visualizations, dashboards, and reports that support decisions.</p>
+                <p data-i18n="academy.catalogue.courses.dataVisualization.description">Transform MEAL data into clear visualizations, dashboards, and reports that support decisions.</p>
                 <ul>
-                  <li>Visualization and data storytelling</li>
-                  <li>KPI and dashboard design</li>
-                  <li>Executive and donor reporting</li>
+                  <li data-i18n="academy.catalogue.courses.dataVisualization.topics.one">Visualization and data storytelling</li>
+                  <li data-i18n="academy.catalogue.courses.dataVisualization.topics.two">KPI and dashboard design</li>
+                  <li data-i18n="academy.catalogue.courses.dataVisualization.topics.three">Executive and donor reporting</li>
                 </ul>
                 <p class="course-output">
-                  <b>Final output:</b> A functional MEAL dashboard and evidence-based report.
+                  <b data-i18n="academy.catalogue.actions.finalOutput">Final output:</b> <span data-i18n="academy.catalogue.courses.dataVisualization.output">A functional MEAL dashboard and evidence-based report.</span>
                 </p>
                 <a class="text-link"
-                  href="academy-apply.html?type=course&amp;program=Data%20Visualization%2C%20Dashboards%20and%20Reporting">Apply
+                  data-i18n="academy.catalogue.actions.apply" href="academy-apply.html?type=course&amp;program=Data%20Visualization%2C%20Dashboards%20and%20Reporting">Apply
                   for this course</a>
-                <button aria-label="Share Data Visualization, Dashboards and Reporting" class="content-share-button"
+                <button class="content-share-button" data-i18n="academy.catalogue.actions.share"
                   data-share-content data-content-type="academy_course" data-content-id="course-data-visualization"
                   data-content-name="Data Visualization, Dashboards and Reporting" type="button">Share</button>
               </div>
@@ -647,26 +648,26 @@
               <summary>
                 <span class="course-number">12</span>
                 <div>
-                  <small>Design</small>
-                  <h3>Digital MEAL and AI</h3>
+                  <small data-i18n="academy.catalogue.courses.digitalMealAi.level">Design</small>
+                  <h3 data-i18n="academy.catalogue.courses.digitalMealAi.title">Digital MEAL and AI</h3>
                 </div>
                 <span aria-hidden="true" class="course-toggle">
                 </span>
               </summary>
               <div class="course-card-body">
-                <p>Use digital tools, automation, and AI to strengthen MEAL while maintaining ethical and responsible
+                <p data-i18n="academy.catalogue.courses.digitalMealAi.description">Use digital tools, automation, and AI to strengthen MEAL while maintaining ethical and responsible
                   practice.</p>
                 <ul>
-                  <li>Digital collection, no-code tools, and automation</li>
-                  <li>AI-assisted analysis and reporting</li>
-                  <li>Privacy, data ethics, and responsible AI</li>
+                  <li data-i18n="academy.catalogue.courses.digitalMealAi.topics.one">Digital collection, no-code tools, and automation</li>
+                  <li data-i18n="academy.catalogue.courses.digitalMealAi.topics.two">AI-assisted analysis and reporting</li>
+                  <li data-i18n="academy.catalogue.courses.digitalMealAi.topics.three">Privacy, data ethics, and responsible AI</li>
                 </ul>
                 <p class="course-output">
-                  <b>Final output:</b> A digital MEAL transformation or AI application plan.
+                  <b data-i18n="academy.catalogue.actions.finalOutput">Final output:</b> <span data-i18n="academy.catalogue.courses.digitalMealAi.output">A digital MEAL transformation or AI application plan.</span>
                 </p>
-                <a class="text-link" href="academy-apply.html?type=course&amp;program=Digital%20MEAL%20and%20AI">Apply
+                <a class="text-link" data-i18n="academy.catalogue.actions.apply" href="academy-apply.html?type=course&amp;program=Digital%20MEAL%20and%20AI">Apply
                   for this course</a>
-                <button aria-label="Share Digital MEAL and AI" class="content-share-button" data-share-content
+                <button class="content-share-button" data-i18n="academy.catalogue.actions.share" data-share-content
                   data-content-type="academy_course" data-content-id="course-digital-meal-ai"
                   data-content-name="Digital MEAL and AI" type="button">Share</button>
               </div>
@@ -675,36 +676,35 @@
         </div>
         <div class="academy-course-group">
           <div class="academy-course-group-head academy-level-specialize">
-            <span>Specialize</span>
-            <p>For advanced and context-specific technical expertise.</p>
+            <span data-i18n="academy.catalogue.groups.specialize.title">Specialize</span>
+            <p data-i18n="academy.catalogue.groups.specialize.description">For advanced and context-specific technical expertise.</p>
           </div>
           <div class="academy-course-grid">
             <details class="academy-course-card" id="course-humanitarian-meal">
               <summary>
                 <span class="course-number">13</span>
                 <div>
-                  <small>Specialize</small>
-                  <h3>MEAL in Humanitarian and Conflict-Affected Contexts</h3>
+                  <small data-i18n="academy.catalogue.courses.humanitarianMeal.level">Specialize</small>
+                  <h3 data-i18n="academy.catalogue.courses.humanitarianMeal.title">MEAL in Humanitarian and Conflict-Affected Contexts</h3>
                 </div>
                 <span aria-hidden="true" class="course-toggle">
                 </span>
               </summary>
               <div class="course-card-body">
-                <p>Adapt MEAL approaches for emergencies, fragile contexts, conflict-affected environments, and
+                <p data-i18n="academy.catalogue.courses.humanitarianMeal.description">Adapt MEAL approaches for emergencies, fragile contexts, conflict-affected environments, and
                   constrained access.</p>
                 <ul>
-                  <li>Conflict sensitivity and Do No Harm</li>
-                  <li>Remote MEAL and rapid assessments</li>
-                  <li>Real-time monitoring and adaptive programming</li>
+                  <li data-i18n="academy.catalogue.courses.humanitarianMeal.topics.one">Conflict sensitivity and Do No Harm</li>
+                  <li data-i18n="academy.catalogue.courses.humanitarianMeal.topics.two">Remote MEAL and rapid assessments</li>
+                  <li data-i18n="academy.catalogue.courses.humanitarianMeal.topics.three">Real-time monitoring and adaptive programming</li>
                 </ul>
                 <p class="course-output">
-                  <b>Final output:</b> A context-adapted humanitarian MEAL approach.
+                  <b data-i18n="academy.catalogue.actions.finalOutput">Final output:</b> <span data-i18n="academy.catalogue.courses.humanitarianMeal.output">A context-adapted humanitarian MEAL approach.</span>
                 </p>
                 <a class="text-link"
-                  href="academy-apply.html?type=course&amp;program=MEAL%20in%20Humanitarian%20and%20Conflict-Affected%20Contexts">Apply
+                  data-i18n="academy.catalogue.actions.apply" href="academy-apply.html?type=course&amp;program=MEAL%20in%20Humanitarian%20and%20Conflict-Affected%20Contexts">Apply
                   for this course</a>
-                <button aria-label="Share MEAL in Humanitarian and Conflict-Affected Contexts"
-                  class="content-share-button" data-share-content data-content-type="academy_course"
+                <button class="content-share-button" data-i18n="academy.catalogue.actions.share" data-share-content data-content-type="academy_course"
                   data-content-id="course-humanitarian-meal"
                   data-content-name="MEAL in Humanitarian and Conflict-Affected Contexts" type="button">Share</button>
               </div>
@@ -713,26 +713,26 @@
               <summary>
                 <span class="course-number">14</span>
                 <div>
-                  <small>Specialize</small>
-                  <h3>Advanced Evaluation Methods</h3>
+                  <small data-i18n="academy.catalogue.courses.advancedEvaluation.level">Specialize</small>
+                  <h3 data-i18n="academy.catalogue.courses.advancedEvaluation.title">Advanced Evaluation Methods</h3>
                 </div>
                 <span aria-hidden="true" class="course-toggle">
                 </span>
               </summary>
               <div class="course-card-body">
-                <p>Apply advanced approaches for assessing contribution, causality, complexity, and change.</p>
+                <p data-i18n="academy.catalogue.courses.advancedEvaluation.description">Apply advanced approaches for assessing contribution, causality, complexity, and change.</p>
                 <ul>
-                  <li>Counterfactuals and causal inference</li>
-                  <li>Contribution analysis and outcome harvesting</li>
-                  <li>Developmental and complexity-aware evaluation</li>
+                  <li data-i18n="academy.catalogue.courses.advancedEvaluation.topics.one">Counterfactuals and causal inference</li>
+                  <li data-i18n="academy.catalogue.courses.advancedEvaluation.topics.two">Contribution analysis and outcome harvesting</li>
+                  <li data-i18n="academy.catalogue.courses.advancedEvaluation.topics.three">Developmental and complexity-aware evaluation</li>
                 </ul>
                 <p class="course-output">
-                  <b>Final output:</b> An advanced evaluation design or methodology plan.
+                  <b data-i18n="academy.catalogue.actions.finalOutput">Final output:</b> <span data-i18n="academy.catalogue.courses.advancedEvaluation.output">An advanced evaluation design or methodology plan.</span>
                 </p>
                 <a class="text-link"
-                  href="academy-apply.html?type=course&amp;program=Advanced%20Evaluation%20Methods">Apply for this
+                  data-i18n="academy.catalogue.actions.apply" href="academy-apply.html?type=course&amp;program=Advanced%20Evaluation%20Methods">Apply for this
                   course</a>
-                <button aria-label="Share Advanced Evaluation Methods" class="content-share-button" data-share-content
+                <button class="content-share-button" data-i18n="academy.catalogue.actions.share" data-share-content
                   data-content-type="academy_course" data-content-id="course-advanced-evaluation"
                   data-content-name="Advanced Evaluation Methods" type="button">Share</button>
               </div>
@@ -741,27 +741,26 @@
               <summary>
                 <span class="course-number">15</span>
                 <div>
-                  <small>Specialize</small>
-                  <h3>Third-Party Monitoring and Independent Verification</h3>
+                  <small data-i18n="academy.catalogue.courses.thirdPartyMonitoring.level">Specialize</small>
+                  <h3 data-i18n="academy.catalogue.courses.thirdPartyMonitoring.title">Third-Party Monitoring and Independent Verification</h3>
                 </div>
                 <span aria-hidden="true" class="course-toggle">
                 </span>
               </summary>
               <div class="course-card-body">
-                <p>Design, manage, and quality-assure third-party monitoring and independent verification systems.</p>
+                <p data-i18n="academy.catalogue.courses.thirdPartyMonitoring.description">Design, manage, and quality-assure third-party monitoring and independent verification systems.</p>
                 <ul>
-                  <li>TPM models and methodologies</li>
-                  <li>Remote TPM and independent verification</li>
-                  <li>Data quality, reporting, and project management</li>
+                  <li data-i18n="academy.catalogue.courses.thirdPartyMonitoring.topics.one">TPM models and methodologies</li>
+                  <li data-i18n="academy.catalogue.courses.thirdPartyMonitoring.topics.two">Remote TPM and independent verification</li>
+                  <li data-i18n="academy.catalogue.courses.thirdPartyMonitoring.topics.three">Data quality, reporting, and project management</li>
                 </ul>
                 <p class="course-output">
-                  <b>Final output:</b> A complete TPM design or independent verification plan.
+                  <b data-i18n="academy.catalogue.actions.finalOutput">Final output:</b> <span data-i18n="academy.catalogue.courses.thirdPartyMonitoring.output">A complete TPM design or independent verification plan.</span>
                 </p>
                 <a class="text-link"
-                  href="academy-apply.html?type=course&amp;program=Third-Party%20Monitoring%20and%20Independent%20Verification">Apply
+                  data-i18n="academy.catalogue.actions.apply" href="academy-apply.html?type=course&amp;program=Third-Party%20Monitoring%20and%20Independent%20Verification">Apply
                   for this course</a>
-                <button aria-label="Share Third-Party Monitoring and Independent Verification"
-                  class="content-share-button" data-share-content data-content-type="academy_course"
+                <button class="content-share-button" data-i18n="academy.catalogue.actions.share" data-share-content data-content-type="academy_course"
                   data-content-id="course-third-party-monitoring"
                   data-content-name="Third-Party Monitoring and Independent Verification" type="button">Share</button>
               </div>
@@ -770,35 +769,35 @@
         </div>
         <div class="academy-course-group academy-course-group-last">
           <div class="academy-course-group-head academy-level-lead">
-            <span>Lead</span>
-            <p>For experienced professionals leading teams and MEAL functions.</p>
+            <span data-i18n="academy.catalogue.groups.lead.title">Lead</span>
+            <p data-i18n="academy.catalogue.groups.lead.description">For experienced professionals leading teams and MEAL functions.</p>
           </div>
           <div class="academy-course-grid">
             <details class="academy-course-card" id="course-leadership-management">
               <summary>
                 <span class="course-number">16</span>
                 <div>
-                  <small>Lead</small>
-                  <h3>MEAL Leadership and Management</h3>
+                  <small data-i18n="academy.catalogue.courses.leadershipManagement.level">Lead</small>
+                  <h3 data-i18n="academy.catalogue.courses.leadershipManagement.title">MEAL Leadership and Management</h3>
                 </div>
                 <span aria-hidden="true" class="course-toggle">
                 </span>
               </summary>
               <div class="course-card-body">
-                <p>Develop the leadership, management, and strategic capabilities required to lead MEAL teams and
+                <p data-i18n="academy.catalogue.courses.leadershipManagement.description">Develop the leadership, management, and strategic capabilities required to lead MEAL teams and
                   influence organizational decisions.</p>
                 <ul>
-                  <li>Team structures, work planning, and budgeting</li>
-                  <li>Managing teams, consultants, and resources</li>
-                  <li>Evidence-based influence and organizational learning</li>
+                  <li data-i18n="academy.catalogue.courses.leadershipManagement.topics.one">Team structures, work planning, and budgeting</li>
+                  <li data-i18n="academy.catalogue.courses.leadershipManagement.topics.two">Managing teams, consultants, and resources</li>
+                  <li data-i18n="academy.catalogue.courses.leadershipManagement.topics.three">Evidence-based influence and organizational learning</li>
                 </ul>
                 <p class="course-output">
-                  <b>Final output:</b> A strategic MEAL leadership and management plan.
+                  <b data-i18n="academy.catalogue.actions.finalOutput">Final output:</b> <span data-i18n="academy.catalogue.courses.leadershipManagement.output">A strategic MEAL leadership and management plan.</span>
                 </p>
                 <a class="text-link"
-                  href="academy-apply.html?type=course&amp;program=MEAL%20Leadership%20and%20Management">Apply for this
+                  data-i18n="academy.catalogue.actions.apply" href="academy-apply.html?type=course&amp;program=MEAL%20Leadership%20and%20Management">Apply for this
                   course</a>
-                <button aria-label="Share MEAL Leadership and Management" class="content-share-button"
+                <button class="content-share-button" data-i18n="academy.catalogue.actions.share"
                   data-share-content data-content-type="academy_course" data-content-id="course-leadership-management"
                   data-content-name="MEAL Leadership and Management" type="button">Share</button>
               </div>
@@ -806,8 +805,8 @@
           </div>
         </div>
         <div class="academy-access-note">
-          <strong>Access and affordability</strong>
-          <p>Early-enrollment discounts, student or unemployed learner discounts, and partial scholarships may be
+          <strong data-i18n="academy.catalogue.access.title">Access and affordability</strong>
+          <p data-i18n="academy.catalogue.access.text">Early-enrollment discounts, student or unemployed learner discounts, and partial scholarships may be
             available for selected cohorts.</p>
         </div>
       </div>
@@ -815,10 +814,10 @@
     <section class="section academy-pathway-catalog" data-academy-panel="pathways" id="pathways">
       <div class="container">
         <div class="section-heading section-heading-left">
-          <span class="eyebrow">Professional learning pathways</span>
-          <h2>Combine courses into a coherent professional journey.</h2>
+          <span class="eyebrow" data-i18n="academy.pathways.eyebrow">Professional learning pathways</span>
+          <h2 data-i18n="academy.pathways.title">Combine courses into a coherent professional journey.</h2>
           <div class="section-lead">
-            <p>Pathways package related courses around a clear professional outcome and a portfolio of applied work.</p>
+            <p data-i18n="academy.pathways.lead">Pathways package related courses around a clear professional outcome and a portfolio of applied work.</p>
           </div>
         </div>
         <div class="professional-pathway-grid">
@@ -826,224 +825,211 @@
             <summary>
               <span class="pathway-code">01</span>
               <div>
-                <small>Entry pathway</small>
-                <h3>MEAL Explorer</h3>
-                <p>2 courses</p>
+                <small data-i18n="academy.pathways.explorer.type">Entry pathway</small>
+                <h3 data-i18n="academy.pathways.explorer.title">MEAL Explorer</h3>
+                <p data-i18n="academy.pathways.explorer.courseCount">2 courses</p>
               </div>
               <span aria-hidden="true" class="course-toggle">
               </span>
             </summary>
             <div>
-              <p>For students, graduates, career changers, volunteers, and people with no formal MEAL experience.</p>
+              <p data-i18n="academy.pathways.explorer.audience">For students, graduates, career changers, volunteers, and people with no formal MEAL experience.</p>
               <ol>
-                <li>MEAL Fundamentals</li>
-                <li>Building a MEAL Career</li>
+                <li data-i18n="academy.pathways.explorer.course1">MEAL Fundamentals</li>
+                <li data-i18n="academy.pathways.explorer.course2">Building a MEAL Career</li>
               </ol>
               <p class="course-output">
-                <b>Outcome:</b> A personal development plan and basic MEAL framework.
+                <b data-i18n="academy.pathways.outcomeLabel">Outcome:</b> <span data-i18n="academy.pathways.explorer.outcome">A personal development plan and basic MEAL framework.</span>
               </p>
-              <a class="text-link" href="academy-apply.html?type=pathway&amp;program=MEAL%20Explorer">Apply for this
-                pathway</a>
+              <a class="text-link" href="academy-apply.html?type=pathway&amp;program=MEAL%20Explorer" data-i18n="academy.pathways.apply">Apply for this pathway</a>
               <button aria-label="Share MEAL Explorer" class="content-share-button" data-share-content
                 data-content-type="academy_pathway" data-content-id="pathway-meal-explorer"
-                data-content-name="MEAL Explorer" type="button">Share</button>
+                data-content-name="MEAL Explorer" type="button" data-i18n="academy.pathways.share">Share</button>
             </div>
           </details>
           <details class="professional-pathway-card" id="pathway-meal-practitioner">
             <summary>
               <span class="pathway-code">02</span>
               <div>
-                <small>Core pathway</small>
-                <h3>MEAL Practitioner</h3>
-                <p>7 courses</p>
+                <small data-i18n="academy.pathways.practitioner.type">Core pathway</small>
+                <h3 data-i18n="academy.pathways.practitioner.title">MEAL Practitioner</h3>
+                <p data-i18n="academy.pathways.practitioner.courseCount">7 courses</p>
               </div>
               <span aria-hidden="true" class="course-toggle">
               </span>
             </summary>
             <div>
-              <p>For junior and mid-level professionals seeking broad competence across the major MEAL functions.</p>
+              <p data-i18n="academy.pathways.practitioner.audience">For junior and mid-level professionals seeking broad competence across the major MEAL functions.</p>
               <ol>
-                <li>MEAL Fundamentals</li>
-                <li>Monitoring and Indicator Systems</li>
-                <li>Evaluation Design and Practice</li>
-                <li>Accountability and Community Engagement</li>
-                <li>Organizational Learning and Adaptive Management</li>
-                <li>MEAL Data Management</li>
-                <li>MEAL Data Analysis and Interpretation</li>
+                <li data-i18n="academy.pathways.practitioner.course1">MEAL Fundamentals</li>
+                <li data-i18n="academy.pathways.practitioner.course2">Monitoring and Indicator Systems</li>
+                <li data-i18n="academy.pathways.practitioner.course3">Evaluation Design and Practice</li>
+                <li data-i18n="academy.pathways.practitioner.course4">Accountability and Community Engagement</li>
+                <li data-i18n="academy.pathways.practitioner.course5">Organizational Learning and Adaptive Management</li>
+                <li data-i18n="academy.pathways.practitioner.course6">MEAL Data Management</li>
+                <li data-i18n="academy.pathways.practitioner.course7">MEAL Data Analysis and Interpretation</li>
               </ol>
               <p class="course-output">
-                <b>Outcome:</b> A complete portfolio spanning monitoring, evaluation, accountability, data, and
-                learning.
+                <b data-i18n="academy.pathways.outcomeLabel">Outcome:</b> <span data-i18n="academy.pathways.practitioner.outcome">A complete portfolio spanning monitoring, evaluation, accountability, data, and learning.</span>
               </p>
-              <a class="text-link" href="academy-apply.html?type=pathway&amp;program=MEAL%20Practitioner">Apply for this
-                pathway</a>
+              <a class="text-link" href="academy-apply.html?type=pathway&amp;program=MEAL%20Practitioner" data-i18n="academy.pathways.apply">Apply for this pathway</a>
               <button aria-label="Share MEAL Practitioner" class="content-share-button" data-share-content
                 data-content-type="academy_pathway" data-content-id="pathway-meal-practitioner"
-                data-content-name="MEAL Practitioner" type="button">Share</button>
+                data-content-name="MEAL Practitioner" type="button" data-i18n="academy.pathways.share">Share</button>
             </div>
           </details>
           <details class="professional-pathway-card" id="pathway-meal-systems-designer">
             <summary>
               <span class="pathway-code">03</span>
               <div>
-                <small>Design pathway</small>
-                <h3>MEAL Systems Designer</h3>
-                <p>4 courses</p>
+                <small data-i18n="academy.pathways.systemsDesigner.type">Design pathway</small>
+                <h3 data-i18n="academy.pathways.systemsDesigner.title">MEAL Systems Designer</h3>
+                <p data-i18n="academy.pathways.systemsDesigner.courseCount">4 courses</p>
               </div>
               <span aria-hidden="true" class="course-toggle">
               </span>
             </summary>
             <div>
-              <p>For coordinators, managers, senior officers, consultants, and professionals strengthening integrated
-                MEAL systems.</p>
+              <p data-i18n="academy.pathways.systemsDesigner.audience">For coordinators, managers, senior officers, consultants, and professionals strengthening integrated MEAL systems.</p>
               <ol>
-                <li>MEAL Fundamentals</li>
-                <li>Monitoring and Indicator Systems</li>
-                <li>MEAL Data Management</li>
-                <li>MEAL System Design</li>
+                <li data-i18n="academy.pathways.systemsDesigner.course1">MEAL Fundamentals</li>
+                <li data-i18n="academy.pathways.systemsDesigner.course2">Monitoring and Indicator Systems</li>
+                <li data-i18n="academy.pathways.systemsDesigner.course3">MEAL Data Management</li>
+                <li data-i18n="academy.pathways.systemsDesigner.course4">MEAL System Design</li>
               </ol>
               <p class="course-output">
-                <b>Outcome:</b> A complete MEAL system design package.
+                <b data-i18n="academy.pathways.outcomeLabel">Outcome:</b> <span data-i18n="academy.pathways.systemsDesigner.outcome">A complete MEAL system design package.</span>
               </p>
-              <a class="text-link" href="academy-apply.html?type=pathway&amp;program=MEAL%20Systems%20Designer">Apply
-                for this pathway</a>
+              <a class="text-link" href="academy-apply.html?type=pathway&amp;program=MEAL%20Systems%20Designer" data-i18n="academy.pathways.apply">Apply for this pathway</a>
               <button aria-label="Share MEAL Systems Designer" class="content-share-button" data-share-content
                 data-content-type="academy_pathway" data-content-id="pathway-meal-systems-designer"
-                data-content-name="MEAL Systems Designer" type="button">Share</button>
+                data-content-name="MEAL Systems Designer" type="button" data-i18n="academy.pathways.share">Share</button>
             </div>
           </details>
           <details class="professional-pathway-card" id="pathway-data-digital-specialist">
             <summary>
               <span class="pathway-code">04</span>
               <div>
-                <small>Digital pathway</small>
-                <h3>MEAL Data and Digital Specialist</h3>
-                <p>4 courses</p>
+                <small data-i18n="academy.pathways.dataDigital.type">Digital pathway</small>
+                <h3 data-i18n="academy.pathways.dataDigital.title">MEAL Data and Digital Specialist</h3>
+                <p data-i18n="academy.pathways.dataDigital.courseCount">4 courses</p>
               </div>
               <span aria-hidden="true" class="course-toggle">
               </span>
             </summary>
             <div>
-              <p>For data, information management, and MEAL professionals specializing in analysis, dashboards,
-                automation, and responsible AI.</p>
+              <p data-i18n="academy.pathways.dataDigital.audience">For data, information management, and MEAL professionals specializing in analysis, dashboards, automation, and responsible AI.</p>
               <ol>
-                <li>MEAL Data Management</li>
-                <li>MEAL Data Analysis and Interpretation</li>
-                <li>Data Visualization, Dashboards and Reporting</li>
-                <li>Digital MEAL and AI</li>
+                <li data-i18n="academy.pathways.dataDigital.course1">MEAL Data Management</li>
+                <li data-i18n="academy.pathways.dataDigital.course2">MEAL Data Analysis and Interpretation</li>
+                <li data-i18n="academy.pathways.dataDigital.course3">Data Visualization, Dashboards and Reporting</li>
+                <li data-i18n="academy.pathways.dataDigital.course4">Digital MEAL and AI</li>
               </ol>
               <p class="course-output">
-                <b>Outcome:</b> A data flow system, analytical product, dashboard, and digital improvement plan.
+                <b data-i18n="academy.pathways.outcomeLabel">Outcome:</b> <span data-i18n="academy.pathways.dataDigital.outcome">A data flow system, analytical product, dashboard, and digital improvement plan.</span>
               </p>
               <a class="text-link"
-                href="academy-apply.html?type=pathway&amp;program=MEAL%20Data%20and%20Digital%20Specialist">Apply for
-                this pathway</a>
+                href="academy-apply.html?type=pathway&amp;program=MEAL%20Data%20and%20Digital%20Specialist" data-i18n="academy.pathways.apply">Apply for this pathway</a>
               <button aria-label="Share MEAL Data and Digital Specialist" class="content-share-button"
                 data-share-content data-content-type="academy_pathway" data-content-id="pathway-data-digital-specialist"
-                data-content-name="MEAL Data and Digital Specialist" type="button">Share</button>
+                data-content-name="MEAL Data and Digital Specialist" type="button" data-i18n="academy.pathways.share">Share</button>
             </div>
           </details>
           <details class="professional-pathway-card" id="pathway-humanitarian-specialist">
             <summary>
               <span class="pathway-code">05</span>
               <div>
-                <small>Specialist pathway</small>
-                <h3>Humanitarian MEAL Specialist</h3>
-                <p>5 courses</p>
+                <small data-i18n="academy.pathways.humanitarian.type">Specialist pathway</small>
+                <h3 data-i18n="academy.pathways.humanitarian.title">Humanitarian MEAL Specialist</h3>
+                <p data-i18n="academy.pathways.humanitarian.courseCount">5 courses</p>
               </div>
               <span aria-hidden="true" class="course-toggle">
               </span>
             </summary>
             <div>
-              <p>For humanitarian professionals working in emergencies, fragile environments, and conflict-affected
-                contexts.</p>
+              <p data-i18n="academy.pathways.humanitarian.audience">For humanitarian professionals working in emergencies, fragile environments, and conflict-affected contexts.</p>
               <ol>
-                <li>MEAL Fundamentals</li>
-                <li>MEAL in Humanitarian and Conflict-Affected Contexts</li>
-                <li>Monitoring and Indicator Systems</li>
-                <li>Accountability and Community Engagement</li>
-                <li>Evaluation Design and Practice</li>
+                <li data-i18n="academy.pathways.humanitarian.course1">MEAL Fundamentals</li>
+                <li data-i18n="academy.pathways.humanitarian.course2">MEAL in Humanitarian and Conflict-Affected Contexts</li>
+                <li data-i18n="academy.pathways.humanitarian.course3">Monitoring and Indicator Systems</li>
+                <li data-i18n="academy.pathways.humanitarian.course4">Accountability and Community Engagement</li>
+                <li data-i18n="academy.pathways.humanitarian.course5">Evaluation Design and Practice</li>
               </ol>
               <p class="course-output">
-                <b>Outcome:</b> A context-adapted humanitarian MEAL framework.
+                <b data-i18n="academy.pathways.outcomeLabel">Outcome:</b> <span data-i18n="academy.pathways.humanitarian.outcome">A context-adapted humanitarian MEAL framework.</span>
               </p>
               <a class="text-link"
-                href="academy-apply.html?type=pathway&amp;program=Humanitarian%20MEAL%20Specialist">Apply for this
-                pathway</a>
+                href="academy-apply.html?type=pathway&amp;program=Humanitarian%20MEAL%20Specialist" data-i18n="academy.pathways.apply">Apply for this pathway</a>
               <button aria-label="Share Humanitarian MEAL Specialist" class="content-share-button" data-share-content
                 data-content-type="academy_pathway" data-content-id="pathway-humanitarian-specialist"
-                data-content-name="Humanitarian MEAL Specialist" type="button">Share</button>
+                data-content-name="Humanitarian MEAL Specialist" type="button" data-i18n="academy.pathways.share">Share</button>
             </div>
           </details>
           <details class="professional-pathway-card" id="pathway-evaluation-specialist">
             <summary>
               <span class="pathway-code">06</span>
               <div>
-                <small>Specialist pathway</small>
-                <h3>MEAL Evaluation Specialist</h3>
-                <p>4 courses</p>
+                <small data-i18n="academy.pathways.evaluation.type">Specialist pathway</small>
+                <h3 data-i18n="academy.pathways.evaluation.title">MEAL Evaluation Specialist</h3>
+                <p data-i18n="academy.pathways.evaluation.courseCount">4 courses</p>
               </div>
               <span aria-hidden="true" class="course-toggle">
               </span>
             </summary>
             <div>
-              <p>For evaluation officers, senior MEAL professionals, researchers, and consultants seeking advanced
-                evaluation expertise.</p>
+              <p data-i18n="academy.pathways.evaluation.audience">For evaluation officers, senior MEAL professionals, researchers, and consultants seeking advanced evaluation expertise.</p>
               <ol>
-                <li>MEAL Fundamentals</li>
-                <li>Evaluation Design and Practice</li>
-                <li>MEAL Data Analysis and Interpretation</li>
-                <li>Advanced Evaluation Methods</li>
+                <li data-i18n="academy.pathways.evaluation.course1">MEAL Fundamentals</li>
+                <li data-i18n="academy.pathways.evaluation.course2">Evaluation Design and Practice</li>
+                <li data-i18n="academy.pathways.evaluation.course3">MEAL Data Analysis and Interpretation</li>
+                <li data-i18n="academy.pathways.evaluation.course4">Advanced Evaluation Methods</li>
               </ol>
               <p class="course-output">
-                <b>Outcome:</b> An advanced evaluation portfolio.
+                <b data-i18n="academy.pathways.outcomeLabel">Outcome:</b> <span data-i18n="academy.pathways.evaluation.outcome">An advanced evaluation portfolio.</span>
               </p>
               <a class="text-link"
-                href="academy-apply.html?type=pathway&amp;program=MEAL%20Evaluation%20Specialist">Apply for this
-                pathway</a>
+                href="academy-apply.html?type=pathway&amp;program=MEAL%20Evaluation%20Specialist" data-i18n="academy.pathways.apply">Apply for this pathway</a>
               <button aria-label="Share MEAL Evaluation Specialist" class="content-share-button" data-share-content
                 data-content-type="academy_pathway" data-content-id="pathway-evaluation-specialist"
-                data-content-name="MEAL Evaluation Specialist" type="button">Share</button>
+                data-content-name="MEAL Evaluation Specialist" type="button" data-i18n="academy.pathways.share">Share</button>
             </div>
           </details>
           <details class="professional-pathway-card professional-pathway-card-wide" id="pathway-meal-manager">
             <summary>
               <span class="pathway-code">07</span>
               <div>
-                <small>Leadership pathway</small>
-                <h3>MEAL Manager</h3>
-                <p>5 courses</p>
+                <small data-i18n="academy.pathways.manager.type">Leadership pathway</small>
+                <h3 data-i18n="academy.pathways.manager.title">MEAL Manager</h3>
+                <p data-i18n="academy.pathways.manager.courseCount">5 courses</p>
               </div>
               <span aria-hidden="true" class="course-toggle">
               </span>
             </summary>
             <div>
-              <p>For experienced professionals moving toward MEAL management and organizational leadership.</p>
+              <p data-i18n="academy.pathways.manager.audience">For experienced professionals moving toward MEAL management and organizational leadership.</p>
               <ol>
-                <li>MEAL Fundamentals</li>
-                <li>MEAL System Design</li>
-                <li>Building Organizational MEAL Functions</li>
-                <li>Organizational Learning and Adaptive Management</li>
-                <li>MEAL Leadership and Management</li>
+                <li data-i18n="academy.pathways.manager.course1">MEAL Fundamentals</li>
+                <li data-i18n="academy.pathways.manager.course2">MEAL System Design</li>
+                <li data-i18n="academy.pathways.manager.course3">Building Organizational MEAL Functions</li>
+                <li data-i18n="academy.pathways.manager.course4">Organizational Learning and Adaptive Management</li>
+                <li data-i18n="academy.pathways.manager.course5">MEAL Leadership and Management</li>
               </ol>
               <p class="course-output">
-                <b>Outcome:</b> A strategic MEAL leadership and organizational improvement portfolio.
+                <b data-i18n="academy.pathways.outcomeLabel">Outcome:</b> <span data-i18n="academy.pathways.manager.outcome">A strategic MEAL leadership and organizational improvement portfolio.</span>
               </p>
-              <a class="text-link" href="academy-apply.html?type=pathway&amp;program=MEAL%20Manager">Apply for this
-                pathway</a>
+              <a class="text-link" href="academy-apply.html?type=pathway&amp;program=MEAL%20Manager" data-i18n="academy.pathways.apply">Apply for this pathway</a>
               <button aria-label="Share MEAL Manager" class="content-share-button" data-share-content
                 data-content-type="academy_pathway" data-content-id="pathway-meal-manager"
-                data-content-name="MEAL Manager" type="button">Share</button>
+                data-content-name="MEAL Manager" type="button" data-i18n="academy.pathways.share">Share</button>
             </div>
           </details>
         </div>
         <div class="academy-pathway-cta">
           <div>
-            <strong>Not sure which pathway fits?</strong>
-            <p>Tell us your current role and the capability you want to build. We will help identify a sensible starting
-              point.</p>
+            <strong data-i18n="academy.pathways.guidanceTitle">Not sure which pathway fits?</strong>
+            <p data-i18n="academy.pathways.guidanceText">Tell us your current role and the capability you want to build. We will help identify a sensible starting point.</p>
           </div>
-          <a class="button button-primary" href="academy-apply.html">Apply or request guidance</a>
+          <a class="button button-primary" href="academy-apply.html" data-i18n="academy.pathways.guidanceButton">Apply or request guidance</a>
         </div>
       </div>
     </section>
@@ -1051,147 +1037,144 @@
       <div class="container learning-model-grid">
         <div>
           <div class="section-heading section-heading-left">
-            <span class="eyebrow">The Academy standard</span>
-            <h2>Practice is part of the curriculum, not an afterthought.</h2>
+            <span class="eyebrow" data-i18n="academy.standard.eyebrow">The Academy standard</span>
+            <h2 data-i18n="academy.standard.title">Practice is part of the curriculum, not an afterthought.</h2>
             <div class="section-lead">
-              <p>Every course connects explanation to demonstration, guided practice, feedback, and an applied final
-                output.</p>
+              <p data-i18n="academy.standard.lead">Every course connects explanation to demonstration, guided practice, feedback, and an applied final output.</p>
             </div>
           </div>
           <div class="learning-principles">
             <article>
               <span>01</span>
               <div>
-                <h3>Purpose-led</h3>
-                <p>Every activity links to a professional capability and real task.</p>
+                <h3 data-i18n="academy.standard.principle1Title">Purpose-led</h3>
+                <p data-i18n="academy.standard.principle1Text">Every activity links to a professional capability and real task.</p>
               </div>
             </article>
             <article>
               <span>02</span>
               <div>
-                <h3>Tool-enabled</h3>
-                <p>Learners work with practical methods, templates, and cases.</p>
+                <h3 data-i18n="academy.standard.principle2Title">Tool-enabled</h3>
+                <p data-i18n="academy.standard.principle2Text">Learners work with practical methods, templates, and cases.</p>
               </div>
             </article>
             <article>
               <span>03</span>
               <div>
-                <h3>Feedback-rich</h3>
-                <p>Facilitation, coaching, and peer learning deepen judgment.</p>
+                <h3 data-i18n="academy.standard.principle3Title">Feedback-rich</h3>
+                <p data-i18n="academy.standard.principle3Text">Facilitation, coaching, and peer learning deepen judgment.</p>
               </div>
             </article>
             <article>
               <span>04</span>
               <div>
-                <h3>Output-focused</h3>
-                <p>Every course concludes with an applied professional product.</p>
+                <h3 data-i18n="academy.standard.principle4Title">Output-focused</h3>
+                <p data-i18n="academy.standard.principle4Text">Every course concludes with an applied professional product.</p>
               </div>
             </article>
           </div>
         </div>
         <div aria-label="Learning cycle" class="learning-model-visual">
           <div class="learning-orbit">
-            <span>Learn</span>
-            <span>Practice</span>
-            <span>Apply</span>
-            <span>Reflect</span>
-            <strong>Capability</strong>
+            <span data-i18n="academy.standard.cycleLearn">Learn</span>
+            <span data-i18n="academy.standard.cyclePractice">Practice</span>
+            <span data-i18n="academy.standard.cycleApply">Apply</span>
+            <span data-i18n="academy.standard.cycleReflect">Reflect</span>
+            <strong data-i18n="academy.standard.cycleCapability">Capability</strong>
           </div>
-          <p>Knowledge becomes valuable when it changes professional practice.</p>
+          <p data-i18n="academy.standard.cycleText">Knowledge becomes valuable when it changes professional practice.</p>
         </div>
       </div>
     </section>
     <section class="section academy-organization-section" data-academy-panel="organizations" id="organizations">
       <div class="container">
         <div class="section-heading section-heading-left">
-          <span class="eyebrow eyebrow-light">For organizations</span>
-          <h2>Move from isolated training to institutional capability.</h2>
+          <span class="eyebrow eyebrow-light" data-i18n="academy.organizations.eyebrow">For organizations</span>
+          <h2 data-i18n="academy.organizations.title">Move from isolated training to institutional capability.</h2>
           <div class="section-lead">
-            <p>Delivery can range from a standard cohort course to a customized capacity-strengthening engagement linked
-              directly to your systems and programmes.</p>
+            <p data-i18n="academy.organizations.lead">Delivery can range from a standard cohort course to a customized capacity-strengthening engagement linked directly to your systems and programmes.</p>
           </div>
         </div>
         <div class="institutional-format-grid">
           <article>
             <span>A</span>
-            <small>Standard training</small>
-            <h3>Deliver an established Academy course</h3>
-            <p>An existing course delivered to your team with limited customization.</p>
+            <small data-i18n="academy.organizations.format1Label">Standard training</small>
+            <h3 data-i18n="academy.organizations.format1Title">Deliver an established Academy course</h3>
+            <p data-i18n="academy.organizations.format1Text">An existing course delivered to your team with limited customization.</p>
           </article>
           <article>
             <span>B</span>
-            <small>Customized training</small>
-            <h3>Adapt learning to your context</h3>
-            <p>Courses tailored to your sector, country, donors, portfolio, systems, and capability needs.</p>
+            <small data-i18n="academy.organizations.format2Label">Customized training</small>
+            <h3 data-i18n="academy.organizations.format2Title">Adapt learning to your context</h3>
+            <p data-i18n="academy.organizations.format2Text">Courses tailored to your sector, country, donors, portfolio, systems, and capability needs.</p>
           </article>
           <article>
             <span>C</span>
-            <small>Applied programme</small>
-            <h3>Combine learning with system improvement</h3>
-            <p>A broader engagement integrating assessment, workshops, application, coaching, and follow-up.</p>
+            <small data-i18n="academy.organizations.format3Label">Applied programme</small>
+            <h3 data-i18n="academy.organizations.format3Title">Combine learning with system improvement</h3>
+            <p data-i18n="academy.organizations.format3Text">A broader engagement integrating assessment, workshops, application, coaching, and follow-up.</p>
           </article>
         </div>
         <div class="capacity-programme">
           <div>
-            <span class="eyebrow eyebrow-light">Organizational MEAL capacity programme</span>
-            <h3>A five-phase route from diagnosis to sustained improvement.</h3>
+            <span class="eyebrow eyebrow-light" data-i18n="academy.organizations.programmeEyebrow">Organizational MEAL capacity programme</span>
+            <h3 data-i18n="academy.organizations.programmeTitle">A five-phase route from diagnosis to sustained improvement.</h3>
           </div>
           <ol>
             <li>
               <span>01</span>
               <div>
-                <strong>Assess</strong>
-                <p>Review systems, consult stakeholders, and identify maturity and capability gaps.</p>
+                <strong data-i18n="academy.organizations.phase1Title">Assess</strong>
+                <p data-i18n="academy.organizations.phase1Text">Review systems, consult stakeholders, and identify maturity and capability gaps.</p>
               </div>
             </li>
             <li>
               <span>02</span>
               <div>
-                <strong>Train</strong>
-                <p>Deliver selected Academy courses and customized practical workshops.</p>
+                <strong data-i18n="academy.organizations.phase2Title">Train</strong>
+                <p data-i18n="academy.organizations.phase2Text">Deliver selected Academy courses and customized practical workshops.</p>
               </div>
             </li>
             <li>
               <span>03</span>
               <div>
-                <strong>Apply</strong>
-                <p>Develop and improve tools, processes, and systems in the real workplace.</p>
+                <strong data-i18n="academy.organizations.phase3Title">Apply</strong>
+                <p data-i18n="academy.organizations.phase3Text">Develop and improve tools, processes, and systems in the real workplace.</p>
               </div>
             </li>
             <li>
               <span>04</span>
               <div>
-                <strong>Coach</strong>
-                <p>Review outputs and provide focused technical guidance.</p>
+                <strong data-i18n="academy.organizations.phase4Title">Coach</strong>
+                <p data-i18n="academy.organizations.phase4Text">Review outputs and provide focused technical guidance.</p>
               </div>
             </li>
             <li>
               <span>05</span>
               <div>
-                <strong>Follow up</strong>
-                <p>Assess progress and define recommendations for continued improvement.</p>
+                <strong data-i18n="academy.organizations.phase5Title">Follow up</strong>
+                <p data-i18n="academy.organizations.phase5Text">Assess progress and define recommendations for continued improvement.</p>
               </div>
             </li>
           </ol>
         </div>
         <div class="organization-cta">
           <div>
-            <h3>Build a programme around your organization.</h3>
-            <p>Share your team size, context, and capability priorities and we will shape an appropriate format.</p>
+            <h3 data-i18n="academy.organizations.ctaTitle">Build a programme around your organization.</h3>
+            <p data-i18n="academy.organizations.ctaText">Share your team size, context, and capability priorities and we will shape an appropriate format.</p>
           </div>
-          <a class="button button-white button-large" href="academy-apply.html?type=organization">Request organizational
-            training</a>
+          <a class="button button-white button-large" href="academy-apply.html?type=organization" data-i18n="academy.organizations.ctaButton">Request organizational training</a>
         </div>
       </div>
     </section>
     <section class="section final-cta-section academy-final-cta">
       <div class="container final-cta">
         <div>
-          <span class="eyebrow eyebrow-light">Your next capability</span>
-          <h2>Choose a course, follow a pathway, or build a team programme.</h2>
-          <p>Tell us where you currently stand and what you want to be able to do next.</p>
+          <span class="eyebrow eyebrow-light" data-i18n="academy.finalCta.eyebrow">Your next capability</span>
+          <h2 data-i18n="academy.finalCta.title">Choose a course, follow a pathway, or build a team programme.</h2>
+          <p data-i18n="academy.finalCta.text">Tell us where you currently stand and what you want to be able to do next.</p>
         </div>
-        <a class="button button-white button-large" href="academy-apply.html">Apply to the Academy</a>
+        <a class="button button-white button-large" href="academy-apply.html" data-i18n="academy.finalCta.button">Apply to the Academy</a>
       </div>
     </section>
   </main>
@@ -1201,31 +1184,30 @@
         <a aria-label="MEAL Bridge home" class="footer-wordmark" href="index.html">
           <span>MEAL</span> BRIDGE<small>CONSULTING LLC</small>
         </a>
-        <p>Practical MEAL consulting, systems development, and professional learning for organizations creating
-          meaningful impact.</p>
-        <div class="footer-signal">
+        <p data-i18n="index.footer.description">Practical MEAL consulting, systems development, and professional learning for organizations creating meaningful impact.</p>
+        <div class="footer-signal" data-i18n="index.footer.signal">
           <span>
           </span> Empowering smarter decisions
         </div>
       </div>
       <div class="footer-column">
-        <h2>Explore</h2>
-        <a href="solutions.html">Solutions</a>
-        <a href="academy.html">Academy</a>
-        <a href="about.html">About</a>
-        <a href="contact.html?intent=partnership">Partnerships</a>
-        <a href="join-us.html">Join Us</a>
+        <h2 data-i18n="index.footer.explore">Explore</h2>
+        <a href="solutions.html" data-i18n="nav.solutions">Solutions</a>
+        <a href="academy.html" data-i18n="nav.academy">Academy</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="contact.html?intent=partnership" data-i18n="index.footer.partnerships">Partnerships</a>
+        <a href="join-us.html" data-i18n="nav.join">Join Us</a>
       </div>
       <div class="footer-column">
-        <h2>Core capabilities</h2>
-        <a href="solutions.html#consultancy">MEAL consultancy</a>
-        <a href="solutions.html#systems">Systems development</a>
-        <a href="academy.html">Capacity development</a>
-        <a href="solutions.html#accountability">Accountability systems</a>
-        <a href="solutions.html#digital">Digital MEAL solutions</a>
+        <h2 data-i18n="index.footer.capabilities">Core capabilities</h2>
+        <a href="solutions.html#consultancy" data-i18n="index.footer.consultancy">MEAL consultancy</a>
+        <a href="solutions.html#systems" data-i18n="index.footer.systems">Systems development</a>
+        <a href="academy.html" data-i18n="index.footer.capacity">Capacity development</a>
+        <a href="solutions.html#accountability" data-i18n="index.footer.accountability">Accountability systems</a>
+        <a href="solutions.html#digital" data-i18n="index.footer.digital">Digital MEAL solutions</a>
       </div>
       <div class="footer-column footer-contact">
-        <h2>Contact</h2>
+        <h2 data-i18n="index.footer.contact">Contact</h2>
         <a href="mailto:info@meal-bridge.com">
           <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
             stroke-width="1.8" viewbox="0 0 24 24">
@@ -1234,7 +1216,7 @@
             <path d="m3 7 9 6 9-6">
             </path>
           </svg> info@meal-bridge.com</a>
-        <span>
+        <span data-i18n="index.footer.location">
           <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
             stroke-width="1.8" viewbox="0 0 24 24">
             <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z">
@@ -1242,7 +1224,7 @@
             <circle cx="12" cy="10" r="2.5">
             </circle>
           </svg> Rural Damascus, Syria</span>
-        <span>
+        <span data-i18n="index.footer.region">
           <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
             stroke-width="1.8" viewbox="0 0 24 24">
             <circle cx="12" cy="12" r="9">
@@ -1250,7 +1232,7 @@
             <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18">
             </path>
           </svg> MENA region · Remote &amp; on-site</span>
-        <a class="text-link" href="contact.html">Send an inquiry <svg aria-hidden="true" fill="none"
+        <a class="text-link" href="contact.html" data-i18n="index.footer.inquiry">Send an inquiry <svg aria-hidden="true" fill="none"
             stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24">
             <path d="M5 12h14">
             </path>
@@ -1261,9 +1243,8 @@
       </div>
     </div>
     <div class="container footer-bottom">
-      <p>© 2025 - 2026 MEAL Bridge Consulting LLC. All rights reserved.</p>
-      <p><a href="privacy.html">Privacy &amp; Data Protection</a> · Monitoring · Evaluation · Accountability · Learning
-      </p>
+      <p data-i18n="index.footer.copyright">© 2025 - 2026 MEAL Bridge Consulting LLC. All rights reserved.</p>
+      <p><a href="privacy.html" data-i18n="index.footer.privacy">Privacy &amp; Data Protection</a> <span data-i18n="index.footer.disciplines">· Monitoring · Evaluation · Accountability · Learning</span></p>
     </div>
   </footer>
 </body>

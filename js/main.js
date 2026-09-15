@@ -157,6 +157,72 @@
     "career-application": '<span aria-hidden="true">✓</span><h2>Application received.</h2><p>Thank you. The MEAL Bridge team will review your application against the selected opportunity.</p><button type="button" class="button button-secondary">Submit another application</button>',
   };
 
+  const academyFeedbackKeys = {
+    "academy-application": "academyApply.feedback",
+    "organizational-training": "academyTraining.feedback",
+  };
+
+  function t(path, fallback) {
+    return window.mealBridgeI18n?.get?.(path, fallback) ?? fallback;
+  }
+
+  function translatedText(english) {
+    return window.mealBridgeI18n?.text(english) ?? english;
+  }
+
+  // Native validation follows the browser's UI language unless we supply a message.
+  function localizeValidation(field) {
+    field.setCustomValidity("");
+    const state = field.validity;
+    if (state.valid) return;
+    const key = state.valueMissing ? "required" : state.typeMismatch && field.type === "email" ? "email" : "invalid";
+    field.setCustomValidity(t(`validation.${key}`, field.validationMessage));
+  }
+  document.querySelectorAll("input, select, textarea").forEach((field) => {
+    field.addEventListener("invalid", () => localizeValidation(field));
+    field.addEventListener("input", () => field.setCustomValidity(""));
+    field.addEventListener("change", () => field.setCustomValidity(""));
+  });
+  document.addEventListener("mealbridge:language-change", () => {
+    document.querySelectorAll("input, select, textarea").forEach((field) => {
+      if (field.validity.customError) localizeValidation(field);
+    });
+  });
+
+  function formSuccessContent(formType) {
+    const prefix = academyFeedbackKeys[formType];
+    if (!prefix) return successContent[formType] || successContent.contact;
+
+    const fallback = formType === "academy-application"
+      ? {
+        title: "Application received.",
+        text: "The Academy will review your programme fit, experience, and objective, normally within three working days. If a CV is needed, we will request it by email.",
+        button: "Submit another application",
+      }
+      : {
+        title: "Training request received.",
+        text: "The Academy will review your objective, participant profile, scope, and timing. We normally acknowledge the request within two working days and arrange a discovery call when appropriate.",
+        button: "Submit another request",
+      };
+
+    return `<span aria-hidden="true">✓</span><h2 data-i18n="${prefix}.successTitle">${t(`${prefix}.successTitle`, fallback.title)}</h2><p data-i18n="${prefix}.successText">${t(`${prefix}.successText`, fallback.text)}</p><button type="button" class="button button-secondary" data-i18n="${prefix}.successButton">${t(`${prefix}.successButton`, fallback.button)}</button>`;
+  }
+
+  function formSubmittingLabel(formType) {
+    const prefix = academyFeedbackKeys[formType];
+    if (!prefix) return formType === "contact" ? "Sending…" : "Submitting…";
+    return t(`${prefix}.submitting`, "Submitting…");
+  }
+
+  function formErrorContent(formType, fallbackEmail) {
+    const prefix = academyFeedbackKeys[formType];
+    if (!prefix) {
+      return `The form could not be sent. Please try again or email <a href="mailto:${fallbackEmail}">${fallbackEmail}</a>.`;
+    }
+
+    return `<span data-i18n="${prefix}.errorStart">${t(`${prefix}.errorStart`, "The form could not be sent. Please try again or email ")}</span><a href="mailto:${fallbackEmail}">${fallbackEmail}</a><span data-i18n="${prefix}.errorEnd">${t(`${prefix}.errorEnd`, ".")}</span>`;
+  }
+
   document.querySelectorAll(".contact-form-new, .academy-application-form").forEach((form) => {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -165,13 +231,15 @@
 
       if (form === academyForm) syncAcademyApplication();
       const originalButton = button?.innerHTML || "Submit";
+      const originalButtonKey = button?.getAttribute("data-i18n");
       const formType = form.dataset.formType || "contact";
       const fallbackEmail = form.dataset.fallbackEmail || "info@meal-bridge.com";
       form.querySelector(".form-error")?.remove();
 
       if (button) {
         button.disabled = true;
-        button.textContent = formType === "contact" ? "Sending…" : "Submitting…";
+        if (academyFeedbackKeys[formType]) button.dataset.i18n = `${academyFeedbackKeys[formType]}.submitting`;
+        button.textContent = formSubmittingLabel(formType);
       }
 
       try {
@@ -209,7 +277,7 @@
         result.setAttribute("role", "status");
         result.setAttribute("aria-live", "polite");
         result.setAttribute("tabindex", "-1");
-        result.innerHTML = successContent[formType] || successContent.contact;
+        result.innerHTML = formSuccessContent(formType);
         form.hidden = true;
         form.after(result);
         result.focus();
@@ -232,12 +300,16 @@
         const error = document.createElement("p");
         error.className = "form-error";
         error.setAttribute("role", "alert");
-        error.innerHTML = `The form could not be sent. Please try again or email <a href="mailto:${fallbackEmail}">${fallbackEmail}</a>.`;
+        error.innerHTML = formErrorContent(formType, fallbackEmail);
         form.append(error);
       } finally {
         if (button) {
           button.disabled = false;
           button.innerHTML = originalButton;
+          if (originalButtonKey) {
+            button.dataset.i18n = originalButtonKey;
+            button.textContent = t(originalButtonKey, button.textContent);
+          } else button.removeAttribute("data-i18n");
         }
       }
     });
@@ -301,11 +373,11 @@
   document.querySelectorAll(".career-apply").forEach((button) => button.addEventListener("click", () => {
     const opportunityType = button.dataset.opportunityType || "Opportunity";
     const opportunity = button.dataset.opportunity || "MEAL Bridge opportunity";
-    const subject = `Application - ${opportunity}`;
+    const subject = t("careers.subject", "Application - {opportunity}").replace("{opportunity}", translatedText(opportunity));
     const body = [
       "Dear MEAL Bridge Careers Team,",
       "",
-      `I would like to apply for the ${opportunityType}: ${opportunity}.`,
+      t("careers.introduction", "I would like to apply for the {type}: {opportunity}.").replace("{type}", translatedText(opportunityType)).replace("{opportunity}", translatedText(opportunity)),
       "",
       "Full name:",
       "Phone:",
@@ -317,7 +389,7 @@
       "- Cover Letter",
       "",
       "Kind regards,"
-    ].join("\n");
+    ].map(translatedText).join("\n");
     window.location.href = `mailto:careers@meal-bridge.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }));
 

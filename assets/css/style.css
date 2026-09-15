@@ -488,12 +488,12 @@ p {
   grid-template-columns: auto 1fr;
   align-items: center;
   gap: 10px;
-  padding-right: 18px;
+  padding-inline-end: 18px;
 }
 
 .hero-proof div+div {
-  border-left: 1px solid rgba(7, 42, 82, 0.12);
-  padding-left: 20px;
+  border-inline-start: 1px solid rgba(7, 42, 82, 0.12);
+  padding-inline-start: 20px;
 }
 
 .hero-proof strong {
@@ -823,12 +823,12 @@ p {
 
 .image-caption {
   position: absolute;
-  right: 24px;
-  bottom: 24px;
+  inset-inline-end: 24px;
+  inset-block-end: 24px;
   z-index: 2;
   width: min(390px, calc(100% - 48px));
   margin: 0;
-  border-left: 4px solid var(--orange-500);
+  border-inline-start: 4px solid var(--orange-500);
   border-radius: 12px;
   background: var(--navy-900);
   box-shadow: var(--shadow-md);
@@ -2002,8 +2002,9 @@ p {
 
 .experience-foundation-note {
   margin-top: 24px;
-  border-left: 3px solid var(--orange-500);
-  padding: 3px 0 3px 18px;
+  border-inline-start: 3px solid var(--orange-500);
+  padding: 3px 0;
+  padding-inline-start: 18px;
 }
 
 .experience-foundation-note strong {
@@ -2597,7 +2598,7 @@ p {
   margin-bottom: 7px;
   border-bottom: 1px solid rgba(255, 255, 255, .12);
   padding: 4px 9px 13px;
-  text-align: left;
+  text-align: start;
 }
 
 .academy-hero-image figcaption .academy-partner-name strong {
@@ -3010,12 +3011,12 @@ details[open]>summary .course-toggle::after {
   display: grid;
   gap: 6px;
   margin: 16px 0;
-  padding-left: 19px;
+  padding-inline-start: 19px;
   color: #496479;
 }
 
 .course-output {
-  border-left: 3px solid var(--orange-500);
+  border-inline-start: 3px solid var(--orange-500);
   background: #fff9f5;
   padding: 10px 12px;
   color: #425e72;
@@ -4257,8 +4258,10 @@ details[open]>summary .course-toggle::after {
 }
 
 .application-cv-note {
-  border-left: 4px solid var(--orange-500);
-  border-radius: 0 13px 13px 0;
+  border-inline-start: 4px solid var(--orange-500);
+  border-radius: 13px;
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
   background: #fff7f0;
   padding: 17px 19px;
 }
@@ -5526,7 +5529,7 @@ details[open]>summary .course-toggle::after {
 
 .privacy-policy-content ul {
   margin: 12px 0 0;
-  padding-left: 22px;
+  padding-inline-start: 22px;
 }
 
 .privacy-policy-content li+li {
@@ -5548,7 +5551,7 @@ details[open]>summary .course-toggle::after {
 .privacy-table-wrap td {
   border-bottom: 1px solid var(--line);
   padding: 13px 14px;
-  text-align: left;
+  text-align: start;
   vertical-align: top;
   color: #516a7d;
   font-size: .84rem;
@@ -5836,4 +5839,40 @@ details[open]>summary .course-toggle::after {
   border-left: 3px solid var(--orange-500);
   padding-left: 12px;
   color: var(--navy-900) !important;
+}
+
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 0px solid var(--line);
+  border-radius: 999px;
+  background: var(--white);
+  padding: 6px 12px;
+  background: var(--navy-900);
+  color: var(--white);
+  font-size: .78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+html[dir="rtl"] .main-nav>a.active::after,
+html[dir="rtl"] .main-nav>a:hover::after {
+  transform-origin: right;
+}
+
+@media (max-width: 760px) {
+  html[dir="rtl"] .main-nav {
+    right: auto;
+    left: 0;
+    box-shadow: 30px 0 70px rgba(6, 25, 45, 0.2);
+  }
+
+  html[dir="rtl"] .main-nav>a.active:not(.button),
+  html[dir="rtl"] .main-nav>a[aria-current="page"]:not(.button) {
+    box-shadow: inset -4px 0 0 var(--orange-500);
+    padding-right: 16px;
+    padding-left: 4px;
+  }
 }

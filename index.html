@@ -4,6 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="js/i18n-init.js?v=2"></script>
+  <style>
+    html.i18n-loading body { visibility: hidden; }
+  </style>
   <meta name="theme-color" content="#072a52">
   <title>MEAL Consulting, Systems &amp; Academy | MEAL Bridge</title>
   <meta name="description"
@@ -171,14 +175,15 @@
     ]
   }
   </script>
-  <script defer src="assets/js/analytics-consent.js"></script>
-  <script defer src="assets/js/main.js">
+  <script defer src="js/analytics-consent.js"></script>
+  <script defer src="js/main.js?v=4">
   </script>
-  <script defer src="assets/js/analytics-events.js"></script>
+  <script defer src="js/i18n.js?v=6"></script>
+  <script defer src="js/analytics-events.js?v=4"></script>
 </head>
 
 <body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#main-content" data-i18n="index.skipLink">Skip to main content</a>
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand" aria-label="MEAL Bridge home">
@@ -187,7 +192,7 @@
       </a>
       <nav class="main-nav" aria-label="Primary navigation">
         <div class="mobile-nav-label">
-          <span>Navigate</span>
+          <span data-i18n="index.mobileNavigate">Navigate</span>
           <button type="button" aria-label="Close navigation">
             <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
               stroke-width="1.8" viewBox="0 0 24 24">
@@ -195,24 +200,26 @@
             </svg>
           </button>
         </div>
-        <a href="index.html" class="active" aria-current="page">Home</a>
-        <a href="solutions.html">Solutions</a>
-        <a href="academy.html">Academy</a>
-        <a href="about.html">About</a>
-        <a href="join-us.html">Join Us</a>
-        <a href="contact.html">Contact</a>
-        <a href="contact.html" class="button button-primary mobile-nav-cta">Start a conversation <svg aria-hidden="true"
-            fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
-            viewBox="0 0 24 24">
+        <button type="button" class="language-toggle" aria-label="Switch to Arabic"
+          aria-pressed="false">العربية</button>
+        <a href="index.html" class="active" aria-current="page" data-i18n="nav.home">Home</a>
+        <a href="solutions.html" data-i18n="nav.solutions">Solutions</a>
+        <a href="academy.html" data-i18n="nav.academy">Academy</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="join-us.html" data-i18n="nav.join">Join Us</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <a href="contact.html" class="button button-primary mobile-nav-cta"><span data-i18n="nav.conversation">Start a
+            conversation</span> <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
             <path d="M5 12h14"></path>
             <path d="m13 6 6 6-6 6"></path>
           </svg>
         </a>
       </nav>
       <div class="header-actions">
-        <a href="contact.html" class="button button-primary header-cta">Start a conversation <svg aria-hidden="true"
-            fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
-            viewBox="0 0 24 24">
+        <a href="contact.html" class="button button-primary header-cta"><span data-i18n="nav.conversation">Start a
+            conversation</span> <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
             <path d="M5 12h14"></path>
             <path d="m13 6 6 6-6 6"></path>
           </svg>
@@ -223,6 +230,7 @@
             <path d="M4 7h16M4 12h16M4 17h16"></path>
           </svg>
         </button>
+
       </div>
     </div>
   </header>
@@ -234,47 +242,51 @@
       </div>
       <div class="container home-hero-grid">
         <div class="home-hero-copy">
-          <span class="eyebrow">Consultancy · Systems development · Academy</span>
+          <span class="eyebrow" data-i18n="index.hero.eyebrow">Consultancy · Systems development · Academy</span>
           <h1>
-            <span>Stronger MEAL systems.</span> Better decisions. Greater impact.
+            <span data-i18n="index.hero.titleLead">Stronger MEAL systems.</span> <span
+              data-i18n="index.hero.titleRest">Better decisions. Greater impact.</span>
           </h1>
-          <p class="hero-lead">We help mission-driven organizations turn evidence, accountability, learning, and
+          <p class="hero-lead" data-i18n="index.hero.lead">We help mission-driven organizations turn evidence,
+            accountability, learning, and
             technology into stronger programmes and sustainable institutional capability.</p>
           <div class="hero-actions">
-            <a href="solutions.html" class="button button-primary button-large">Explore our solutions <svg
-                aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                stroke-width="1.8" viewBox="0 0 24 24">
+            <a href="solutions.html" class="button button-primary button-large" data-i18n="index.hero.explore">Explore
+              our solutions <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
                 <path d="M5 12h14">
                 </path>
                 <path d="m13 6 6 6-6 6">
                 </path>
               </svg>
             </a>
-            <a href="contact.html" class="button button-secondary button-large">Discuss your priorities</a>
+            <a href="contact.html" class="button button-secondary button-large" data-i18n="index.hero.discuss">Discuss
+              your priorities</a>
           </div>
-          <div class="hero-proof" aria-label="MEAL Bridge highlights">
+          <div class="hero-proof" aria-label="MEAL Bridge highlights" data-i18n-aria-label="index.hero.highlightsLabel">
             <div>
               <strong>12+</strong>
-              <span>years of leadership experience</span>
+              <span data-i18n="index.hero.years">years of leadership experience</span>
             </div>
             <div>
               <strong>3</strong>
-              <span>integrated business divisions</span>
+              <span data-i18n="index.hero.divisions">integrated business divisions</span>
             </div>
             <div>
               <strong>MENA</strong>
-              <span>regional focus</span>
+              <span data-i18n="index.hero.region">regional focus</span>
             </div>
           </div>
         </div>
         <div class="hero-visual">
           <div class="hero-visual-topline">
             <span>
-            </span> Integrated MEAL ecosystem
+            </span> <span data-i18n="index.hero.ecosystem">Integrated MEAL ecosystem</span>
           </div>
           <img src="assets/images/evidence-to-impact.webp" width="1254" height="1254" decoding="async"
             fetchpriority="high"
-            alt="MEAL Bridge illustration connecting evidence, people and impact through consultancy, systems development and the Academy" />
+            alt="MEAL Bridge illustration connecting evidence, people and impact through consultancy, systems development and the Academy"
+            data-i18n-alt="index.hero.imageAlt" />
           <div class="hero-data-card hero-data-card-left">
             <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
               stroke-width="1.8" viewBox="0 0 24 24">
@@ -282,42 +294,44 @@
               </path>
             </svg>
             <div>
-              <strong>Evidence → insight</strong>
-              <span>Information designed for action</span>
+              <strong data-i18n="index.hero.evidenceTitle">Evidence → insight</strong>
+              <span data-i18n="index.hero.evidenceText">Information designed for action</span>
             </div>
           </div>
           <div class="hero-data-card hero-data-card-right">
             <span class="status-dot">
             </span>
             <div>
-              <strong>Systems that teams use</strong>
-              <span>Practical · connected · sustainable</span>
+              <strong data-i18n="index.hero.systemsTitle">Systems that teams use</strong>
+              <span data-i18n="index.hero.systemsText">Practical · connected · sustainable</span>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section class="audience-strip" aria-label="Organizations we support">
+    <section class="audience-strip" aria-label="Organizations we support" data-i18n-aria-label="index.audience.label">
       <div class="container audience-inner">
-        <p>Designed for organizations creating public and social value</p>
+        <p data-i18n="index.audience.title">Designed for organizations creating public and social value</p>
         <div class="audience-list">
-          <span>NGOs &amp; INGOs</span>
-          <span>UN agencies</span>
-          <span>Public institutions</span>
-          <span>Civil society</span>
-          <span>Universities</span>
-          <span>Development partners</span>
+          <span data-i18n="index.audience.ngos">NGOs &amp; INGOs</span>
+          <span data-i18n="index.audience.un">UN agencies</span>
+          <span data-i18n="index.audience.public">Public institutions</span>
+          <span data-i18n="index.audience.civil">Civil society</span>
+          <span data-i18n="index.audience.universities">Universities</span>
+          <span data-i18n="index.audience.partners">Development partners</span>
         </div>
       </div>
     </section>
     <section class="section section-white">
       <div class="container">
         <div class="section-heading section-heading-left">
-          <span class="eyebrow">One partner. Three connected capabilities.</span>
-          <h2>From strategy to systems to <span class="accent-text">professional practice.</span>
+          <span class="eyebrow" data-i18n="index.capabilities.eyebrow">One partner. Three connected capabilities.</span>
+          <h2><span data-i18n="index.capabilities.titleLead">From strategy to systems to</span> <span
+              class="accent-text" data-i18n="index.capabilities.titleAccent">professional practice.</span>
           </h2>
           <div class="section-lead">
-            <p>MEAL challenges rarely sit in one department. Our three divisions work together so advice, technology,
+            <p data-i18n="index.capabilities.lead">MEAL challenges rarely sit in one department. Our three divisions
+              work together so advice, technology,
               and capacity development reinforce each other.</p>
           </div>
         </div>
@@ -337,8 +351,9 @@
               </span>
               <span class="division-number">01</span>
             </div>
-            <h2>Consultancy</h2>
-            <p>Technical advice and hands-on implementation that turn MEAL standards into systems teams can actually
+            <h2 data-i18n="index.cards.consultancy.title">Consultancy</h2>
+            <p data-i18n="index.cards.consultancy.description">Technical advice and hands-on implementation that turn
+              MEAL standards into systems teams can actually
               use.</p>
             <ul class="check-list">
               <li>
@@ -346,26 +361,27 @@
                   stroke-width="1.8" viewBox="0 0 24 24">
                   <path d="m5 12 4 4L19 6">
                   </path>
-                </svg> MEAL system design
+                </svg><span data-i18n="index.cards.consultancy.item1"> MEAL system design</span>
               </li>
               <li>
                 <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                   stroke-width="1.8" viewBox="0 0 24 24">
                   <path d="m5 12 4 4L19 6">
                   </path>
-                </svg> Monitoring, evaluation &amp; accountability
+                </svg><span data-i18n="index.cards.consultancy.item2"> Monitoring, evaluation &amp;
+                  accountability</span>
               </li>
               <li>
                 <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                   stroke-width="1.8" viewBox="0 0 24 24">
                   <path d="m5 12 4 4L19 6">
                   </path>
-                </svg> Assessments, research &amp; TPM
+                </svg><span data-i18n="index.cards.consultancy.item3"> Assessments, research &amp; TPM</span>
               </li>
             </ul>
-            <a href="solutions.html#consultancy" class="card-link">Explore consultancy <svg aria-hidden="true"
-                fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
-                viewBox="0 0 24 24">
+            <a href="solutions.html#consultancy" class="card-link" data-i18n="index.cards.consultancy.link">Explore
+              consultancy <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
                 <path d="M5 12h14">
                 </path>
                 <path d="m13 6 6 6-6 6">
@@ -386,8 +402,9 @@
               </span>
               <span class="division-number">02</span>
             </div>
-            <h2>Systems Development</h2>
-            <p>Digital infrastructure, data workflows, and decision tools designed around operational realities—not
+            <h2 data-i18n="index.cards.systems.title">Systems Development</h2>
+            <p data-i18n="index.cards.systems.description">Digital infrastructure, data workflows, and decision tools
+              designed around operational realities—not
               technology for its own sake.</p>
             <ul class="check-list">
               <li>
@@ -395,26 +412,26 @@
                   stroke-width="1.8" viewBox="0 0 24 24">
                   <path d="m5 12 4 4L19 6">
                   </path>
-                </svg> Dashboards &amp; decision support
+                </svg><span data-i18n="index.cards.systems.item1"> Dashboards &amp; decision support</span>
               </li>
               <li>
                 <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                   stroke-width="1.8" viewBox="0 0 24 24">
                   <path d="m5 12 4 4L19 6">
                   </path>
-                </svg> Data workflows &amp; automation
+                </svg><span data-i18n="index.cards.systems.item2"> Data workflows &amp; automation</span>
               </li>
               <li>
                 <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                   stroke-width="1.8" viewBox="0 0 24 24">
                   <path d="m5 12 4 4L19 6">
                   </path>
-                </svg> Digital feedback &amp; knowledge systems
+                </svg><span data-i18n="index.cards.systems.item3"> Digital feedback &amp; knowledge systems</span>
               </li>
             </ul>
-            <a href="solutions.html#systems" class="card-link">Explore systems <svg aria-hidden="true" fill="none"
-                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
-                viewBox="0 0 24 24">
+            <a href="solutions.html#systems" class="card-link" data-i18n="index.cards.systems.link">Explore systems <svg
+                aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="1.8" viewBox="0 0 24 24">
                 <path d="M5 12h14">
                 </path>
                 <path d="m13 6 6 6-6 6">
@@ -435,8 +452,9 @@
               </span>
               <span class="division-number">03</span>
             </div>
-            <h2>Academy</h2>
-            <p>Applied learning pathways that build professional competence, organizational capability, and confident
+            <h2 data-i18n="index.cards.academy.title">Academy</h2>
+            <p data-i18n="index.cards.academy.description">Applied learning pathways that build professional competence,
+              organizational capability, and confident
               MEAL leadership.</p>
             <ul class="check-list">
               <li>
@@ -444,26 +462,26 @@
                   stroke-width="1.8" viewBox="0 0 24 24">
                   <path d="m5 12 4 4L19 6">
                   </path>
-                </svg> Instructor-led programmes
+                </svg><span data-i18n="index.cards.academy.item1"> Instructor-led programmes</span>
               </li>
               <li>
                 <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                   stroke-width="1.8" viewBox="0 0 24 24">
                   <path d="m5 12 4 4L19 6">
                   </path>
-                </svg> Customized organizational training
+                </svg><span data-i18n="index.cards.academy.item2"> Customized organizational training</span>
               </li>
               <li>
                 <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                   stroke-width="1.8" viewBox="0 0 24 24">
                   <path d="m5 12 4 4L19 6">
                   </path>
-                </svg> Mentoring &amp; professional pathways
+                </svg><span data-i18n="index.cards.academy.item3"> Mentoring &amp; professional pathways</span>
               </li>
             </ul>
-            <a href="academy.html" class="card-link">Explore the academy <svg aria-hidden="true" fill="none"
-                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
-                viewBox="0 0 24 24">
+            <a href="academy.html" class="card-link" data-i18n="index.cards.academy.link">Explore the academy <svg
+                aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="1.8" viewBox="0 0 24 24">
                 <path d="M5 12h14">
                 </path>
                 <path d="m13 6 6 6-6 6">
@@ -478,17 +496,20 @@
       <div class="container ecosystem-grid">
         <div class="ecosystem-visual">
           <img src="assets/images/meal-ecosystem.webp" width="1080" height="720" loading="lazy" decoding="async"
-            alt="Integrated MEAL ecosystem connecting evidence, people, processes, technology and impact" />
+            alt="Integrated MEAL ecosystem connecting evidence, people, processes, technology and impact"
+            data-i18n-alt="index.ecosystem.imageAlt" />
           <div class="image-caption">
-            <span>Integrated thinking</span> Evidence is only valuable when it changes decisions.
+            <span data-i18n="index.ecosystem.captionLabel">Integrated thinking</span> <span
+              data-i18n="index.ecosystem.captionText">Evidence is only valuable when it changes decisions.</span>
           </div>
         </div>
         <div>
           <div class="section-heading section-heading-left">
-            <span class="eyebrow">From information to institutional action</span>
-            <h2>Connect the full evidence-to-impact cycle.</h2>
+            <span class="eyebrow" data-i18n="index.ecosystem.eyebrow">From information to institutional action</span>
+            <h2 data-i18n="index.ecosystem.title">Connect the full evidence-to-impact cycle.</h2>
             <div class="section-lead">
-              <p>We look beyond individual tools. The real value comes from connecting data, people, governance,
+              <p data-i18n="index.ecosystem.lead">We look beyond individual tools. The real value comes from connecting
+                data, people, governance,
                 feedback, and learning into one usable management system.</p>
             </div>
           </div>
@@ -496,29 +517,33 @@
             <li>
               <span>01</span>
               <div>
-                <strong>Generate reliable evidence</strong>
-                <p>Clarify information needs, indicators, methods, responsibilities, and quality controls.</p>
+                <strong data-i18n="index.ecosystem.step1Title">Generate reliable evidence</strong>
+                <p data-i18n="index.ecosystem.step1Text">Clarify information needs, indicators, methods,
+                  responsibilities, and quality controls.</p>
               </div>
             </li>
             <li>
               <span>02</span>
               <div>
-                <strong>Translate evidence into insight</strong>
-                <p>Make information accessible through analysis, dashboards, feedback loops, and sense-making.</p>
+                <strong data-i18n="index.ecosystem.step2Title">Translate evidence into insight</strong>
+                <p data-i18n="index.ecosystem.step2Text">Make information accessible through analysis, dashboards,
+                  feedback loops, and sense-making.</p>
               </div>
             </li>
             <li>
               <span>03</span>
               <div>
-                <strong>Enable timely action</strong>
-                <p>Connect insights to programme decisions, accountability, resource allocation, and adaptation.</p>
+                <strong data-i18n="index.ecosystem.step3Title">Enable timely action</strong>
+                <p data-i18n="index.ecosystem.step3Text">Connect insights to programme decisions, accountability,
+                  resource allocation, and adaptation.</p>
               </div>
             </li>
             <li>
               <span>04</span>
               <div>
-                <strong>Strengthen future performance</strong>
-                <p>Embed learning so the organization becomes more capable with every programme cycle.</p>
+                <strong data-i18n="index.ecosystem.step4Title">Strengthen future performance</strong>
+                <p data-i18n="index.ecosystem.step4Text">Embed learning so the organization becomes more capable with
+                  every programme cycle.</p>
               </div>
             </li>
           </ol>
@@ -528,10 +553,11 @@
     <section class="section section-navy">
       <div class="container">
         <div class="section-heading section-heading-center">
-          <span class="eyebrow">Why MEAL Bridge</span>
-          <h2>Technical depth without losing the operational reality.</h2>
+          <span class="eyebrow" data-i18n="index.why.eyebrow">Why MEAL Bridge</span>
+          <h2 data-i18n="index.why.title">Technical depth without losing the operational reality.</h2>
           <div class="section-lead">
-            <p>Our work is rigorous enough for governance and donor confidence, but practical enough for teams to
+            <p data-i18n="index.why.lead">Our work is rigorous enough for governance and donor confidence, but practical
+              enough for teams to
               implement under real constraints.</p>
           </div>
         </div>
@@ -546,8 +572,9 @@
                 </path>
               </svg>
             </span>
-            <h3>Context before templates</h3>
-            <p>International standards adapted to organizational realities across Syria and the wider MENA region.</p>
+            <h3 data-i18n="index.why.contextTitle">Context before templates</h3>
+            <p data-i18n="index.why.contextText">International standards adapted to organizational realities across
+              Syria and the wider MENA region.</p>
           </article>
           <article>
             <span>
@@ -558,8 +585,9 @@
                 </path>
               </svg>
             </span>
-            <h3>Built for implementation</h3>
-            <p>Practical tools, roles, workflows, and decision routines—not recommendations that remain on a shelf.</p>
+            <h3 data-i18n="index.why.implementationTitle">Built for implementation</h3>
+            <p data-i18n="index.why.implementationText">Practical tools, roles, workflows, and decision routines—not
+              recommendations that remain on a shelf.</p>
           </article>
           <article>
             <span>
@@ -571,8 +599,9 @@
                 </path>
               </svg>
             </span>
-            <h3>Quality embedded</h3>
-            <p>Structured technical review, data-quality thinking, and clear accountability across every engagement.</p>
+            <h3 data-i18n="index.why.qualityTitle">Quality embedded</h3>
+            <p data-i18n="index.why.qualityText">Structured technical review, data-quality thinking, and clear
+              accountability across every engagement.</p>
           </article>
           <article>
             <span>
@@ -586,8 +615,9 @@
                 </path>
               </svg>
             </span>
-            <h3>Capacity that remains</h3>
-            <p>Coaching, mentoring, and knowledge transfer are built into the work so teams retain the capability.</p>
+            <h3 data-i18n="index.why.capacityTitle">Capacity that remains</h3>
+            <p data-i18n="index.why.capacityText">Coaching, mentoring, and knowledge transfer are built into the work so
+              teams retain the capability.</p>
           </article>
         </div>
       </div>
@@ -596,16 +626,17 @@
       <div class="container delivery-grid">
         <div>
           <div class="section-heading section-heading-left">
-            <span class="eyebrow">How we work</span>
-            <h2>A disciplined route from complexity to capability.</h2>
+            <span class="eyebrow" data-i18n="index.delivery.eyebrow">How we work</span>
+            <h2 data-i18n="index.delivery.title">A disciplined route from complexity to capability.</h2>
             <div class="section-lead">
-              <p>Every engagement is shaped around the organization, but the management logic remains clear and
+              <p data-i18n="index.delivery.lead">Every engagement is shaped around the organization, but the management
+                logic remains clear and
                 transparent.</p>
             </div>
           </div>
-          <a href="about.html#approach" class="text-link">See our working principles <svg aria-hidden="true" fill="none"
-              stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
-              viewBox="0 0 24 24">
+          <a href="about.html#approach" class="text-link" data-i18n="index.delivery.link">See our working principles
+            <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="1.8" viewBox="0 0 24 24">
               <path d="M5 12h14">
               </path>
               <path d="m13 6 6 6-6 6">
@@ -617,29 +648,33 @@
           <article>
             <span>01</span>
             <div>
-              <h3>Understand</h3>
-              <p>Context, priorities, stakeholders, constraints, and intended decisions.</p>
+              <h3 data-i18n="index.delivery.step1Title">Understand</h3>
+              <p data-i18n="index.delivery.step1Text">Context, priorities, stakeholders, constraints, and intended
+                decisions.</p>
             </div>
           </article>
           <article>
             <span>02</span>
             <div>
-              <h3>Diagnose</h3>
-              <p>System strengths, gaps, risks, information flows, and capacity needs.</p>
+              <h3 data-i18n="index.delivery.step2Title">Diagnose</h3>
+              <p data-i18n="index.delivery.step2Text">System strengths, gaps, risks, information flows, and capacity
+                needs.</p>
             </div>
           </article>
           <article>
             <span>03</span>
             <div>
-              <h3>Design &amp; build</h3>
-              <p>Practical frameworks, tools, workflows, technology, and governance.</p>
+              <h3 data-i18n="index.delivery.step3Title">Design &amp; build</h3>
+              <p data-i18n="index.delivery.step3Text">Practical frameworks, tools, workflows, technology, and
+                governance.</p>
             </div>
           </article>
           <article>
             <span>04</span>
             <div>
-              <h3>Embed &amp; improve</h3>
-              <p>Coaching, rollout, quality checks, learning, and continuous adaptation.</p>
+              <h3 data-i18n="index.delivery.step4Title">Embed &amp; improve</h3>
+              <p data-i18n="index.delivery.step4Text">Coaching, rollout, quality checks, learning, and continuous
+                adaptation.</p>
             </div>
           </article>
         </div>
@@ -648,14 +683,16 @@
     <section class="section final-cta-section">
       <div class="container final-cta">
         <div>
-          <span class="eyebrow eyebrow-light">Start with the challenge—not a predefined package</span>
-          <h2>What needs to work better in your MEAL system?</h2>
-          <p>Share the situation, the decision you need to make, or the capability you want to build. We will help
+          <span class="eyebrow eyebrow-light" data-i18n="index.cta.eyebrow">Start with the challenge—not a predefined
+            package</span>
+          <h2 data-i18n="index.cta.title">What needs to work better in your MEAL system?</h2>
+          <p data-i18n="index.cta.text">Share the situation, the decision you need to make, or the capability you want
+            to build. We will help
             define the right starting point.</p>
         </div>
-        <a href="contact.html" class="button button-white button-large">Start the conversation <svg aria-hidden="true"
-            fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
-            viewBox="0 0 24 24">
+        <a href="contact.html" class="button button-white button-large" data-i18n="index.cta.button">Start the
+          conversation <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
             <path d="M5 12h14">
             </path>
             <path d="m13 6 6 6-6 6">
@@ -671,31 +708,32 @@
         <a href="index.html" class="footer-wordmark" aria-label="MEAL Bridge home">
           <span>MEAL</span> BRIDGE<small>CONSULTING LLC</small>
         </a>
-        <p>Practical MEAL consulting, systems development, and professional learning for organizations creating
+        <p data-i18n="index.footer.description">Practical MEAL consulting, systems development, and professional
+          learning for organizations creating
           meaningful impact.</p>
         <div class="footer-signal">
           <span>
-          </span> Empowering smarter decisions
+          </span> <span data-i18n="index.footer.signal">Empowering smarter decisions</span>
         </div>
       </div>
       <div class="footer-column">
-        <h2>Explore</h2>
-        <a href="solutions.html">Solutions</a>
-        <a href="academy.html">Academy</a>
-        <a href="about.html">About</a>
-        <a href="contact.html?intent=partnership">Partnerships</a>
-        <a href="join-us.html">Join Us</a>
+        <h2 data-i18n="index.footer.explore">Explore</h2>
+        <a href="solutions.html" data-i18n="nav.solutions">Solutions</a>
+        <a href="academy.html" data-i18n="nav.academy">Academy</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="contact.html?intent=partnership" data-i18n="index.footer.partnerships">Partnerships</a>
+        <a href="join-us.html" data-i18n="nav.join">Join Us</a>
       </div>
       <div class="footer-column">
-        <h2>Core capabilities</h2>
-        <a href="solutions.html#consultancy">MEAL consultancy</a>
-        <a href="solutions.html#systems">Systems development</a>
-        <a href="academy.html">Capacity development</a>
-        <a href="solutions.html#accountability">Accountability systems</a>
-        <a href="solutions.html#digital">Digital MEAL solutions</a>
+        <h2 data-i18n="index.footer.capabilities">Core capabilities</h2>
+        <a href="solutions.html#consultancy" data-i18n="index.footer.consultancy">MEAL consultancy</a>
+        <a href="solutions.html#systems" data-i18n="index.footer.systems">Systems development</a>
+        <a href="academy.html" data-i18n="index.footer.capacity">Capacity development</a>
+        <a href="solutions.html#accountability" data-i18n="index.footer.accountability">Accountability systems</a>
+        <a href="solutions.html#digital" data-i18n="index.footer.digital">Digital MEAL solutions</a>
       </div>
       <div class="footer-column footer-contact">
-        <h2>Contact</h2>
+        <h2 data-i18n="index.footer.contact">Contact</h2>
         <a href="mailto:info@meal-bridge.com">
           <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
             stroke-width="1.8" viewBox="0 0 24 24">
@@ -711,7 +749,7 @@
             </path>
             <circle cx="12" cy="10" r="2.5">
             </circle>
-          </svg> Rural Damascus, Syria</span>
+          </svg><span data-i18n="index.footer.location"> Rural Damascus, Syria</span></span>
         <span>
           <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
             stroke-width="1.8" viewBox="0 0 24 24">
@@ -719,9 +757,10 @@
             </circle>
             <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18">
             </path>
-          </svg> MENA region · Remote &amp; on-site</span>
-        <a href="contact.html" class="text-link">Send an inquiry <svg aria-hidden="true" fill="none"
-            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
+          </svg><span data-i18n="index.footer.region"> MENA region · Remote &amp; on-site</span></span>
+        <a href="contact.html" class="text-link" data-i18n="index.footer.inquiry">Send an inquiry <svg
+            aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+            stroke-width="1.8" viewBox="0 0 24 24">
             <path d="M5 12h14">
             </path>
             <path d="m13 6 6 6-6 6">
@@ -731,8 +770,9 @@
       </div>
     </div>
     <div class="container footer-bottom">
-      <p>© 2025 - 2026 MEAL Bridge Consulting LLC. All rights reserved.</p>
-      <p><a href="privacy.html">Privacy &amp; Data Protection</a> · Monitoring · Evaluation · Accountability · Learning
+      <p data-i18n="index.footer.copyright">© 2025 - 2026 MEAL Bridge Consulting LLC. All rights reserved.</p>
+      <p><a href="privacy.html" data-i18n="index.footer.privacy">Privacy &amp; Data Protection</a> <span
+          data-i18n="index.footer.disciplines">· Monitoring · Evaluation · Accountability · Learning</span>
       </p>
     </div>
   </footer>
