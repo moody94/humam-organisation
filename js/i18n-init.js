@@ -15,12 +15,16 @@
     }
   }
 
-  // This runs in <head>, before the English source markup is painted. A
-  // previously chosen Arabic preference is therefore applied immediately.
+  // This runs in <head>, before the source markup is painted. Normalize both
+  // directions here so the first paint cannot inherit a stale page state.
   try {
-    if (localStorage.getItem("meal-bridge-language") === "ar") {
-      root.lang = "ar";
-      root.dir = "rtl";
+    const savedLocale = localStorage.getItem("meal-bridge-language");
+    const isArabic = savedLocale === "ar";
+
+    root.lang = isArabic ? "ar" : "en";
+    root.dir = isArabic ? "rtl" : "ltr";
+
+    if (isArabic) {
       root.classList.add("i18n-loading");
 
       // Avoid a permanently blank page if the deferred translation script
@@ -42,6 +46,8 @@
       }, 8000);
     }
   } catch {
-    // If storage is unavailable, i18n.js safely falls back to English.
+    // If storage is unavailable, keep the first paint explicitly English/LTR.
+    root.lang = "en";
+    root.dir = "ltr";
   }
 })();
