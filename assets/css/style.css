@@ -5883,7 +5883,10 @@ html[dir="rtl"] .main-nav>a:hover::after {
 .field-guidance { display:block; margin-top:7px; color:var(--muted); font-size:.76rem; line-height:1.45; }
 .word-counter { display:block; margin-top:7px; color:var(--muted); font-size:.76rem; font-weight:800; text-align:right; }
 .word-counter.is-over-limit { color:#a52a2a; }
-.eoi-application-form input[type="file"] { width:100%; border:1px solid var(--line); border-radius:12px; background:var(--white); padding:12px; }
+.eoi-document-upload { margin: 4px 0 2px; }
+.eoi-upload-label { display:block; margin-bottom:6px; color:var(--navy-900); font-weight:800; }
+.eoi-upload-label > span { color:var(--orange-500); }
+.eoi-upload-button { display:inline-flex; margin-top:12px; }
 @media(max-width:1100px){ .join-path-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
 @media(max-width:900px){ .join-path-grid{grid-template-columns:1fr;} }
 
