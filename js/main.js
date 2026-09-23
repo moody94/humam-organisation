@@ -579,7 +579,22 @@
         if ([...applySwitches].includes(event.relatedTarget)) return;
         applySwitches.forEach((tab) => tab.setAttribute("tabindex", tab.getAttribute("aria-selected") === "true" ? "0" : "-1"));
       });
-    });
+    
+  // Open the EOI panel when a PDF or shared URL links to a specific EOI card.
+  const openEoiFromHash = () => {
+    const hash = window.location.hash;
+    if (!hash || !hash.startsWith("#eoi-")) return;
+    const target = document.querySelector(hash);
+    const panel = document.getElementById("join-panel-eoi");
+    const trigger = document.querySelector('[data-join-expand="eoi"]');
+    if (!target || !panel) return;
+    panel.hidden = false;
+    trigger?.setAttribute("aria-expanded", "true");
+    window.setTimeout(() => target.scrollIntoView({ behavior: "smooth", block: "center" }), 80);
+  };
+  openEoiFromHash();
+  window.addEventListener("hashchange", openEoiFromHash);
+});
     if (currentFile === "academy-apply.html") {
       const requestedType = new URLSearchParams(window.location.search).get("type");
       showApplyPanel(requestedType === "organization" || requestedType === "training" ? "organization" : "individual");

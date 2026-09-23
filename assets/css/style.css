@@ -5275,6 +5275,18 @@ details[open]>summary .course-toggle::after {
   margin-bottom: 0;
 }
 
+
+.opportunity-location {
+  margin: -4px 0 12px;
+  color: var(--navy-900);
+  font-size: .88rem;
+}
+
+.opportunity-location strong {
+  color: var(--navy-900);
+  font-weight: 800;
+}
+
 .opportunity-dates {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
