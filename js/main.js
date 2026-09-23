@@ -155,6 +155,7 @@
     "organizational-training": '<span aria-hidden="true">✓</span><h2>Training request received.</h2><p>The Academy will review your objective, participant profile, scope, and timing. We normally acknowledge the request within two working days and arrange a discovery call when appropriate.</p><button type="button" class="button button-secondary">Submit another request</button>',
     "practice-application": '<span aria-hidden="true">✓</span><h2>Submission received.</h2><p>Thank you. We received your Community of Practice registration or Professional Practice application and will contact you about any next steps.</p><button type="button" class="button button-secondary">Submit another response</button>',
     "career-application": '<span aria-hidden="true">✓</span><h2>Application received.</h2><p>Thank you. The MEAL Bridge team will review your application against the selected opportunity.</p><button type="button" class="button button-secondary">Submit another application</button>',
+    "eoi-application": '<span aria-hidden="true">✓</span><h2>Expression of Interest received.</h2><p>Thank you. MEAL Bridge will review your application against the selected consulting role. Shortlisted applicants may be contacted while the call remains open.</p><button type="button" class="button button-secondary">Submit another Expression of Interest</button>',
   };
 
   const academyFeedbackKeys = {
@@ -251,14 +252,11 @@
         } catch {
           // Optional context must not prevent submission; retain the no-event fallback.
         }
-        const response = await fetch(form.action, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(payload),
-        });
+        const hasFileUpload = [...form.querySelectorAll('input[type="file"]')].some((input) => input.files?.length);
+        const requestOptions = hasFileUpload
+          ? { method: "POST", headers: { Accept: "application/json" }, body: new FormData(form) }
+          : { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(payload) };
+        const response = await fetch(form.action, requestOptions);
         if (!response.ok) throw new Error(`Submission failed with status ${response.status}`);
 
         // V1.5.1 analytics: count only Formspark-confirmed submissions and attach only
@@ -321,6 +319,7 @@
   const joinPanels = document.querySelectorAll("[data-join-panel]");
   const practiceShell = document.getElementById("practice-application");
   const careerShell = document.getElementById("career-application");
+  const eoiShell = document.getElementById("eoi-application");
 
   function showJoinPanel(target, { scroll = true } = {}) {
     joinPanels.forEach((panel) => {
@@ -333,6 +332,7 @@
     });
     if (practiceShell) practiceShell.hidden = true;
     if (careerShell) careerShell.hidden = true;
+    if (eoiShell) eoiShell.hidden = true;
     if (scroll) {
       document.getElementById(`join-panel-${target}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -392,6 +392,87 @@
     ].map(translatedText).join("\n");
     window.location.href = `mailto:careers@meal-bridge.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }));
+
+  const eoiCards = [...document.querySelectorAll('[data-opportunity-card="eoi"]')];
+  const eoiRoleSelect = eoiShell?.querySelector('select[name="opportunity"]');
+  const eoiDeadlineNote = eoiShell?.querySelector('.eoi-deadline-note');
+
+  const cardForRole = (role) => eoiCards.find((card) => card.querySelector('.eoi-apply')?.dataset.opportunity === role);
+  const deadlineForRole = (role) => {
+    const card = cardForRole(role);
+    const raw = card?.dataset.deadline || "";
+    const date = raw ? new Date(raw) : null;
+    return { card, raw, date, label: card?.dataset.deadlineLabel || "the stated deadline" };
+  };
+
+  document.querySelectorAll(".eoi-apply").forEach((button) => button.addEventListener("click", () => {
+    if (!eoiShell || button.disabled) return;
+    eoiShell.hidden = false;
+    if (eoiRoleSelect) {
+      eoiRoleSelect.value = button.dataset.opportunity || "";
+      eoiRoleSelect.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+    eoiShell.scrollIntoView({ behavior: "smooth", block: "start" });
+  }));
+
+  // Expression of Interest: live word guidance and role-specific deadline enforcement.
+  // Each EOI card owns its deadline via data-deadline, so future cards can use different closing dates.
+  const eoiForm = document.querySelector('[data-form-type="eoi-application"]');
+  if (eoiForm) {
+    const experience = eoiForm.querySelector('[data-word-limit]');
+    const counter = document.getElementById("eoi-word-count");
+    const submitButton = eoiForm.querySelector('button[type="submit"]');
+    const closedMessage = eoiForm.querySelector('.eoi-closed-message');
+    let overWordLimit = false;
+    let deadlineClosed = false;
+
+    const refreshSubmitState = () => { if (submitButton) submitButton.disabled = overWordLimit || deadlineClosed || !eoiRoleSelect?.value; };
+    const countWords = () => {
+      const words = (experience?.value || "").trim().match(/\S+/g)?.length || 0;
+      const limit = Number(experience?.dataset.wordLimit || 250);
+      overWordLimit = words > limit;
+      if (counter) { counter.textContent = `${words} / ${limit} words`; counter.classList.toggle("is-over-limit", overWordLimit); }
+      if (experience) experience.setCustomValidity(overWordLimit ? `Please reduce your response to ${limit} words or fewer.` : "");
+      refreshSubmitState();
+    };
+
+    const enforceDeadline = () => {
+      const role = eoiRoleSelect?.value || "";
+      const { date, label } = deadlineForRole(role);
+      deadlineClosed = Boolean(role && date && !Number.isNaN(date.getTime()) && Date.now() > date.getTime());
+
+      // Only the selected role controls whether submission is open; the form itself has no global deadline.
+      eoiForm.querySelectorAll('input, textarea').forEach((field) => {
+        if (!field.classList.contains('form-honeypot')) field.disabled = deadlineClosed;
+      });
+      eoiForm.querySelectorAll('select').forEach((field) => { field.disabled = false; });
+
+      eoiCards.forEach((card) => {
+        const button = card.querySelector('.eoi-apply');
+        const raw = card.dataset.deadline || "";
+        const cardDeadline = raw ? new Date(raw) : null;
+        const closed = Boolean(cardDeadline && !Number.isNaN(cardDeadline.getTime()) && Date.now() > cardDeadline.getTime());
+        if (button) { button.disabled = closed; button.textContent = closed ? "Closed" : "Apply"; }
+      });
+
+      if (eoiDeadlineNote) {
+        eoiDeadlineNote.innerHTML = role
+          ? `<strong>Deadline for ${role}:</strong> ${label}. Applications are reviewed on a rolling basis.`
+          : '<strong>Deadline:</strong> Select a role to view its application deadline. Applications are reviewed on a rolling basis.';
+      }
+      if (closedMessage) {
+        closedMessage.hidden = !deadlineClosed;
+        if (deadlineClosed) closedMessage.textContent = `This Expression of Interest is closed. The application deadline for ${role} was ${label}.`;
+      }
+      refreshSubmitState();
+    };
+
+    eoiRoleSelect?.addEventListener("change", enforceDeadline);
+    experience?.addEventListener("input", countWords);
+    countWords();
+    enforceDeadline();
+    window.setInterval(enforceDeadline, 30000);
+  }
 
 
   // Academy catalogue: show one primary section at a time while preserving deep links and no-JS fallback.

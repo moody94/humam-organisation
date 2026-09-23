@@ -176,11 +176,31 @@
       "eyebrow": "Progressive professional development",
       "title": "Start at the right level. Build toward the next one.",
       "lead": "The Academy is organized around five stages of capability, making it easier to choose learning that matches your current role and professional direction.",
-      "level1": { "label": "Level 1", "title": "Explore", "text": "Enter the profession, understand MEAL, and plan your development." },
-      "level2": { "label": "Level 2", "title": "Practice", "text": "Build the core technical competencies required for practical MEAL work." },
-      "level3": { "label": "Level 3", "title": "Design", "text": "Design and strengthen systems, functions, data products, and workflows." },
-      "level4": { "label": "Level 4", "title": "Specialize", "text": "Develop advanced expertise for complex methods and operating contexts." },
-      "level5": { "label": "Level 5", "title": "Lead", "text": "Manage MEAL teams and influence evidence-based organizational decisions." }
+      "level1": {
+        "label": "Level 1",
+        "title": "Explore",
+        "text": "Enter the profession, understand MEAL, and plan your development."
+      },
+      "level2": {
+        "label": "Level 2",
+        "title": "Practice",
+        "text": "Build the core technical competencies required for practical MEAL work."
+      },
+      "level3": {
+        "label": "Level 3",
+        "title": "Design",
+        "text": "Design and strengthen systems, functions, data products, and workflows."
+      },
+      "level4": {
+        "label": "Level 4",
+        "title": "Specialize",
+        "text": "Develop advanced expertise for complex methods and operating contexts."
+      },
+      "level5": {
+        "label": "Level 5",
+        "title": "Lead",
+        "text": "Manage MEAL teams and influence evidence-based organizational decisions."
+      }
     },
     "catalogue": {
       "heading": {
@@ -1523,7 +1543,30 @@
     "Discuss MEAL consultancy, systems development, Academy programmes, partnerships or professional collaboration.": "Discuss MEAL consultancy, systems development, Academy programmes, partnerships or professional collaboration.",
     "Consultancy, digital systems and applied MEAL training for stronger decisions and greater impact across MENA.": "Consultancy, digital systems and applied MEAL training for stronger decisions and greater impact across MENA.",
     "Explore the MEAL Bridge Community, internships, and open positions.": "Explore the MEAL Bridge Community, internships, and open positions.",
-    "Integrated technical consultancy and digital systems for stronger monitoring, evaluation, accountability and learning.": "Integrated technical consultancy and digital systems for stronger monitoring, evaluation, accountability and learning."
+    "Integrated technical consultancy and digital systems for stronger monitoring, evaluation, accountability and learning.": "Integrated technical consultancy and digital systems for stronger monitoring, evaluation, accountability and learning.",
+    "Expression of Interest": "Expression of Interest",
+    "Join a proposed consultancy team.": "Join a proposed consultancy team.",
+    "Explore assignment-based consulting opportunities where MEAL Bridge is forming a proposed team for a competitive client submission.": "Explore assignment-based consulting opportunities where MEAL Bridge is forming a proposed team for a competitive client submission.",
+    "View Expressions of Interest": "View Expressions of Interest",
+    "Current consulting opportunities.": "Current consulting opportunities.",
+    "Lead Evaluator": "Lead Evaluator",
+    "Evaluation & Research Specialist": "Evaluation & Research Specialist",
+    "Data Analysis & QA Specialist": "Data Analysis & QA Specialist",
+    "Field Researcher / Enumerator": "Field Researcher / Enumerator",
+    "Apply": "Apply",
+    "Submit your application": "Submit your application",
+    "Phone / WhatsApp": "Phone / WhatsApp",
+    "Current location": "Current location",
+    "Role applied for": "Role applied for",
+    "Years of relevant experience": "Years of relevant experience",
+    "Highest academic qualification": "Highest academic qualification",
+    "Field of study": "Field of study",
+    "How does your experience relate directly to this role?": "How does your experience relate directly to this role?",
+    "Availability for the assignment period": "Availability for the assignment period",
+    "Expected daily rate (USD)": "Expected daily rate (USD)",
+    "CV + Cover Letter": "CV + Cover Letter",
+    "Submit Expression of Interest": "Submit Expression of Interest",
+    "Applications are reviewed on a rolling basis.": "Applications are reviewed on a rolling basis."
   },
   "sharing": {
     "description": "Explore {name} on MEAL Bridge.",
@@ -1540,5 +1583,7 @@
     "required": "Please complete this required field.",
     "email": "Please enter a valid email address.",
     "invalid": "Please check the value entered in this field."
-  }
+  },
+  "Opportunity PDF": "Opportunity PDF",
+  "Briefly connect your experience to the selected role, including examples of similar assignments, your responsibilities, methods or tools used, and relevant geographic or sector experience. Be concise; you do not need to use the full limit. Maximum 250 words.": "Briefly connect your experience to the selected role, including examples of similar assignments, your responsibilities, methods or tools used, and relevant geographic or sector experience. Be concise; you do not need to use the full limit. Maximum 250 words."
 }

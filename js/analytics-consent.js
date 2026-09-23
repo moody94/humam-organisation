@@ -164,7 +164,8 @@
     contact: "contact_inquiry_submitted",
     "academy-application": "academy_application_submitted",
     "organizational-training": "organizational_training_submitted",
-    "practice-application": "practice_application_submitted"
+    "practice-application": "practice_application_submitted",
+    "eoi-application": "eoi_submitted"
   };
 
   function trackEvent(eventName, parameters = {}) {

@@ -176,11 +176,31 @@
       "eyebrow": "تطوير مهني متدرّج",
       "title": "ابدأ من المستوى المناسب. وابنِ ما يليه.",
       "lead": "تنظّم الأكاديمية التعلّم ضمن خمس مراحل للقدرة، ليسهل اختيار ما يناسب دورك الحالي واتجاهك المهني.",
-      "level1": { "label": "المستوى 1", "title": "الاستكشاف", "text": "ادخل المجال، وافهم MEAL، وخطط لتطورك." },
-      "level2": { "label": "المستوى 2", "title": "الممارسة", "text": "ابنِ الكفاءات الفنية الأساسية اللازمة للعمل العملي في MEAL." },
-      "level3": { "label": "المستوى 3", "title": "التصميم", "text": "صمّم وعزّز الأنظمة والوظائف ومنتجات البيانات وتدفقات العمل." },
-      "level4": { "label": "المستوى 4", "title": "التخصص", "text": "طوّر خبرة متقدمة في الأساليب المعقدة والسياقات التشغيلية." },
-      "level5": { "label": "المستوى 5", "title": "القيادة", "text": "أدر فرق MEAL وأثّر في القرارات المؤسسية المستندة إلى الأدلة." }
+      "level1": {
+        "label": "المستوى 1",
+        "title": "الاستكشاف",
+        "text": "ادخل المجال، وافهم MEAL، وخطط لتطورك."
+      },
+      "level2": {
+        "label": "المستوى 2",
+        "title": "الممارسة",
+        "text": "ابنِ الكفاءات الفنية الأساسية اللازمة للعمل العملي في MEAL."
+      },
+      "level3": {
+        "label": "المستوى 3",
+        "title": "التصميم",
+        "text": "صمّم وعزّز الأنظمة والوظائف ومنتجات البيانات وتدفقات العمل."
+      },
+      "level4": {
+        "label": "المستوى 4",
+        "title": "التخصص",
+        "text": "طوّر خبرة متقدمة في الأساليب المعقدة والسياقات التشغيلية."
+      },
+      "level5": {
+        "label": "المستوى 5",
+        "title": "القيادة",
+        "text": "أدر فرق MEAL وأثّر في القرارات المؤسسية المستندة إلى الأدلة."
+      }
     },
     "catalogue": {
       "heading": {
@@ -1003,7 +1023,7 @@
     "MEAL Bridge inquiry": "استفسار إلى MEAL Bridge",
     "Required fields are marked with *": "الحقول المطلوبة مميزة بعلامة *",
     "Full name": "الاسم الكامل",
-    "Email address": "عنوان البريد الإلكتروني",
+    "Email address": "البريد الإلكتروني",
     "Mobile / WhatsApp": "الهاتف المحمول / واتساب",
     "Country": "البلد",
     "Organization": "المنظمة",
@@ -1523,7 +1543,30 @@
     "Discuss MEAL consultancy, systems development, Academy programmes, partnerships or professional collaboration.": "ناقش استشارات MEAL وتطوير الأنظمة وبرامج الأكاديمية والشراكات أو التعاون المهني.",
     "Consultancy, digital systems and applied MEAL training for stronger decisions and greater impact across MENA.": "استشارات وأنظمة رقمية وتدريب تطبيقي في MEAL من أجل قرارات أقوى وأثر أكبر في الشرق الأوسط وشمال أفريقيا.",
     "Explore the MEAL Bridge Community, internships, and open positions.": "استكشف مجتمع MEAL Bridge وفرص التدريب العملي والوظائف المتاحة.",
-    "Integrated technical consultancy and digital systems for stronger monitoring, evaluation, accountability and learning.": "استشارات فنية متكاملة وأنظمة رقمية لتعزيز الرصد والتقييم والمساءلة والتعلّم."
+    "Integrated technical consultancy and digital systems for stronger monitoring, evaluation, accountability and learning.": "استشارات فنية متكاملة وأنظمة رقمية لتعزيز الرصد والتقييم والمساءلة والتعلّم.",
+    "Expression of Interest": "إبداء الاهتمام",
+    "Join a proposed consultancy team.": "انضم إلى فريق استشاري مقترح.",
+    "Explore assignment-based consulting opportunities where MEAL Bridge is forming a proposed team for a competitive client submission.": "استكشف فرصاً استشارية قائمة على مهام محددة، حيث تعمل MEAL Bridge على تشكيل فريق مقترح لتقديم عرض تنافسي لعميل.",
+    "View Expressions of Interest": "عرض فرص إبداء الاهتمام",
+    "Current consulting opportunities.": "الفرص الاستشارية الحالية.",
+    "Lead Evaluator": "قائد/ة التقييم",
+    "Evaluation & Research Specialist": "أخصائي/ة تقييم وبحث",
+    "Data Analysis & QA Specialist": "أخصائي/ة تحليل بيانات وضمان جودة",
+    "Field Researcher / Enumerator": "باحث/ة ميداني/ة / جامع/ة بيانات",
+    "Apply": "تقدّم",
+    "Submit your application": "قدّم طلبك",
+    "Phone / WhatsApp": "الهاتف / واتساب",
+    "Current location": "الموقع الحالي",
+    "Role applied for": "الدور المتقدم إليه",
+    "Years of relevant experience": "سنوات الخبرة ذات الصلة",
+    "Highest academic qualification": "أعلى مؤهل أكاديمي",
+    "Field of study": "مجال الدراسة",
+    "How does your experience relate directly to this role?": "كيف ترتبط خبرتك مباشرة بهذا الدور؟",
+    "Availability for the assignment period": "التفرغ خلال فترة المهمة",
+    "Expected daily rate (USD)": "الأجر اليومي المتوقع (دولار أمريكي)",
+    "CV + Cover Letter": "السيرة الذاتية + خطاب التغطية",
+    "Submit Expression of Interest": "إرسال إبداء الاهتمام",
+    "Applications are reviewed on a rolling basis.": "تتم مراجعة الطلبات بشكل متتابع عند ورودها."
   },
   "sharing": {
     "description": "استكشف {name} على MEAL Bridge.",
@@ -1540,5 +1583,7 @@
     "required": "يُرجى إكمال هذا الحقل المطلوب.",
     "email": "يُرجى إدخال عنوان بريد إلكتروني صالح.",
     "invalid": "يُرجى التحقق من القيمة المدخلة في هذا الحقل."
-  }
+  },
+  "Opportunity PDF": "ملف الفرصة PDF",
+  "Briefly connect your experience to the selected role, including examples of similar assignments, your responsibilities, methods or tools used, and relevant geographic or sector experience. Be concise; you do not need to use the full limit. Maximum 250 words.": "اربط بإيجاز خبرتك بالدور المختار، بما في ذلك أمثلة على مهام مشابهة، ومسؤولياتك، والمنهجيات أو الأدوات التي استخدمتها، وأي خبرة جغرافية أو قطاعية ذات صلة. كن موجزاً؛ لست بحاجة إلى استخدام الحد الكامل. الحد الأقصى 250 كلمة."
 }

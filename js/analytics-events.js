@@ -163,6 +163,9 @@
       track("cta_clicked", { cta_name: "explore_your_opportunities", section: "hero" }, "cta"));
     bindClick('[data-join-expand]', (button) =>
       track("join_opportunity_clicked", { opportunity_type: button.dataset.joinExpand || slug(text(button)), section: "choose_your_path" }, "event"));
+    bindClick('.eoi-apply', (button) =>
+      track("eoi_apply_clicked", { eoi_role: short(button.dataset.opportunity || ""), section: "expression_of_interest" }, "cta"));
+    bindSelect('[data-form-type="eoi-application"] select[name="opportunity"]', "eoi_role_selected", "eoi_role");
 
     document.querySelectorAll('.practice-apply').forEach((button) => {
       button.addEventListener("click", () => {
@@ -243,6 +246,13 @@
         initial_practice: short(initial),
         submitted_practice: short(submitted),
         selection_changed: initial && submitted && initial !== submitted ? 1 : 0
+      };
+    }
+    if (formType === "eoi-application") {
+      return {
+        eoi_role: short(form.querySelector('select[name="opportunity"]')?.value),
+        experience_band: short(form.querySelector('select[name="years_experience"]')?.value),
+        availability: short(form.querySelector('select[name="availability"]')?.value)
       };
     }
     if (formType === "contact") {
