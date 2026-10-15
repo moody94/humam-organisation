@@ -52,10 +52,10 @@ Confirm that each test appears in the correct Formspark form and reaches the int
 ## Leadership images
 
 - `assets/images/humam-alherk.webp` — Humam Alherk
-- `assets/images/academy-partner.webp` — Hadeel Wardeh
-- `assets/images/muhamed-kheer-abo-khalaf.webp` — Muhamed Kheer Abo Khalaf
+- `assets/images/academy-partner.jpeg` — Hadeel Wardeh
+- `assets/images/system-development-partner.jpeg` — Muhamed Kheer Abo Khalaf
 
-The Muhamed image is the current temporary image. To replace it later without editing HTML, prepare the new portrait as WebP, keep the exact filename `muhamed-kheer-abo-khalaf.webp`, and replace the file in `assets/images`.
+The Muhamed image is the current temporary image. To replace it later without editing HTML, prepare the new portrait as WebP, keep the exact filename `system-development-partner.jpeg`, and replace the file in `assets/images`.
 
 ## SEO and technical files
 
@@ -180,15 +180,6 @@ Final QA should compare first acceptance, stored acceptance, rejection, withdraw
 
 All ten rendered pages load only `assets/css/style.css` as an external stylesheet. Their existing inline mobile-navigation rules also apply. Preserve the live stylesheet's cascade and repeated page markup; changes to unused files will not fix the displayed site.
 
-The six other CSS files are retained historical files and are not loaded by the current pages:
-
-- `assets/css/components.css`
-- `assets/css/utilities.css`
-- `assets/css/variables.css`
-- `assets/css/responsive.css`
-- `assets/css/#U200f#U200fresponsive.css`
-- The additional `responsive.css` filename prefixed by two U+200F right-to-left marks in `assets/css/`.
-
-The last two names contain byte-identical content; they are distinct filenames. Do not rename, delete or add stylesheet links to these files as routine cleanup. Commented catalogue and career-form templates remain inactive; their presence is not evidence that a live route or tracking event should be enabled. Arabic and other language work is outside the current task.
+Cleanup removed six unloaded historical CSS files, including two byte-identical responsive copies. The active stylesheet also no longer includes selectors for classes absent from all HTML, JavaScript and locale files, or the overwritten language-toggle background declaration. Live rule order, responsive overrides, inline navigation styles and commented templates are preserved.
 
 The current review changes have not been deployed. Browser/visual checks against the exact source candidate, real Formspark receipt and GA4 property/report verification remain required before production sign-off. The original archive and previous review packages remain the comparison baselines.
