@@ -10,6 +10,7 @@ Upload the contents of this folder to the root of the GitHub repository that pub
 - `academy-apply.html` — Individual Academy and mentoring application
 - `academy-training.html` — Organizational training request
 - `about.html` — About and founder profile
+- `news.html` — News, partnerships, and company events
 - `contact.html` — Contact, partnership, and professional-network inquiries
 - `join-us.html` — Community, Professional Practices, internships, and open positions
 - `privacy.html` — Privacy & Data Protection Policy and privacy-rights contact information

@@ -6,7 +6,8 @@
     "about": "About",
     "join": "Join Us",
     "contact": "Contact",
-    "conversation": "Start a Conversation"
+    "conversation": "Start a Conversation",
+    "news": "News"
   },
   "index": {
     "skipLink": "Skip to main content",
@@ -1585,5 +1586,22 @@
     "invalid": "Please check the value entered in this field."
   },
   "Opportunity PDF": "Opportunity PDF",
-  "Briefly connect your experience to the selected role, including examples of similar assignments, your responsibilities, methods or tools used, and relevant geographic or sector experience. Be concise; you do not need to use the full limit. Maximum 250 words.": "Briefly connect your experience to the selected role, including examples of similar assignments, your responsibilities, methods or tools used, and relevant geographic or sector experience. Be concise; you do not need to use the full limit. Maximum 250 words."
+  "Briefly connect your experience to the selected role, including examples of similar assignments, your responsibilities, methods or tools used, and relevant geographic or sector experience. Be concise; you do not need to use the full limit. Maximum 250 words.": "Briefly connect your experience to the selected role, including examples of similar assignments, your responsibilities, methods or tools used, and relevant geographic or sector experience. Be concise; you do not need to use the full limit. Maximum 250 words.",
+  "news": {
+    "partnerLabel": "About [Partner Name]",
+    "sectionTitle": "News & Updates",
+    "mealBridgeLabel": "About MEAL Bridge",
+    "cardTitlePlaceholder": "[Partnership or event title]",
+    "datePlaceholder": "[Month DD, YYYY]",
+    "sectionEyebrow": "Updates",
+    "cardCategory": "Partnership",
+    "partnerPlaceholder": "[Add a short description of the partner organization.]",
+    "mealBridgePlaceholder": "[Add a short description of MEAL Bridge.]",
+    "heroLead": "Partnerships, milestones, and events from MEAL Bridge.",
+    "cardSummaryPlaceholder": "[Describe the organization or event, what happened, and what it means for MEAL Bridge.]",
+    "sectionLead": "Company milestones, partnerships, and events.",
+    "readMore": "Read more",
+    "expandedPlaceholder": "[Add more detail about the partnership or event, its background, and its impact.]",
+    "readLess": "Read less"
+  }
 }

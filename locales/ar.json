@@ -6,7 +6,8 @@
     "about": "من نحن",
     "join": "انضم إلينا",
     "contact": "تواصل معنا",
-    "conversation": "ابدأ محادثة"
+    "conversation": "ابدأ محادثة",
+    "news": "الأخبار"
   },
   "index": {
     "skipLink": "انتقل إلى المحتوى الرئيسي",
@@ -1585,5 +1586,22 @@
     "invalid": "يُرجى التحقق من القيمة المدخلة في هذا الحقل."
   },
   "Opportunity PDF": "ملف الفرصة PDF",
-  "Briefly connect your experience to the selected role, including examples of similar assignments, your responsibilities, methods or tools used, and relevant geographic or sector experience. Be concise; you do not need to use the full limit. Maximum 250 words.": "اربط بإيجاز خبرتك بالدور المختار، بما في ذلك أمثلة على مهام مشابهة، ومسؤولياتك، والمنهجيات أو الأدوات التي استخدمتها، وأي خبرة جغرافية أو قطاعية ذات صلة. كن موجزاً؛ لست بحاجة إلى استخدام الحد الكامل. الحد الأقصى 250 كلمة."
+  "Briefly connect your experience to the selected role, including examples of similar assignments, your responsibilities, methods or tools used, and relevant geographic or sector experience. Be concise; you do not need to use the full limit. Maximum 250 words.": "اربط بإيجاز خبرتك بالدور المختار، بما في ذلك أمثلة على مهام مشابهة، ومسؤولياتك، والمنهجيات أو الأدوات التي استخدمتها، وأي خبرة جغرافية أو قطاعية ذات صلة. كن موجزاً؛ لست بحاجة إلى استخدام الحد الكامل. الحد الأقصى 250 كلمة.",
+  "news": {
+    "partnerLabel": "نبذة عن [اسم الشريك]",
+    "sectionTitle": "الأخبار والمستجدات",
+    "mealBridgeLabel": "نبذة عن MEAL Bridge",
+    "cardTitlePlaceholder": "[عنوان الشراكة أو الفعالية]",
+    "datePlaceholder": "[الشهر اليوم، السنة]",
+    "sectionEyebrow": "آخر المستجدات",
+    "cardCategory": "شراكة",
+    "partnerPlaceholder": "[أضف نبذة قصيرة عن الجهة الشريكة.]",
+    "mealBridgePlaceholder": "[أضف نبذة قصيرة عن MEAL Bridge.]",
+    "heroLead": "الشراكات والإنجازات والفعاليات في MEAL Bridge.",
+    "cardSummaryPlaceholder": "[عرّف بالجهة أو الفعالية، واشرح ما حدث وأهميته لـ MEAL Bridge.]",
+    "sectionLead": "إنجازات الشركة وشراكاتها وفعالياتها.",
+    "readMore": "اقرأ المزيد",
+    "expandedPlaceholder": "[أضف تفاصيل إضافية عن الشراكة أو الفعالية وخلفيتها وأثرها.]",
+    "readLess": "اقرأ أقل"
+  }
 }
