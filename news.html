@@ -1,10 +1,15 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="js/i18n-init.js?v=3"></script>
-  <style>html.i18n-loading body { visibility: hidden; }</style>
+  <style>
+    html.i18n-loading body {
+      visibility: hidden;
+    }
+  </style>
   <meta name="theme-color" content="#072a52">
   <title>News | MEAL Bridge</title>
   <meta name="description" content="Company news, partnerships, and events from MEAL Bridge.">
@@ -16,6 +21,7 @@
   <script defer src="js/i18n.js?v=7"></script>
   <script defer src="js/analytics-events.js?v=4"></script>
 </head>
+
 <body>
   <a class="skip-link" href="#main-content" data-i18n="index.skipLink">Skip to main content</a>
   <header class="site-header">
@@ -40,7 +46,7 @@
         <a href="solutions.html" data-i18n="nav.solutions">Solutions</a>
         <a href="academy.html" data-i18n="nav.academy">Academy</a>
         <a href="about.html" data-i18n="nav.about">About</a>
-        <a href="news.html" class="active" aria-current="page" data-i18n="nav.news">News</a>
+        <!--<a href="news.html" class="active">News</a>-->
         <a href="join-us.html" data-i18n="nav.join">Join Us</a>
         <a href="contact.html" data-i18n="nav.contact">Contact</a>
         <a href="contact.html" class="button button-primary mobile-nav-cta" data-i18n="nav.conversation">Start a
@@ -75,7 +81,9 @@
         <div>
           <span class="eyebrow eyebrow-light">MEAL Bridge</span>
           <h1>News</h1>
-          <div class="page-hero-copy"><p data-i18n="news.heroLead">Partnerships, milestones, and events from MEAL Bridge.</p></div>
+          <div class="page-hero-copy">
+            <p data-i18n="news.heroLead">Partnerships, milestones, and events from MEAL Bridge.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -91,17 +99,25 @@
           <span data-i18n="news.cardCategory">Partnership</span>
           <p class="news-card-date" data-i18n="news.datePlaceholder">[Month DD, YYYY]</p>
           <h2 data-i18n="news.cardTitlePlaceholder">[Partnership or event title]</h2>
-          <p data-i18n="news.cardSummaryPlaceholder">[Describe the organization or event, what happened, and what it means for MEAL Bridge.]</p>
+          <p data-i18n="news.cardSummaryPlaceholder">[Describe the organization or event, what happened, and what it
+            means for MEAL Bridge.]</p>
           <details class="news-card-more">
             <summary class="button button-primary">
               <span class="news-read-more" data-i18n="news.readMore">Read more</span>
               <span class="news-read-less" data-i18n="news.readLess">Read less</span>
             </summary>
             <div class="news-card-more-content">
-              <p data-i18n="news.expandedPlaceholder">[Add more detail about the partnership or event, its background, and its impact.]</p>
+              <p data-i18n="news.expandedPlaceholder">[Add more detail about the partnership or event, its background,
+                and its impact.]</p>
               <div class="news-card-organizations">
-                <div><h3 data-i18n="news.mealBridgeLabel">About MEAL Bridge</h3><p data-i18n="news.mealBridgePlaceholder">[Add a short description of MEAL Bridge.]</p></div>
-                <div><h3 data-i18n="news.partnerLabel">About [Partner Name]</h3><p data-i18n="news.partnerPlaceholder">[Add a short description of the partner organization.]</p></div>
+                <div>
+                  <h3 data-i18n="news.mealBridgeLabel">About MEAL Bridge</h3>
+                  <p data-i18n="news.mealBridgePlaceholder">[Add a short description of MEAL Bridge.]</p>
+                </div>
+                <div>
+                  <h3 data-i18n="news.partnerLabel">About [Partner Name]</h3>
+                  <p data-i18n="news.partnerPlaceholder">[Add a short description of the partner organization.]</p>
+                </div>
               </div>
             </div>
           </details>
@@ -184,4 +200,5 @@
     </div>
   </footer>
 </body>
+
 </html>
